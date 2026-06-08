@@ -1,4 +1,4 @@
-# Portfolio Elmehdi - Version HTML Statique
+# Portfolio Elmehdi 
 
 Portfolio professionnel moderne pour Elmehdi, développeur Full-Stack freelance.
 
