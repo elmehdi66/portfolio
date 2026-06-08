@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO PRINCIPAL -->
+    <title>Elmehdi | Développeur Full-Stack Freelance au Maroc | Laravel, Next.js, React</title>
+    <meta name="description" content="Développeur full-stack freelance au Maroc (Casablanca, Rabat, Marrakech). Sites web, applications métier, solutions digitales sur mesure. Laravel, Next.js, React, WordPress. Demandez un devis.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.elmehdi.dev/">
+    <link rel="alternate" hreflang="fr" href="https://www.elmehdi.dev/">
+    
+    <!-- OPEN GRAPH (pour partages sociaux) -->
+    <meta property="og:title" content="Elmehdi – Développeur Full-Stack Freelance au Maroc">
+    <meta property="og:description" content="Transformez vos idées en sites web et applications performantes. Laravel, Next.js, React, WordPress. Devis gratuit.">
+    <meta property="og:url" content="https://www.elmehdi.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.elmehdi.dev/images/elmehdi-dev-og.jpg">
+    
+    <!-- DONNÉES STRUCTURÉES Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Elmehdi - Développeur Full-Stack Freelance",
+      "description": "Développeur full-stack freelance au Maroc spécialisé en Laravel, Next.js, React et WordPress. Création de sites web, applications métier et solutions digitales.",
+      "url": "https://www.elmehdi.dev/",
+      "telephone": "+212600000000",
+      "email": "contact@elmehdi.dev",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Casablanca",
+        "addressCountry": "MA"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/elmehdi-dev",
+        "https://wa.me/212600000000"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "priceRange": "€€"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Elmehdi",
+      "jobTitle": "Développeur Full-Stack Freelance",
+      "url": "https://www.elmehdi.dev",
+      "sameAs": ["https://www.linkedin.com/in/elmehdi-dev"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      }
+    }
+    </script>
+
+    <!-- Polices & Icônes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --accent: #0f172a;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.03);
+            --radius: 12px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--accent);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* Animations d'apparition discrètes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-primary {
+            background: var(--primary-light);
+            color: white;
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border-color: transparent;
+            color: var(--primary-light);
+            padding: 0.5rem 1rem;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 0 5rem;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 3.8rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .service-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: left;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Why me */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .why-item i {
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            margin-top: 0.2rem;
+        }
+
+        .why-item p {
+            margin: 0;
+        }
+
+        .why-item strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .project-img {
+            height: 180px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-light);
+            background: linear-gradient(145deg, #eef2ff, #ffffff);
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech-tag {
+            background: #f1f5f9;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .confidential-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Process */
+        .process-timeline {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+            border-left: 2px dashed var(--border);
+            padding-bottom: 2rem;
+        }
+
+        .process-step:last-child {
+            border-left: 2px dashed transparent;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -18px;
+            top: 0;
+            background: var(--primary-light);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+        }
+
+        /* Technologies */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .tech-item i {
+            font-size: 3rem;
+            transition: transform var(--transition);
+        }
+
+        .tech-item:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Testimonials placeholder */
+        .testimonials-placeholder {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            border: 1px dashed var(--border);
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .testimonials-placeholder i {
+            font-size: 2.5rem;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-light);
+        }
+
+        .contact-info i {
+            font-size: 1.3rem;
+            color: var(--primary-light);
+            width: 24px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: var(--bg-alt);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem;
+                border-bottom: 1px solid var(--border);
+                display: none;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" aria-label="Accueil Elmehdi">Elmehdi</a>
+            <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#expertise" onclick="document.querySelector('.nav-links').classList.remove('active')">Expertise</a></li>
+                <li><a href="#realisations" onclick="document.querySelector('.nav-links').classList.remove('active')">Réalisations</a></li>
+                <li><a href="#process" onclick="document.querySelector('.nav-links').classList.remove('active')">Processus</a></li>
+                <li><a href="#contact" class="btn btn-primary" onclick="document.querySelector('.nav-links').classList.remove('active')">Demander un devis</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container reveal">
+                <h1>Je transforme vos idées en sites web et applications performants.</h1>
+                <p class="subtitle">Développeur Full-Stack avec 4 ans d'expérience en agence de communication. J'accompagne les entreprises dans la création de sites web, plateformes métier et solutions digitales sur mesure.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                    <a href="#realisations" class="btn btn-outline">Voir mes réalisations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise -->
+        <section id="expertise" class="container reveal">
+            <div class="section-title">
+                <h2>Expertises en développement web au Maroc</h2>
+                <p>Des solutions complètes, de la conception au déploiement.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card"><i class="fas fa-globe service-icon" aria-label="Icône site web" role="img"></i><h3>Sites vitrines professionnels</h3><p>Création de sites élégants pour valoriser votre activité et gagner en crédibilité.</p></div>
+                <div class="service-card"><i class="fas fa-chart-line service-icon" aria-label="Icône marketing" role="img"></i><h3>Landing pages à fort taux de conversion</h3><p>Pages optimisées pour transformer vos visiteurs en clients.</p></div>
+                <div class="service-card"><i class="fab fa-wordpress service-icon" aria-label="Icône WordPress" role="img"></i><h3>Développement WordPress</h3><p>Sites dynamiques, personnalisés et faciles à administrer.</p></div>
+                <div class="service-card"><i class="fas fa-code service-icon" aria-label="Icône code" role="img"></i><h3>Applications web Laravel</h3><p>Plateformes robustes et évolutives pour vos besoins métier.</p></div>
+                <div class="service-card"><i class="fas fa-rocket service-icon" aria-label="Icône performance" role="img"></i><h3>Applications web Next.js</h3><p>Interfaces rapides et modernes, optimisées pour le SEO.</p></div>
+                <div class="service-card"><i class="fas fa-desktop service-icon" aria-label="Icône borne interactive" role="img"></i><h3>Applications Electron pour bornes interactives</h3><p>Solutions tactiles sur mesure pour vos espaces d'accueil.</p></div>
+                <div class="service-card"><i class="fas fa-sync-alt service-icon" aria-label="Icône maintenance" role="img"></i><h3>Maintenance et évolution de projets existants</h3><p>Je reprends et fais évoluer vos outils numériques en toute sécurité.</p></div>
+                <div class="service-card"><i class="fas fa-tachometer-alt service-icon" aria-label="Icône optimisation" role="img"></i><h3>Optimisation des performances</h3><p>Amélioration de la vitesse et de l'expérience utilisateur.</p></div>
+            </div>
+        </section>
+
+        <!-- Pourquoi moi -->
+        <section style="background: var(--bg-alt);">
+            <div class="container reveal">
+                <div class="section-title">
+                    <h2>Pourquoi travailler avec moi</h2>
+                </div>
+                <div class="why-grid">
+                    <div class="why-item"><i class="fas fa-building" aria-hidden="true"></i><p><strong>4 ans d'expérience en agence</strong> Méthodologie éprouvée et exigence professionnelle.</p></div>
+                    <div class="why-item"><i class="fas fa-tasks" aria-hidden="true"></i><p><strong>Gestion de projet de A à Z</strong> De l'analyse au support, un interlocuteur unique.</p></div>
+                    <div class="why-item"><i class="fas fa-comments" aria-hidden="true"></i><p><strong>Communication claire et transparente</strong> Des échanges réguliers pour un projet sans surprise.</p></div>
+                    <div class="why-item"><i class="fas fa-clock" aria-hidden="true"></i><p><strong>Respect des délais</strong> Un planning réaliste et tenu.</p></div>
+                    <div class="why-item"><i class="fas fa-puzzle-piece" aria-hidden="true"></i><p><strong>Solutions adaptées aux besoins réels</strong> Pas de sur-ingénierie, du sur-mesure intelligent.</p></div>
+                    <div class="why-item"><i class="fas fa-heart" aria-hidden="true"></i><p><strong>Accompagnement après livraison</strong> Une disponibilité pour assurer la continuité.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Réalisations -->
+        <section id="realisations" class="container reveal">
+            <div class="section-title">
+                <h2>Réalisations de projets web et applicatifs</h2>
+                <p>Quelques cas concrets illustrant mon savoir-faire.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" aria-hidden="true"><i class="fas fa-briefcase"></i></div>
+                    <div class="project-body">
+                        <h3>Site vitrine d'entreprise</h3>
+                        <p>Site institutionnel moderne avec présentation des services, équipe et actualités. Développé avec <a href="/expertises/nextjs" title="Développement Next.js au Maroc">Next.js</a> et Tailwind.</p>
+                        <div class="tech-tags"><span class="tech-tag">Next.js</span><span class="tech-tag">Tailwind</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" aria-hidden="true"><i class="fas fa-bullhorn"></i></div>
+                    <div class="project-body">
+                        <h3>Landing page marketing</h3>
+                        <p>Page d'atterrissage conçue pour maximiser l'inscription à un service. Optimisée avec <a href="/expertises/react" title="Développement React">React</a> et TypeScript.</p>
+                        <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" aria-hidden="true"><i class="fas fa-cogs"></i></div>
+                    <div class="project-body">
+                        <h3>Application de gestion interne</h3>
+                        <p>Outil de suivi de projets, clients et factures pour une PME. Construit avec <a href="/expertises/laravel" title="Développement Laravel au Maroc">Laravel</a> et MySQL.</p>
+                        <div class="tech-tags"><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" aria-hidden="true"><i class="fas fa-hand-pointer"></i></div>
+                    <div class="project-body">
+                        <h3>Borne interactive</h3>
+                        <p>Application Electron pour une borne tactile en point de vente. Interface développée en <a href="/expertises/react" title="Développement React">React</a>.</p>
+                        <div class="tech-tags"><span class="tech-tag">Electron</span><span class="tech-tag">React</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" aria-hidden="true"><i class="fas fa-calendar-check"></i></div>
+                    <div class="project-body">
+                        <h3>Plateforme de réservation</h3>
+                        <p>Système de prise de rendez-vous en ligne avec paiement. Technos : <a href="/expertises/nextjs" title="Next.js au Maroc">Next.js</a> + <a href="/expertises/laravel" title="API Laravel">Laravel</a>.</p>
+                        <div class="tech-tags"><span class="tech-tag">Next.js</span><span class="tech-tag">Laravel</span></div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" aria-hidden="true"><i class="fas fa-chart-pie"></i></div>
+                    <div class="project-body">
+                        <h3>Tableau de bord administratif</h3>
+                        <p>Interface d'administration avec statistiques et gestion de contenu. <a href="/expertises/react" title="React.js">React</a> & TypeScript.</p>
+                        <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span></div>
+                    </div>
+                </div>
+            </div>
+            <p class="confidential-note">Certains projets réalisés dans le cadre de missions en agence sont soumis à des accords de confidentialité. Les exemples présentés illustrent les types de solutions développées et les compétences mises en œuvre.</p>
+        </section>
+
+        <!-- Processus -->
+        <section id="process" style="background: var(--bg-alt);">
+            <div class="container reveal">
+                <div class="section-title">
+                    <h2>Mon processus de travail</h2>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-step"><div class="step-number">1</div><h3>Analyse du besoin</h3><p>Échange approfondi pour comprendre vos objectifs, votre cible et vos contraintes.</p></div>
+                    <div class="process-step"><div class="step-number">2</div><h3>Proposition de solution</h3><p>Élaboration d'une architecture technique et d'un devis transparent.</p></div>
+                    <div class="process-step"><div class="step-number">3</div><h3>Développement</h3><p>Conception itérative avec des points de suivi réguliers.</p></div>
+                    <div class="process-step"><div class="step-number">4</div><h3>Validation</h3><p>Tests fonctionnels et recettage ensemble avant la mise en ligne.</p></div>
+                    <div class="process-step"><div class="step-number">5</div><h3>Mise en ligne</h3><p>Déploiement sécurisé et configuration de l'hébergement.</p></div>
+                    <div class="process-step"><div class="step-number">6</div><h3>Support</h3><p>Accompagnement post-livraison et maintenance évolutive.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="container reveal">
+            <div class="section-title">
+                <h2>Technologies maîtrisées</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item"><i class="devicon-laravel-plain colored" aria-hidden="true"></i> Laravel</div>
+                <div class="tech-item"><i class="devicon-nextjs-original" aria-hidden="true"></i> Next.js</div>
+                <div class="tech-item"><i class="devicon-react-original colored" aria-hidden="true"></i> React</div>
+                <div class="tech-item"><i class="devicon-php-plain colored" aria-hidden="true"></i> PHP</div>
+                <div class="tech-item"><i class="devicon-javascript-plain colored" aria-hidden="true"></i> JavaScript</div>
+                <div class="tech-item"><i class="devicon-typescript-plain colored" aria-hidden="true"></i> TypeScript</div>
+                <div class="tech-item"><i class="devicon-wordpress-plain colored" aria-hidden="true"></i> WordPress</div>
+                <div class="tech-item"><i class="devicon-electron-original colored" aria-hidden="true"></i> Electron</div>
+                <div class="tech-item"><i class="devicon-mysql-plain colored" aria-hidden="true"></i> MySQL</div>
+                <div class="tech-item"><i class="devicon-git-plain colored" aria-hidden="true"></i> Git</div>
+            </div>
+        </section>
+
+        <!-- Témoignages (placeholder) -->
+        <section style="background: var(--bg-alt);">
+            <div class="container reveal">
+                <div class="section-title">
+                    <h2>Ils me font confiance</h2>
+                </div>
+                <div class="testimonials-placeholder">
+                    <i class="fas fa-star" aria-hidden="true"></i>
+                    <p>Les retours de mes clients seront bientôt disponibles ici.<br>Votre projet pourrait être le prochain à apparaître !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="container reveal">
+            <div class="section-title">
+                <h2>Parlons de votre projet</h2>
+                <p>Vous avez une idée, un besoin ou un projet à développer ? Contactez-moi pour en discuter.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <a href="tel:+212600000000"><i class="fas fa-phone" aria-hidden="true"></i> +212 6 00 00 00 00</a>
+                    <a href="mailto:contact@elmehdi.dev"><i class="fas fa-envelope" aria-hidden="true"></i> contact@elmehdi.dev</a>
+                    <a href="https://linkedin.com/in/elmehdi-dev" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                    <a href="https://wa.me/212600000000?text=Bonjour%20Elmehdi%2C%20j%27ai%20un%20projet%20%C3%A0%20discuter." target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+                </div>
+                <form class="contact-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © <span id="year"></span> Elmehdi – Développeur Full-Stack Freelance au Maroc. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        // Année automatique
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Animation d'apparition au scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Fermeture du menu mobile lors du clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
