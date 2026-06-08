@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elmehdi - Développeur Full-Stack Freelance | Sites Web & Applications</title>
+    <meta name="description"
+        content="Développeur Full-Stack freelance avec 4 ans d'expérience. Création de sites web professionnels, applications sur mesure, landing pages et plateformes métier. Laravel, Next.js, React, WordPress.">
+    <meta name="keywords"
+        content="Elmehdi, Développeur Full-Stack, Freelance, Sites web, Applications web, Laravel, Next.js, React, WordPress, Electron">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <span class="font-bold text-lg">Elmehdi</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#expertise" class="text-sm font-medium nav-link transition-colors">Expertise</a>
+                    <a href="#realisations" class="text-sm font-medium nav-link transition-colors">Réalisations</a>
+                    <a href="#processus" class="text-sm font-medium nav-link transition-colors">Processus</a>
+                    <a href="#technologies" class="text-sm font-medium nav-link transition-colors">Technologies</a>
+                    <a href="#contact" class="text-sm font-medium nav-link transition-colors">Contact</a>
+                </div>
+                <a href="#contact"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
+                    Demander un devis
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative py-20 md:py-32 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm">
+                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span class="font-medium">Développeur Full-Stack Freelance</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
+                    Je transforme vos idées en
+                    <span class="text-blue-600">sites web</span> et
+                    <span class="text-blue-600">applications performants</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                    Développeur Full-Stack avec 4 ans d'expérience en agence de communication. J'accompagne les
+                    entreprises dans la création de sites web, plateformes métier et solutions digitales sur mesure.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#contact"
+                        class="px-6 py-3 bg-blue-600 text-white rounded-md text-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
+                        Demander un devis
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                    <a href="#realisations"
+                        class="px-6 py-3 border-2 border-gray-300 rounded-md text-lg font-medium hover:bg-gray-50 transition-colors">
+                        Voir mes réalisations
+                    </a>
+                </div>
+                <div class="pt-8 animate-bounce">
+                    <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Mon expertise</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Des solutions web adaptées à vos besoins professionnels
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Sites vitrine professionnels</h3>
+                        <p class="text-sm text-gray-600">Présence en ligne moderne et efficace pour votre entreprise</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Landing pages à fort taux de conversion</h3>
+                        <p class="text-sm text-gray-600">Pages optimisées pour transformer vos visiteurs en clients</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Développement WordPress</h3>
+                        <p class="text-sm text-gray-600">Solutions CMS flexibles et personnalisées</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Applications web Laravel</h3>
+                        <p class="text-sm text-gray-600">Applications métier robustes et évolutives</p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Applications web Next.js</h3>
+                        <p class="text-sm text-gray-600">Applications React modernes et performantes</p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Applications Electron</h3>
+                        <p class="text-sm text-gray-600">Bornes interactives et applications de bureau</p>
+                    </div>
+
+                    <!-- Service 7 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Maintenance et évolution</h3>
+                        <p class="text-sm text-gray-600">Support continu pour vos projets existants</p>
+                    </div>
+
+                    <!-- Service 8 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Optimisation des performances</h3>
+                        <p class="text-sm text-gray-600">Amélioration de la vitesse et de l'efficacité</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Pourquoi travailler avec moi</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Un partenaire de confiance pour vos projets digitaux
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Reason 1 -->
+                    <div class="flex gap-4 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold text-lg">4 ans d'expérience</h3>
+                            <p class="text-sm text-gray-600">Expérience professionnelle en environnement agence avec des
+                                projets variés</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 2 -->
+                    <div class="flex gap-4 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold text-lg">Projet de A à Z</h3>
+                            <p class="text-sm text-gray-600">Gestion complète de votre projet, de la conception à la
+                                mise en ligne</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 3 -->
+                    <div class="flex gap-4 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold text-lg">Communication claire</h3>
+                            <p class="text-sm text-gray-600">Transparence et échanges réguliers tout au long du projet
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 4 -->
+                    <div class="flex gap-4 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold text-lg">Respect des délais</h3>
+                            <p class="text-sm text-gray-600">Livraison dans les temps et gestion rigoureuse du planning
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 5 -->
+                    <div class="flex gap-4 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold text-lg">Solutions adaptées</h3>
+                            <p class="text-sm text-gray-600">Technologies choisies en fonction de vos besoins réels</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 6 -->
+                    <div class="flex gap-4 group">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="font-semibold text-lg">Accompagnement après livraison</h3>
+                            <p class="text-sm text-gray-600">Support et maintenance pour assurer la pérennité de votre
+                                projet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Réalisations Section -->
+    <section id="realisations" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Exemples de projets et compétences</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Découvrez les types de solutions que je développe et les compétences mises en œuvre
+                    </p>
+                    <div class="inline-flex items-start gap-2 px-4 py-3 bg-amber-50 rounded-lg text-sm max-w-2xl">
+                        <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <p class="text-amber-800">
+                            Certains projets réalisés dans le cadre de missions en agence sont soumis à des accords de
+                            confidentialité. Les exemples présentés illustrent les types de solutions développées et les
+                            compétences mises en œuvre.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 1 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                        <h3 class="text-lg font-semibold mb-2">Site vitrine d'entreprise</h3>
+                        <p class="text-sm text-gray-600 mb-4">Site corporate moderne avec présentation des services,
+                            équipe et actualités de l'entreprise</p>
+                        <div class="mb-4">
+                            <p class="text-sm font-medium mb-2">Technologies</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">React</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Fonctionnalités</p>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Design responsive
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    SEO optimisé
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Interface admin
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                        <h3 class="text-lg font-semibold mb-2">Landing page marketing</h3>
+                        <p class="text-sm text-gray-600 mb-4">Page de destination optimisée pour la conversion avec
+                            formulaire de contact et appels à l'action</p>
+                        <div class="mb-4">
+                            <p class="text-sm font-medium mb-2">Technologies</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">React</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Framer Motion</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Fonctionnalités</p>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Animations fluides
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    A/B testing ready
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Analytics intégré
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                        <h3 class="text-lg font-semibold mb-2">Application de gestion interne</h3>
+                        <p class="text-sm text-gray-600 mb-4">Dashboard administratif pour la gestion des ressources et
+                            suivi des performances</p>
+                        <div class="mb-4">
+                            <p class="text-sm font-medium mb-2">Technologies</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Laravel</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Vue.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">MySQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Fonctionnalités</p>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Authentification
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Rôles utilisateurs
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Export données
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                        <h3 class="text-lg font-semibold mb-2">Borne interactive</h3>
+                        <p class="text-sm text-gray-600 mb-4">Application kiosk pour l'information en libre-service dans
+                            les espaces publics</p>
+                        <div class="mb-4">
+                            <p class="text-sm font-medium mb-2">Technologies</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Electron</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">React</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Node.js</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Fonctionnalités</p>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Mode plein écran
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Navigation tactile
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Contenu dynamique
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                        <h3 class="text-lg font-semibold mb-2">Plateforme de réservation</h3>
+                        <p class="text-sm text-gray-600 mb-4">Système de réservation en ligne avec gestion des
+                            disponibilités et paiements</p>
+                        <div class="mb-4">
+                            <p class="text-sm font-medium mb-2">Technologies</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Laravel</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Stripe</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Fonctionnalités</p>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Calendrier interactif
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Notifications
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Paiement sécurisé
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div
+                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                        <h3 class="text-lg font-semibold mb-2">Tableau de bord administratif</h3>
+                        <p class="text-sm text-gray-600 mb-4">Interface de gestion avec visualisation des données et
+                            outils d'analyse</p>
+                        <div class="mb-4">
+                            <p class="text-sm font-medium mb-2">Technologies</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">Chart.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs">API REST</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Fonctionnalités</p>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Graphiques dynamiques
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Filtres avancés
+                                </li>
+                                <li class="flex items-center gap-2 text-sm text-gray-600">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Exports
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processus Section -->
+    <section id="processus" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Mon processus de travail</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Une méthodologie éprouvée pour mener votre projet au succès
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Phase 1 -->
+                    <div class="relative group">
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            01
+                        </div>
+                        <div class="pl-16 pt-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                <h3 class="font-semibold text-lg">Analyse du besoin</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">Compréhension approfondie de vos objectifs, contraintes et
+                                attentes pour définir le périmètre du projet</p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="relative group">
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            02
+                        </div>
+                        <div class="pl-16 pt-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                                </svg>
+                                <h3 class="font-semibold text-lg">Proposition de solution</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">Présentation d'une solution adaptée avec planning estimatif
+                                et devis détaillé</p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="relative group">
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            03
+                        </div>
+                        <div class="pl-16 pt-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <h3 class="font-semibold text-lg">Développement</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">Réalisation technique avec livraisons régulières et
+                                validations intermédiaires</p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="relative group">
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            04
+                        </div>
+                        <div class="pl-16 pt-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                <h3 class="font-semibold text-lg">Validation</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">Tests complets et ajustements selon vos retours pour
+                                garantir la qualité finale</p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 5 -->
+                    <div class="relative group">
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            05
+                        </div>
+                        <div class="pl-16 pt-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <h3 class="font-semibold text-lg">Mise en ligne</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">Déploiement sur vos serveurs avec configuration des
+                                domaines et optimisations</p>
+                        </div>
+                    </div>
+
+                    <!-- Phase 6 -->
+                    <div class="relative group">
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            06
+                        </div>
+                        <div class="pl-16 pt-2">
+                            <div class="flex items-center gap-2 mb-2">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                </svg>
+                                <h3 class="font-semibold text-lg">Support</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">Accompagnement post-lancement pour assurer le bon
+                                fonctionnement et l'évolution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Technologies maîtrisées</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Un stack moderne et éprouvé pour des solutions robustes
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">Laravel</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">Next.js</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">React</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">PHP</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">JavaScript</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">TypeScript</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">WordPress</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        <span class="font-medium">Electron</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                        <span class="font-medium">MySQL</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <span class="font-medium">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Témoignages clients</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        L'avis de mes clients sur nos collaborations
+                    </p>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+                    <div class="text-center space-y-4">
+                        <div class="flex justify-center gap-1">
+                            <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <p class="text-lg text-gray-600 italic">
+                            "L'espace est réservé pour partager les témoignages de mes futurs clients."
+                        </p>
+                        <div class="border-t pt-4">
+                            <p class="text-sm text-gray-600">
+                                Votre témoignage pourrait apparaître ici après notre collaboration
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="text-3xl md:text-4xl font-bold">Parlons de votre projet</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Vous avez une idée, un besoin ou un projet à développer ? Contactez-moi pour en discuter.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Contact Info -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-4">Informations de contact</h3>
+                        <p class="text-sm text-gray-600 mb-6">Plusieurs moyens pour entrer en contact</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Email</p>
+                                    <p class="text-sm text-gray-600">contact@elmehdi.dev</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">Téléphone</p>
+                                    <p class="text-sm text-gray-600">+33 6 XX XX XX XX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">LinkedIn</p>
+                                    <p class="text-sm text-gray-600">linkedin.com/in/elmehdi</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">WhatsApp</p>
+                                    <p class="text-sm text-gray-600">+33 6 XX XX XX XX</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <h3 class="text-lg font-semibold mb-4">Formulaire de contact</h3>
+                        <p class="text-sm text-gray-600 mb-6">Décrivez votre projet et je vous répondrai rapidement</p>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label for="name" class="text-sm font-medium">Nom</label>
+                                    <input type="text" id="name" name="name" placeholder="Votre nom"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        required>
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="email" class="text-sm font-medium">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="votre@email.com"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="subject" class="text-sm font-medium">Sujet</label>
+                                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    required>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="message" class="text-sm font-medium">Message</label>
+                                <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="5"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                                    required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                                Envoyer le message
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t bg-gray-50">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <span class="font-bold text-lg">Elmehdi</span>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        Développeur Full-Stack Freelance spécialisé dans la création de sites web et applications sur
+                        mesure.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Navigation</h3>
+                    <div class="space-y-2">
+                        <a href="#expertise"
+                            class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Expertise</a>
+                        <a href="#realisations"
+                            class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Réalisations</a>
+                        <a href="#processus"
+                            class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Processus</a>
+                        <a href="#contact"
+                            class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Services</h3>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <p>Sites vitrine professionnels</p>
+                        <p>Applications web sur mesure</p>
+                        <p>Landing pages</p>
+                        <p>Maintenance et support</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-600">
+                    © 2024 Elmehdi. Tous droits réservés.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="#"
+                        class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Log form data (in real implementation, send to server)
+            console.log('Form submitted:', data);
+
+            // Show success message
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+
+</html>
