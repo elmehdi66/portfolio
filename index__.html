@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Kreate | Digital Atelier – GSAP Powered Experience</title>
+
+    <!-- SEO -->
+    <meta name="description"
+        content="Kreate is a digital atelier offering full‑stack development, immersive interactive experiences, and UI/UX design. We build platforms that drive growth and engagement.">
+    <meta name="keywords"
+        content="full-stack development, interactive experiences, web development agency, UI/UX design, React, Next.js, Node.js, Laravel, GITEX, SIAM">
+    <meta name="author" content="Kreate">
+    <link rel="canonical" href="https://kreate.qd.je/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-weight='bold'%3EK%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kreate.qd.je/">
+    <meta property="og:title" content="Kreate – Digital Atelier">
+    <meta property="og:description"
+        content="We craft digital experiences that defy convention. Full‑stack development, interactive installations, and design that drives results.">
+    <meta property="og:image" content="https://kreate.qd.je/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-light: #e2e8f0;
+            --gradient-1: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --gradient-2: linear-gradient(135deg, #06b6d4, #3b82f6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+            border-color: var(--primary-dark);
+        }
+
+        .service-tile {
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s ease;
+            padding-left: 1rem;
+        }
+
+        .service-tile:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 80%);
+            z-index: 0;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+            will-change: transform;
+        }
+
+        .draw-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-light);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--border-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        .tech-card,
+        .process-card-new,
+        .value-card-new,
+        .diff-card,
+        .service-item,
+        .process-card {
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover,
+        .process-card-new:hover,
+        .value-card-new:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--border-light);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-muted);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .lang-switch {
+                margin-left: auto;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader" class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tight text-gray-900 logo">Kreate</div>
+            <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wide text-gray-600">
+                <a href="#tech-stack" class="nav-link hover:text-primary transition"
+                    data-i18n="nav_expertise">Expertise</a>
+                <a href="#services" class="nav-link hover:text-primary transition" data-i18n="nav_services">Services</a>
+                <a href="#whyus" class="nav-link hover:text-primary transition" data-i18n="nav_whyus">Why us</a>
+                <a href="#contact" class="nav-link hover:text-primary transition" data-i18n="nav_contact">Contact</a>
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+            </div>
+            <div class="md:hidden flex items-center">
+                <div class="lang-switch mr-3">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+                <button id="mobile-btn" class="text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+            <a href="#contact" class="hidden md:block btn-outline text-sm nav-link" data-i18n="start_conversation">Start
+                a conversation</a>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-b border-slate-200 px-6 pb-5 flex flex-col space-y-3 text-sm uppercase">
+            <a href="#tech-stack" class="nav-link py-1 hover:text-primary" data-i18n="nav_expertise">Expertise</a>
+            <a href="#services" class="nav-link py-1 hover:text-primary" data-i18n="nav_services">Services</a>
+            <a href="#whyus" class="nav-link py-1 hover:text-primary" data-i18n="nav_whyus">Why us</a>
+            <a href="#contact" class="nav-link py-1 hover:text-primary" data-i18n="nav_contact">Contact</a>
+            <a href="#contact" class="btn-outline text-center py-2 mt-2 nav-link" data-i18n="start_conversation">Start a
+                conversation</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative hero-bg overflow-hidden" id="hero">
+        <div class="animated-bg"></div>
+        <div class="floating-shape w-96 h-96 bg-gradient-to-r from-blue-400/50 to-purple-400/50 top-20 left-20 shape-1">
+        </div>
+        <div
+            class="floating-shape w-[600px] h-[600px] bg-gradient-to-r from-teal-400/40 to-blue-400/40 bottom-0 right-0 shape-2">
+        </div>
+        <div
+            class="floating-shape w-80 h-80 bg-gradient-to-r from-indigo-400/40 to-pink-400/40 top-1/3 right-1/4 shape-3">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-5 md:py-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="text-primary text-sm tracking-wider uppercase font-semibold hero-badge"
+                        data-i18n="hero_badge">Digital Atelier</div>
+                    <h1 class="text-4xl md:text-4xl lg:text-6xl font-bold leading-tight text-gray-900 hero-title">
+                        <span data-i18n="hero_title_part1">We build </span><span
+                            class="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+                            data-i18n="hero_title_highlight">digital confidence</span><br>
+                        <span data-i18n="hero_title_part2">so you can scale</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg max-w-md hero-desc" data-i18n="hero_desc">Full‑stack development,
+                        interactive experiences, and design that turns visitors into loyal customers.</p>
+                    <div class="flex gap-4 pt-4 hero-buttons">
+                        <a href="#tech-stack" class="btn-primary nav-link" data-i18n="hero_btn_explore">Explore our
+                            expertise →</a>
+                        <a href="#contact" class="btn-outline nav-link" data-i18n="hero_btn_talk">Let's talk</a>
+                    </div>
+                    <div class="flex gap-6 pt-8 hero-social">
+                        <a href="https://www.linkedin.com/in/elmehdi-ghazri/" target="_blank"
+                            class="text-gray-400 hover:text-primary transition"><i
+                                class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://github.com/elmehdighazri" target="_blank"
+                            class="text-gray-400 hover:text-primary transition"><i
+                                class="fab fa-github text-xl"></i></a>
+                        <a href="mailto:m.ghazri@outlook.fr" class="text-gray-400 hover:text-primary transition"><i
+                                class="fas fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+                <div class="relative flex justify-end items-end">
+                    <div class="relative border-l-2 border-primary pl-8 hero-quote">
+                        <p class="text-2xl font-serif italic text-gray-700" data-i18n="quote_text">"We don't just write
+                            code — we create business catalysts."</p>
+                        <p class="text-sm text-gray-500 mt-3" data-i18n="quote_author">— Kreate philosophy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SVG Animation Section -->
+    <section class="py-16 bg-white text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="precision_title">Crafting with precision</h2>
+            <div class="flex justify-center mb-8">
+                <svg width="300" height="20" viewBox="0 0 300 20" xmlns="http://www.w3.org/2000/svg">
+                    <path id="wave-line" d="M0,10 L30,10 C40,10 45,15 55,15 C65,15 70,5 80,5 C90,5 95,10 105,10 L300,10"
+                        stroke="url(#gradient)" stroke-width="2" fill="none" class="draw-line" />
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#3b82f6" />
+                            <stop offset="100%" stop-color="#8b5cf6" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <p class="text-gray-500" data-i18n="precision_desc">Every detail matters — see our lines come alive.</p>
+        </div>
+    </section>
+
+    <!-- What we bring to the table -->
+    <section id="whyus" class="py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 section-title">
+                <span class="text-primary text-sm tracking-wider uppercase font-semibold" data-i18n="bring_badge">What
+                    we bring to the table</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900" data-i18n="bring_title">More than
+                    development –<br>a strategic partnership</h2>
+                <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="value-card p-6 rounded-2xl bg-blue-50/30 border border-blue-100 text-center">
+                    <i class="fas fa-rocket text-4xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n="bring_card1_title">Speed to market</h3>
+                    <p class="text-gray-600" data-i18n="bring_card1_desc">We deliver MVPs in weeks, not months. Our lean
+                        process means you test, iterate, and launch faster.</p>
+                </div>
+                <div class="value-card p-6 rounded-2xl bg-purple-50/30 border border-purple-100 text-center">
+                    <i class="fas fa-brain text-4xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n="bring_card2_title">Technical strategy</h3>
+                    <p class="text-gray-600" data-i18n="bring_card2_desc">We don't just build; we advise on
+                        architecture, scalability, and tech choices that save you money long‑term.</p>
+                </div>
+                <div class="value-card p-6 rounded-2xl bg-teal-50/30 border border-teal-100 text-center">
+                    <i class="fas fa-chart-line text-4xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" data-i18n="bring_card3_title">Results‑driven</h3>
+                    <p class="text-gray-600" data-i18n="bring_card3_desc">Every line of code is aimed at your business
+                        goals: conversion, engagement, and user retention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-28 bg-gradient-to-b from-blue-50 to-transparent">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="section-title">
+                    <span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                        data-i18n="services_badge">What we sell</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900" data-i18n="services_title">Our
+                        services</h2>
+                    <p class="text-gray-500 mt-4" data-i18n="services_sub">End‑to‑end solutions tailored to your
+                        industry and goals.</p>
+                </div>
+                <div class="space-y-8">
+                    <div class="service-tile flex items-start gap-4 service-item">
+                        <i class="fas fa-globe text-2xl text-primary mt-1 transition-all duration-300"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold" data-i18n="service1_title">Full‑stack web development</h3>
+                            <p class="text-gray-500 mt-1" data-i18n="service1_desc">React, Next.js, Node.js, Laravel —
+                                bespoke platforms that scale.</p>
+                        </div>
+                    </div>
+                    <div class="service-tile flex items-start gap-4 service-item">
+                        <i class="fas fa-chalkboard-user text-2xl text-primary mt-1 transition-all duration-300"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold" data-i18n="service2_title">Interactive experiences &
+                                installations</h3>
+                            <p class="text-gray-500 mt-1" data-i18n="service2_desc">Real‑time, touch, and immersive
+                                experiences for events and brand activations.</p>
+                        </div>
+                    </div>
+                    <div class="service-tile flex items-start gap-4 service-item">
+                        <i class="fas fa-pencil-ruler text-2xl text-primary mt-1 transition-all duration-300"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold" data-i18n="service3_title">UI/UX design & brand identity
+                            </h3>
+                            <p class="text-gray-500 mt-1" data-i18n="service3_desc">User‑centered design, prototyping,
+                                and visual systems that resonate.</p>
+                        </div>
+                    </div>
+                    <div class="service-tile flex items-start gap-4 service-item">
+                        <i class="fas fa-cloud-upload-alt text-2xl text-primary mt-1 transition-all duration-300"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold" data-i18n="service4_title">Cloud & DevOps</h3>
+                            <p class="text-gray-500 mt-1" data-i18n="service4_desc">Docker, Vercel, CI/CD — resilient
+                                infrastructure that grows with you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Kreate -->
+    <section class="py-28">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12 section-title">
+                <span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                    data-i18n="whykreate_badge">Why Kreate</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900" data-i18n="whykreate_title">What sets us
+                    apart</h2>
+                <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="diff-card text-center p-6 bg-white rounded-xl shadow-sm border border-blue-100"><i
+                        class="fas fa-tachometer-alt text-3xl text-primary mb-3"></i>
+                    <h3 class="font-bold text-lg" data-i18n="diff1_title">Proven event experience</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="diff1_desc">GITEX, SIAM — we know how to deliver under
+                        pressure with real‑time installations.</p>
+                </div>
+                <div class="diff-card text-center p-6 bg-white rounded-xl shadow-sm border border-blue-100"><i
+                        class="fas fa-code-branch text-3xl text-primary mb-3"></i>
+                    <h3 class="font-bold text-lg" data-i18n="diff2_title">Modern, scalable stack</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="diff2_desc">React, Next.js, Node.js, Laravel, Python —
+                        we choose the right tool for the job.</p>
+                </div>
+                <div class="diff-card text-center p-6 bg-white rounded-xl shadow-sm border border-blue-100"><i
+                        class="fas fa-users text-3xl text-primary mb-3"></i>
+                    <h3 class="font-bold text-lg" data-i18n="diff3_title">Client‑centric approach</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="diff3_desc">We partner closely, communicate
+                        transparently, and treat your success as ours.</p>
+                </div>
+                <div class="diff-card text-center p-6 bg-white rounded-xl shadow-sm border border-blue-100"><i
+                        class="fas fa-chart-simple text-3xl text-primary mb-3"></i>
+                    <h3 class="font-bold text-lg" data-i18n="diff4_title">Data‑driven decisions</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="diff4_desc">We build analytics and dashboards so you can
+                        measure and grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack & Expertise -->
+    <section id="tech-stack" class="py-28 bg-gradient-to-b from-white to-blue-50/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                    data-i18n="tech_badge">Our technical arsenal</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900" data-i18n="tech_title">Modern tools,
+                    proven expertise</h2>
+                <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto mt-4" data-i18n="tech_sub">We leverage industry-leading
+                    frameworks and languages to build fast, scalable, and future-proof solutions.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div
+                    class="tech-card bg-white rounded-2xl p-5 text-center shadow-sm border border-blue-100 hover:border-primary/30 transition">
+                    <i class="fab fa-react text-4xl text-primary mb-3"></i>
+                    <p class="font-semibold">React</p>
+                    <p class="text-xs text-gray-400">Frontend</p>
+                </div>
+                <div
+                    class="tech-card bg-white rounded-2xl p-5 text-center shadow-sm border border-blue-100 hover:border-primary/30">
+                    <i class="fab fa-js text-4xl text-primary mb-3"></i>
+                    <p class="font-semibold">Next.js</p>
+                    <p class="text-xs text-gray-400">Fullstack React</p>
+                </div>
+                <div
+                    class="tech-card bg-white rounded-2xl p-5 text-center shadow-sm border border-blue-100 hover:border-primary/30">
+                    <i class="fab fa-node-js text-4xl text-primary mb-3"></i>
+                    <p class="font-semibold">Node.js</p>
+                    <p class="text-xs text-gray-400">Backend / API</p>
+                </div>
+                <div
+                    class="tech-card bg-white rounded-2xl p-5 text-center shadow-sm border border-blue-100 hover:border-primary/30">
+                    <i class="fas fa-database text-4xl text-primary mb-3"></i>
+                    <p class="font-semibold">Laravel</p>
+                    <p class="text-xs text-gray-400">PHP Framework</p>
+                </div>
+                <div
+                    class="tech-card bg-white rounded-2xl p-5 text-center shadow-sm border border-blue-100 hover:border-primary/30">
+                    <i class="fab fa-python text-4xl text-primary mb-3"></i>
+                    <p class="font-semibold">Python</p>
+                    <p class="text-xs text-gray-400">Scripting & AI</p>
+                </div>
+                <div
+                    class="tech-card bg-white rounded-2xl p-5 text-center shadow-sm border border-blue-100 hover:border-primary/30">
+                    <i class="fab fa-git-alt text-4xl text-primary mb-3"></i>
+                    <p class="font-semibold">Git/GitHub</p>
+                    <p class="text-xs text-gray-400">Version control</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5 mt-12">
+                <div class="flex items-center gap-3 bg-white/60 p-4 rounded-xl"><i
+                        class="fas fa-cloud text-primary text-xl"></i><span>Docker · Vercel · AWS</span></div>
+                <div class="flex items-center gap-3 bg-white/60 p-4 rounded-xl"><i
+                        class="fas fa-mobile-alt text-primary text-xl"></i><span>Tailwind · GSAP · Framer Motion</span>
+                </div>
+                <div class="flex items-center gap-3 bg-white/60 p-4 rounded-xl"><i
+                        class="fas fa-database text-primary text-xl"></i><span>MongoDB · PostgreSQL · MySQL</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section id="workflow" class="py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                    data-i18n="workflow_badge">How we deliver excellence</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900" data-i18n="workflow_title">From concept to
+                    launch, fully transparent</h2>
+                <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div
+                    class="process-card-new bg-blue-50/40 rounded-2xl p-6 text-center border border-blue-100 transition">
+                    <div class="text-5xl font-bold text-primary mb-3">01</div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="wf_step1">Discovery</h3>
+                    <p class="text-gray-600" data-i18n="wf_step1_desc">Deep dive into your goals, audience, and
+                        technical needs — no assumptions.</p>
+                </div>
+                <div
+                    class="process-card-new bg-blue-50/40 rounded-2xl p-6 text-center border border-blue-100 transition">
+                    <div class="text-5xl font-bold text-primary mb-3">02</div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="wf_step2">Architecture & Design</h3>
+                    <p class="text-gray-600" data-i18n="wf_step2_desc">Blueprint + wireframes, interactive prototypes to
+                        validate before coding.</p>
+                </div>
+                <div
+                    class="process-card-new bg-blue-50/40 rounded-2xl p-6 text-center border border-blue-100 transition">
+                    <div class="text-5xl font-bold text-primary mb-3">03</div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="wf_step3">Agile Development</h3>
+                    <p class="text-gray-600" data-i18n="wf_step3_desc">Sprints, regular demos, and feedback loops —
+                        you're involved at every step.</p>
+                </div>
+                <div
+                    class="process-card-new bg-blue-50/40 rounded-2xl p-6 text-center border border-blue-100 transition">
+                    <div class="text-5xl font-bold text-primary mb-3">04</div>
+                    <h3 class="text-xl font-bold mb-2" data-i18n="wf_step4">Launch & Iterate</h3>
+                    <p class="text-gray-600" data-i18n="wf_step4_desc">Deployment, performance monitoring, and
+                        continuous improvement based on real data.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="text-gray-500 italic" data-i18n="wf_quote">“Radical transparency — weekly updates, clear
+                    milestones, and zero surprises.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Promise -->
+    <section id="value-promise" class="py-28 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                    data-i18n="value_badge">Your success, our mission</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 text-gray-900" data-i18n="value_title">What you gain by
+                    partnering with us</h2>
+                <div class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="value-card-new p-8 rounded-2xl bg-white border border-blue-100 shadow-sm text-center transition">
+                    <i class="fas fa-gem text-4xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3" data-i18n="value1_title">Quality-first mindset</h3>
+                    <p class="text-gray-600" data-i18n="value1_desc">Clean, maintainable code that reduces technical
+                        debt. Your product will be robust and ready to scale.</p>
+                </div>
+                <div
+                    class="value-card-new p-8 rounded-2xl bg-white border border-blue-100 shadow-sm text-center transition">
+                    <i class="fas fa-comments text-4xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3" data-i18n="value2_title">Communication & availability</h3>
+                    <p class="text-gray-600" data-i18n="value2_desc">Daily updates, fast responses, and a direct line to
+                        us. You’ll never feel left in the dark.</p>
+                </div>
+                <div
+                    class="value-card-new p-8 rounded-2xl bg-white border border-blue-100 shadow-sm text-center transition">
+                    <i class="fas fa-chart-line text-4xl text-primary mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3" data-i18n="value3_title">Results-oriented approach</h3>
+                    <p class="text-gray-600" data-i18n="value3_desc">Every feature is tied to business goals:
+                        conversion, engagement, or operational efficiency.</p>
+                </div>
+            </div>
+            <div class="mt-14 text-center bg-white/70 rounded-2xl p-6 max-w-2xl mx-auto border border-blue-200"><i
+                    class="fas fa-handshake text-3xl text-primary mb-2"></i>
+                <p class="text-gray-700 text-lg font-medium" data-i18n="value_note">No long-term lock-in — we build
+                    solutions you own completely. Post-launch support and knowledge transfer included.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-28 bg-white stats-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                    data-i18n="stats_badge">Our footprint</span>
+                <h2 class="text-4xl font-bold mt-2 text-gray-900" data-i18n="stats_title">By the numbers</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="18">0</div>
+                    <p class="text-gray-500 mt-2" data-i18n="stats1">tech stacks we master</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="25">0</div>
+                    <p class="text-gray-500 mt-2" data-i18n="stats2">projects & open‑source contributions</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="5">0</div>
+                    <p class="text-gray-500 mt-2" data-i18n="stats3">years of combined expertise</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="100">0</div>
+                    <p class="text-gray-500 mt-2" data-i18n="stats4">client commitment (%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process complementary -->
+    <section class="py-28 bg-gradient-to-b from-blue-50 to-white process-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-primary text-sm tracking-wider uppercase font-semibold"
+                    data-i18n="process_badge">How we work</span>
+                <h2 class="text-4xl font-bold mt-2 text-gray-900" data-i18n="process_title">The creative ritual</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6 text-center">
+                <div class="process-card p-6 rounded-2xl bg-white shadow-sm border border-blue-100">
+                    <div class="text-4xl font-bold text-primary mb-2">01</div>
+                    <h3 class="font-semibold" data-i18n="process1">Immerse</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="process1_desc">Deep listening & discovery</p>
+                </div>
+                <div class="process-card p-6 rounded-2xl bg-white shadow-sm border border-blue-100">
+                    <div class="text-4xl font-bold text-primary mb-2">02</div>
+                    <h3 class="font-semibold" data-i18n="process2">Architect</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="process2_desc">Structure & strategy</p>
+                </div>
+                <div class="process-card p-6 rounded-2xl bg-white shadow-sm border border-blue-100">
+                    <div class="text-4xl font-bold text-primary mb-2">03</div>
+                    <h3 class="font-semibold" data-i18n="process3">Sculpt</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="process3_desc">Design & refine</p>
+                </div>
+                <div class="process-card p-6 rounded-2xl bg-white shadow-sm border border-blue-100">
+                    <div class="text-4xl font-bold text-primary mb-2">04</div>
+                    <h3 class="font-semibold" data-i18n="process4">Launch</h3>
+                    <p class="text-gray-500 text-sm" data-i18n="process4_desc">Deliver & evolve</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-28 bg-white contact-section">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-900" data-i18n="contact_title">Ready to create something
+                exceptional?</h2>
+            <p class="text-gray-500 mt-3 mb-8" data-i18n="contact_sub">Let’s discuss your vision. We’ll get back to you
+                within 24 hours.</p>
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-blue-100">
+                <form id="contact-form" class="space-y-5">
+                    <div class="grid md:grid-cols-2 gap-5">
+                        <input type="text" name="name" placeholder="Name" required
+                            class="w-full border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                            data-i18n-placeholder="contact_name">
+                        <input type="email" name="email" placeholder="Email" required
+                            class="w-full border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                            data-i18n-placeholder="contact_email">
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject"
+                        class="w-full border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                        data-i18n-placeholder="contact_subject">
+                    <textarea rows="5" name="message" placeholder="Tell us about your project..." required
+                        class="w-full border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                        data-i18n-placeholder="contact_message"></textarea>
+                    <button type="submit" class="btn-primary w-full" data-i18n="contact_btn">Send message <i
+                            class="fas fa-arrow-right ml-2"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-blue-100 text-center text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3">
+            <p data-i18n="footer_copyright">© 2025 Kreate — Digital Atelier. All rights reserved.</p>
+            <div class="flex gap-5">
+                <a href="https://www.linkedin.com/in/elmehdi-ghazri/" target="_blank"
+                    class="hover:text-primary transition"><i class="fab fa-linkedin text-lg"></i></a>
+                <a href="https://github.com/elmehdighazri" target="_blank" class="hover:text-primary transition"><i
+                        class="fab fa-github text-lg"></i></a>
+                <a href="mailto:m.ghazri@outlook.fr" class="hover:text-primary transition"><i
+                        class="fas fa-envelope text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init("YOUR_PUBLIC_KEY");
+        const contactForm = document.getElementById('contact-form');
+        let currentLang = 'en';
+        const translations = {
+            en: {
+                nav_expertise: "Expertise", nav_services: "Services", nav_whyus: "Why us", nav_contact: "Contact", start_conversation: "Start a conversation",
+                hero_badge: "Digital Atelier", hero_title_part1: "We build ", hero_title_highlight: "digital confidence", hero_title_part2: "so you can scale",
+                hero_desc: "Full‑stack development, interactive experiences, and design that turns visitors into loyal customers.",
+                hero_btn_explore: "Explore our expertise →", hero_btn_talk: "Let's talk",
+                quote_text: "\"We don't just write code — we create business catalysts.\"", quote_author: "— Kreate philosophy",
+                precision_title: "Crafting with precision", precision_desc: "Every detail matters — see our lines come alive.",
+                bring_badge: "What we bring to the table", bring_title: "More than development –<br>a strategic partnership",
+                bring_card1_title: "Speed to market", bring_card1_desc: "We deliver MVPs in weeks, not months. Our lean process means you test, iterate, and launch faster.",
+                bring_card2_title: "Technical strategy", bring_card2_desc: "We don't just build; we advise on architecture, scalability, and tech choices that save you money long‑term.",
+                bring_card3_title: "Results‑driven", bring_card3_desc: "Every line of code is aimed at your business goals: conversion, engagement, and user retention.",
+                services_badge: "What we sell", services_title: "Our services", services_sub: "End‑to‑end solutions tailored to your industry and goals.",
+                service1_title: "Full‑stack web development", service1_desc: "React, Next.js, Node.js, Laravel — bespoke platforms that scale.",
+                service2_title: "Interactive experiences & installations", service2_desc: "Real‑time, touch, and immersive experiences for events and brand activations.",
+                service3_title: "UI/UX design & brand identity", service3_desc: "User‑centered design, prototyping, and visual systems that resonate.",
+                service4_title: "Cloud & DevOps", service4_desc: "Docker, Vercel, CI/CD — resilient infrastructure that grows with you.",
+                whykreate_badge: "Why Kreate", whykreate_title: "What sets us apart",
+                diff1_title: "Proven event experience", diff1_desc: "GITEX, SIAM — we know how to deliver under pressure with real‑time installations.",
+                diff2_title: "Modern, scalable stack", diff2_desc: "React, Next.js, Node.js, Laravel, Python — we choose the right tool for the job.",
+                diff3_title: "Client‑centric approach", diff3_desc: "We partner closely, communicate transparently, and treat your success as ours.",
+                diff4_title: "Data‑driven decisions", diff4_desc: "We build analytics and dashboards so you can measure and grow.",
+                tech_badge: "Our technical arsenal", tech_title: "Modern tools, proven expertise", tech_sub: "We leverage industry-leading frameworks and languages to build fast, scalable, and future-proof solutions.",
+                workflow_badge: "How we deliver excellence", workflow_title: "From concept to launch, fully transparent",
+                wf_step1: "Discovery", wf_step1_desc: "Deep dive into your goals, audience, and technical needs — no assumptions.",
+                wf_step2: "Architecture & Design", wf_step2_desc: "Blueprint + wireframes, interactive prototypes to validate before coding.",
+                wf_step3: "Agile Development", wf_step3_desc: "Sprints, regular demos, and feedback loops — you're involved at every step.",
+                wf_step4: "Launch & Iterate", wf_step4_desc: "Deployment, performance monitoring, and continuous improvement based on real data.",
+                wf_quote: "“Radical transparency — weekly updates, clear milestones, and zero surprises.”",
+                value_badge: "Your success, our mission", value_title: "What you gain by partnering with us",
+                value1_title: "Quality-first mindset", value1_desc: "Clean, maintainable code that reduces technical debt. Your product will be robust and ready to scale.",
+                value2_title: "Communication & availability", value2_desc: "Daily updates, fast responses, and a direct line to us. You’ll never feel left in the dark.",
+                value3_title: "Results-oriented approach", value3_desc: "Every feature is tied to business goals: conversion, engagement, or operational efficiency.",
+                value_note: "No long-term lock-in — we build solutions you own completely. Post-launch support and knowledge transfer included.",
+                stats_badge: "Our footprint", stats_title: "By the numbers", stats1: "tech stacks we master", stats2: "projects & open‑source contributions", stats3: "years of combined expertise", stats4: "client commitment (%)",
+                process_badge: "How we work", process_title: "The creative ritual", process1: "Immerse", process1_desc: "Deep listening & discovery", process2: "Architect", process2_desc: "Structure & strategy", process3: "Sculpt", process3_desc: "Design & refine", process4: "Launch", process4_desc: "Deliver & evolve",
+                contact_title: "Ready to create something exceptional?", contact_sub: "Let’s discuss your vision. We’ll get back to you within 24 hours.",
+                contact_name: "Name", contact_email: "Email", contact_subject: "Subject", contact_message: "Tell us about your project...", contact_btn: "Send message",
+                footer_copyright: "© 2025 Kreate — Digital Atelier. All rights reserved.",
+                alert_success: "Message sent – we’ll reply soon.", alert_error: "Failed – try again later."
+            },
+            fr: {
+                nav_expertise: "Expertise", nav_services: "Services", nav_whyus: "Pourquoi nous", nav_contact: "Contact", start_conversation: "Démarrer une conversation",
+                hero_badge: "Atelier numérique", hero_title_part1: "Nous construisons la ", hero_title_highlight: "confiance numérique", hero_title_part2: "pour vous aider à grandir",
+                hero_desc: "Développement full-stack, expériences interactives et design qui transforment les visiteurs en clients fidèles.",
+                hero_btn_explore: "Découvrez notre expertise →", hero_btn_talk: "Discutons",
+                quote_text: "\"Nous ne faisons pas que coder — nous créons des catalyseurs d'affaires.\"", quote_author: "— Philosophie Kreate",
+                precision_title: "Création de précision", precision_desc: "Chaque détail compte — voyez nos lignes prendre vie.",
+                bring_badge: "Ce que nous apportons", bring_title: "Plus que du développement –<br>un partenariat stratégique",
+                bring_card1_title: "Rapidité de mise sur le marché", bring_card1_desc: "Nous livrons des MVP en semaines, pas en mois. Notre processus lean vous permet de tester, itérer et lancer plus vite.",
+                bring_card2_title: "Stratégie technique", bring_card2_desc: "Nous ne construisons pas seulement ; nous conseillons sur l'architecture, la scalabilité et les choix techniques qui vous font économiser de l'argent à long terme.",
+                bring_card3_title: "Orienté résultats", bring_card3_desc: "Chaque ligne de code vise vos objectifs commerciaux : conversion, engagement et fidélisation.",
+                services_badge: "Nos prestations", services_title: "Nos services", services_sub: "Des solutions de bout en bout adaptées à votre secteur et à vos objectifs.",
+                service1_title: "Développement web full-stack", service1_desc: "React, Next.js, Node.js, Laravel — des plateformes sur mesure qui évoluent.",
+                service2_title: "Expériences interactives & installations", service2_desc: "Expériences temps réel, tactiles et immersives pour événements et activations de marque.",
+                service3_title: "Design UI/UX & identité de marque", service3_desc: "Design centré utilisateur, prototypage et systèmes visuels qui résonnent.",
+                service4_title: "Cloud & DevOps", service4_desc: "Docker, Vercel, CI/CD — une infrastructure résiliente qui grandit avec vous.",
+                whykreate_badge: "Pourquoi Kreate", whykreate_title: "Ce qui nous distingue",
+                diff1_title: "Expérience événementielle prouvée", diff1_desc: "GITEX, SIAM — nous savons livrer sous pression avec des installations temps réel.",
+                diff2_title: "Stack moderne et évolutive", diff2_desc: "React, Next.js, Node.js, Laravel, Python — nous choisissons l'outil adapté au besoin.",
+                diff3_title: "Approche centrée client", diff3_desc: "Nous collaborons étroitement, communiquons de manière transparente et traitons votre succès comme le nôtre.",
+                diff4_title: "Décisions basées sur les données", diff4_desc: "Nous intégrons des analyses et tableaux de bord pour mesurer et développer.",
+                tech_badge: "Notre arsenal technique", tech_title: "Outils modernes, expertise éprouvée", tech_sub: "Nous utilisons les frameworks et langages leaders pour construire des solutions rapides, évolutives et pérennes.",
+                workflow_badge: "Comment nous excellons", workflow_title: "Du concept au lancement, en toute transparence",
+                wf_step1: "Découverte", wf_step1_desc: "Immersion dans vos objectifs, votre public et vos besoins techniques — sans hypothèses.",
+                wf_step2: "Architecture & Design", wf_step2_desc: "Plan + maquettes, prototypes interactifs pour valider avant de coder.",
+                wf_step3: "Développement Agile", wf_step3_desc: "Sprints, démos régulières et boucles de feedback — vous êtes impliqué à chaque étape.",
+                wf_step4: "Lancement & Itération", wf_step4_desc: "Déploiement, suivi des performances et amélioration continue basée sur les données réelles.",
+                wf_quote: "« Transparence radicale — mises à jour hebdomadaires, jalons clairs et zéro surprise. »",
+                value_badge: "Votre succès, notre mission", value_title: "Ce que vous gagnez en travaillant avec nous",
+                value1_title: "Exigence qualité", value1_desc: "Code propre et maintenable qui réduit la dette technique. Votre produit sera robuste et prêt à évoluer.",
+                value2_title: "Communication & disponibilité", value2_desc: "Mises à jour quotidiennes, réponses rapides et un accès direct. Vous n'êtes jamais laissé dans l'ombre.",
+                value3_title: "Approche orientée résultats", value3_desc: "Chaque fonctionnalité est liée à des objectifs commerciaux : conversion, engagement ou efficacité opérationnelle.",
+                value_note: "Pas d'engagement à long terme — nous construisons des solutions que vous possédez entièrement. Support post-lancement et transfert de connaissances inclus.",
+                stats_badge: "Notre empreinte", stats_title: "En chiffres", stats1: "stacks maîtrisées", stats2: "projets & contributions open source", stats3: "années d'expertise combinée", stats4: "engagement client (%)",
+                process_badge: "Notre méthode", process_title: "Le rituel créatif", process1: "Immersion", process1_desc: "Écoute profonde & découverte", process2: "Architecture", process2_desc: "Structure & stratégie", process3: "Sculpture", process3_desc: "Design & raffinement", process4: "Lancement", process4_desc: "Livraison & évolution",
+                contact_title: "Prêt à créer quelque chose d'exceptionnel ?", contact_sub: "Parlons de votre vision. Nous vous répondrons sous 24h.",
+                contact_name: "Nom", contact_email: "Email", contact_subject: "Sujet", contact_message: "Parlez-nous de votre projet...", contact_btn: "Envoyer le message",
+                footer_copyright: "© 2025 Kreate — Atelier numérique. Tous droits réservés.",
+                alert_success: "Message envoyé – nous vous répondrons bientôt.", alert_error: "Échec – veuillez réessayer plus tard."
+            }
+        };
+
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key] !== undefined) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+            currentLang = lang;
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                applyLanguage(lang);
+            });
+        });
+
+        applyLanguage('en');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = this.querySelector('input[name="name"]').value;
+            const email = this.querySelector('input[name="email"]').value;
+            const subject = this.querySelector('input[name="subject"]').value;
+            const message = this.querySelector('textarea[name="message"]').value;
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { from_name: name, from_email: email, subject: subject, message: message })
+                .then(() => { alert(translations[currentLang].alert_success); this.reset(); })
+                .catch(() => alert(translations[currentLang].alert_error));
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        window.addEventListener('load', () => {
+            gsap.to('#loader', { opacity: 0, duration: 0.5, onComplete: () => { document.getElementById('loader').remove(); gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 0.6, delay: 0.2 }); gsap.from('.hero-title', { opacity: 0, y: 30, duration: 0.8, delay: 0.1 }); gsap.from('.hero-desc', { opacity: 0, y: 20, duration: 0.6, delay: 0.2 }); gsap.from('.hero-buttons a', { opacity: 0, scale: 0.9, stagger: 0.15, duration: 0.5 }); gsap.from('.hero-social a', { opacity: 0, y: 20, stagger: 0.1, duration: 0.4 }); gsap.from('.hero-quote', { opacity: 0, x: 30, duration: 0.7 }); } });
+        });
+        gsap.to('.shape-1', { x: 'random(-30, 30)', y: 'random(-30, 30)', rotation: 'random(-15, 15)', duration: 8, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        gsap.to('.shape-2', { x: 'random(-40, 40)', y: 'random(-20, 20)', rotation: 'random(-10, 10)', duration: 12, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        gsap.to('.shape-3', { x: 'random(-20, 20)', y: 'random(-40, 40)', rotation: 'random(-20, 20)', duration: 10, repeat: -1, yoyo: true, ease: "sine.inOut" });
+        gsap.to('#wave-line', { scrollTrigger: { trigger: '#wave-line', start: 'top 80%', toggleActions: 'play none none reverse' }, strokeDashoffset: 0, duration: 2, ease: "power2.inOut" });
+        gsap.utils.toArray('.value-card, .tech-card, .process-card-new, .value-card-new, .diff-card, .service-item, .process-card').forEach(el => { gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }, opacity: 0, y: 30, duration: 0.7, ease: "power2.out" }); });
+        const statNumbers = document.querySelectorAll('.stat-number');
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            let suffix = '';
+            if (stat.closest('.stat-card').innerHTML.includes('k+')) suffix = 'k+';
+            if (stat.closest('.stat-card').innerHTML.includes('%')) suffix = '%';
+            ScrollTrigger.create({ trigger: stat, start: 'top 80%', onEnter: () => { gsap.to({ val: 0 }, { val: target, duration: 2, ease: "power2.out", onUpdate: function () { let value = Math.floor(this.targets()[0].val); if (suffix === 'k+') stat.innerText = value + suffix; else if (suffix === '%') stat.innerText = value + suffix; else stat.innerText = value; }, onComplete: () => { if (suffix === 'k+') stat.innerText = target + suffix; else if (suffix === '%') stat.innerText = target + suffix; else stat.innerText = target; } }); }, once: true });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { const targetId = this.getAttribute('href').substring(1); if (!targetId) return; const targetElement = document.getElementById(targetId); if (targetElement) { e.preventDefault(); gsap.to(window, { duration: 1, scrollTo: targetElement, ease: "power2.inOut" }); } }); });
+        const mobileBtn = document.getElementById('mobile-btn'), mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) { mobileBtn.addEventListener('click', () => { if (mobileMenu.classList.contains('hidden')) { gsap.fromTo(mobileMenu, { opacity: 0, y: -20, display: 'flex' }, { opacity: 1, y: 0, duration: 0.3, onStart: () => mobileMenu.classList.remove('hidden') }); } else { gsap.to(mobileMenu, { opacity: 0, y: -20, duration: 0.2, onComplete: () => mobileMenu.classList.add('hidden') }); } }); document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => { gsap.to(mobileMenu, { opacity: 0, y: -20, duration: 0.2, onComplete: () => mobileMenu.classList.add('hidden') }); }); }); }
+        const backToTop = document.createElement('button'); backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>'; backToTop.className = 'fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all z-50'; backToTop.style.transition = 'opacity 0.3s'; document.body.appendChild(backToTop); ScrollTrigger.create({ trigger: "body", start: "top top", end: "bottom bottom", onUpdate: (self) => { if (self.progress > 0.1) { backToTop.classList.remove('opacity-0', 'pointer-events-none'); backToTop.classList.add('opacity-100', 'pointer-events-auto'); } else { backToTop.classList.add('opacity-0', 'pointer-events-none'); backToTop.classList.remove('opacity-100', 'pointer-events-auto'); } } }); backToTop.addEventListener('click', () => { gsap.to(window, { duration: 1, scrollTo: 0, ease: "power2.inOut" }); });
+    </script>
+</body>
+
+</html>
