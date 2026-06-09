@@ -13,6 +13,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Vanilla-tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
     <style>
         * {
             font-family: 'Inter', sans-serif;
@@ -62,6 +68,27 @@
         .animate-pulse {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+
+        /* Curseur clignotant pour l'effet typed */
+        .typed-cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #2563eb;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -98,20 +125,23 @@
     <section id="hero" class="relative py-20 md:py-32 overflow-hidden">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center space-y-8">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm"
+                    data-aos="fade-down" data-aos-duration="600">
                     <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     <span class="font-medium">Développeur Full-Stack Freelance</span>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight" data-aos="fade-up" data-aos-duration="800"
+                    data-aos-delay="200">
                     Je transforme vos idées en
-                    <span class="text-blue-600">sites web</span> et
-                    <span class="text-blue-600">applications performants</span>
+                    <span id="typed-text" class="text-blue-600"></span><span class="typed-cursor"></span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="800"
+                    data-aos-delay="400">
                     Développeur Full-Stack avec 4 ans d'expérience en agence de communication. J'accompagne les
                     entreprises dans la création de sites web, plateformes métier et solutions digitales sur mesure.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up"
+                    data-aos-duration="800" data-aos-delay="600">
                     <a href="#contact"
                         class="px-6 py-3 bg-blue-600 text-white rounded-md text-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
                         Demander un devis
@@ -124,6 +154,26 @@
                         class="px-6 py-3 border-2 border-gray-300 rounded-md text-lg font-medium hover:bg-gray-50 transition-colors">
                         Voir mes réalisations
                     </a>
+                </div>
+                <!-- Stats ajoutées pour animation compteur -->
+                <div class="flex justify-center gap-8 mt-8" data-aos="fade-up" data-aos-duration="800"
+                    data-aos-delay="800">
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-gray-900 counter" data-target="4">0</span>
+                        <span class="text-sm text-gray-500">Ans d'expérience</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-gray-900 counter" data-target="30">0</span>
+                        <span class="text-sm text-gray-500">Projets livrés</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-gray-900 counter" data-target="8">0</span>
+                        <span class="text-sm text-gray-500">Technologies</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-gray-900 counter" data-target="100">0</span>
+                        <span class="text-sm text-gray-500">% Satisfaction</span>
+                    </div>
                 </div>
                 <div class="pt-8 animate-bounce">
                     <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +189,7 @@
     <section id="expertise" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Mon expertise</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                         Des solutions web adaptées à vos besoins professionnels
@@ -147,8 +197,9 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Service 1 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="0">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -158,10 +209,10 @@
                         <h3 class="text-lg font-semibold mb-2">Sites vitrine professionnels</h3>
                         <p class="text-sm text-gray-600">Présence en ligne moderne et efficace pour votre entreprise</p>
                     </div>
-
                     <!-- Service 2 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="100">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -171,10 +222,10 @@
                         <h3 class="text-lg font-semibold mb-2">Landing pages à fort taux de conversion</h3>
                         <p class="text-sm text-gray-600">Pages optimisées pour transformer vos visiteurs en clients</p>
                     </div>
-
                     <!-- Service 3 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="200">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -184,10 +235,10 @@
                         <h3 class="text-lg font-semibold mb-2">Développement WordPress</h3>
                         <p class="text-sm text-gray-600">Solutions CMS flexibles et personnalisées</p>
                     </div>
-
                     <!-- Service 4 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="300">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -197,10 +248,10 @@
                         <h3 class="text-lg font-semibold mb-2">Applications web Laravel</h3>
                         <p class="text-sm text-gray-600">Applications métier robustes et évolutives</p>
                     </div>
-
                     <!-- Service 5 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="400">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -210,10 +261,10 @@
                         <h3 class="text-lg font-semibold mb-2">Applications web Next.js</h3>
                         <p class="text-sm text-gray-600">Applications React modernes et performantes</p>
                     </div>
-
                     <!-- Service 6 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="500">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -223,10 +274,10 @@
                         <h3 class="text-lg font-semibold mb-2">Applications Electron</h3>
                         <p class="text-sm text-gray-600">Bornes interactives et applications de bureau</p>
                     </div>
-
                     <!-- Service 7 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="600">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -238,10 +289,10 @@
                         <h3 class="text-lg font-semibold mb-2">Maintenance et évolution</h3>
                         <p class="text-sm text-gray-600">Support continu pour vos projets existants</p>
                     </div>
-
                     <!-- Service 8 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
+                        data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
+                        data-aos-delay="700">
                         <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -260,7 +311,7 @@
     <section class="py-20">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Pourquoi travailler avec moi</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                         Un partenaire de confiance pour vos projets digitaux
@@ -268,7 +319,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Reason 1 -->
-                    <div class="flex gap-4 group">
+                    <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="0">
                         <div
                             class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,9 +333,8 @@
                                 projets variés</p>
                         </div>
                     </div>
-
                     <!-- Reason 2 -->
-                    <div class="flex gap-4 group">
+                    <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="100">
                         <div
                             class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,9 +348,8 @@
                                 mise en ligne</p>
                         </div>
                     </div>
-
                     <!-- Reason 3 -->
-                    <div class="flex gap-4 group">
+                    <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="200">
                         <div
                             class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -314,9 +363,8 @@
                             </p>
                         </div>
                     </div>
-
                     <!-- Reason 4 -->
-                    <div class="flex gap-4 group">
+                    <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="300">
                         <div
                             class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -330,9 +378,8 @@
                             </p>
                         </div>
                     </div>
-
                     <!-- Reason 5 -->
-                    <div class="flex gap-4 group">
+                    <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="400">
                         <div
                             class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -345,9 +392,8 @@
                             <p class="text-sm text-gray-600">Technologies choisies en fonction de vos besoins réels</p>
                         </div>
                     </div>
-
                     <!-- Reason 6 -->
-                    <div class="flex gap-4 group">
+                    <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="500">
                         <div
                             class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -372,7 +418,7 @@
     <section id="realisations" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Exemples de projets et compétences</h2>
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">
                         Découvrez les types de solutions que je développe et les compétences mises en œuvre
@@ -392,8 +438,8 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Project 1 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
+                        data-aos="zoom-in" data-aos-delay="0">
                         <h3 class="text-lg font-semibold mb-2">Site vitrine d'entreprise</h3>
                         <p class="text-sm text-gray-600 mb-4">Site corporate moderne avec présentation des services,
                             équipe et actualités de l'entreprise</p>
@@ -435,10 +481,9 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Project 2 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
+                        data-aos="zoom-in" data-aos-delay="100">
                         <h3 class="text-lg font-semibold mb-2">Landing page marketing</h3>
                         <p class="text-sm text-gray-600 mb-4">Page de destination optimisée pour la conversion avec
                             formulaire de contact et appels à l'action</p>
@@ -480,10 +525,9 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Project 3 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
+                        data-aos="zoom-in" data-aos-delay="200">
                         <h3 class="text-lg font-semibold mb-2">Application de gestion interne</h3>
                         <p class="text-sm text-gray-600 mb-4">Dashboard administratif pour la gestion des ressources et
                             suivi des performances</p>
@@ -525,10 +569,9 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Project 4 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
+                        data-aos="zoom-in" data-aos-delay="300">
                         <h3 class="text-lg font-semibold mb-2">Borne interactive</h3>
                         <p class="text-sm text-gray-600 mb-4">Application kiosk pour l'information en libre-service dans
                             les espaces publics</p>
@@ -570,10 +613,9 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Project 5 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
+                        data-aos="zoom-in" data-aos-delay="400">
                         <h3 class="text-lg font-semibold mb-2">Plateforme de réservation</h3>
                         <p class="text-sm text-gray-600 mb-4">Système de réservation en ligne avec gestion des
                             disponibilités et paiements</p>
@@ -615,10 +657,9 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Project 6 -->
-                    <div
-                        class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
+                        data-aos="zoom-in" data-aos-delay="500">
                         <h3 class="text-lg font-semibold mb-2">Tableau de bord administratif</h3>
                         <p class="text-sm text-gray-600 mb-4">Interface de gestion avec visualisation des données et
                             outils d'analyse</p>
@@ -669,7 +710,7 @@
     <section id="processus" class="py-20">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Mon processus de travail</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                         Une méthodologie éprouvée pour mener votre projet au succès
@@ -677,11 +718,10 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Phase 1 -->
-                    <div class="relative group">
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="0">
                         <div
                             class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-                            01
-                        </div>
+                            01</div>
                         <div class="pl-16 pt-2">
                             <div class="flex items-center gap-2 mb-2">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -695,13 +735,11 @@
                                 attentes pour définir le périmètre du projet</p>
                         </div>
                     </div>
-
                     <!-- Phase 2 -->
-                    <div class="relative group">
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="100">
                         <div
                             class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-                            02
-                        </div>
+                            02</div>
                         <div class="pl-16 pt-2">
                             <div class="flex items-center gap-2 mb-2">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -715,13 +753,11 @@
                                 et devis détaillé</p>
                         </div>
                     </div>
-
                     <!-- Phase 3 -->
-                    <div class="relative group">
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="200">
                         <div
                             class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-                            03
-                        </div>
+                            03</div>
                         <div class="pl-16 pt-2">
                             <div class="flex items-center gap-2 mb-2">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -735,13 +771,11 @@
                                 validations intermédiaires</p>
                         </div>
                     </div>
-
                     <!-- Phase 4 -->
-                    <div class="relative group">
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="300">
                         <div
                             class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-                            04
-                        </div>
+                            04</div>
                         <div class="pl-16 pt-2">
                             <div class="flex items-center gap-2 mb-2">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -755,13 +789,11 @@
                                 garantir la qualité finale</p>
                         </div>
                     </div>
-
                     <!-- Phase 5 -->
-                    <div class="relative group">
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="400">
                         <div
                             class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-                            05
-                        </div>
+                            05</div>
                         <div class="pl-16 pt-2">
                             <div class="flex items-center gap-2 mb-2">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -775,13 +807,11 @@
                                 domaines et optimisations</p>
                         </div>
                     </div>
-
                     <!-- Phase 6 -->
-                    <div class="relative group">
+                    <div class="relative group" data-aos="fade-up" data-aos-delay="500">
                         <div
                             class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-                            06
-                        </div>
+                            06</div>
                         <div class="pl-16 pt-2">
                             <div class="flex items-center gap-2 mb-2">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
@@ -804,91 +834,55 @@
     <section id="technologies" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Technologies maîtrisées</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                         Un stack moderne et éprouvé pour des solutions robustes
                     </p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="0">
                         <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                         </svg>
                         <span class="font-medium">Laravel</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="50">
                         <span class="font-medium">Next.js</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="100">
                         <span class="font-medium">React</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="150">
                         <span class="font-medium">PHP</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="200">
                         <span class="font-medium">JavaScript</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="250">
                         <span class="font-medium">TypeScript</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="300">
                         <span class="font-medium">WordPress</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="350">
                         <span class="font-medium">Electron</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="400">
                         <span class="font-medium">MySQL</span>
                     </div>
-                    <div
-                        class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600">
-                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                    <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
+                        data-aos="zoom-in" data-aos-delay="450">
                         <span class="font-medium">Git</span>
                     </div>
                 </div>
@@ -900,13 +894,14 @@
     <section class="py-20">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Témoignages clients</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                         L'avis de mes clients sur nos collaborations
                     </p>
                 </div>
-                <div class="max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+                <div class="max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-sm border border-gray-200"
+                    data-aos="zoom-in">
                     <div class="text-center space-y-4">
                         <div class="flex justify-center gap-1">
                             <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
@@ -948,7 +943,7 @@
     <section id="contact" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 space-y-4">
+                <div class="text-center mb-16 space-y-4" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold">Parlons de votre projet</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                         Vous avez une idée, un besoin ou un projet à développer ? Contactez-moi pour en discuter.
@@ -956,7 +951,7 @@
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Contact Info -->
-                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-right">
                         <h3 class="text-lg font-semibold mb-4">Informations de contact</h3>
                         <p class="text-sm text-gray-600 mb-6">Plusieurs moyens pour entrer en contact</p>
                         <div class="space-y-4">
@@ -1013,9 +1008,8 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Contact Form -->
-                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-left">
                         <h3 class="text-lg font-semibold mb-4">Formulaire de contact</h3>
                         <p class="text-sm text-gray-600 mb-6">Décrivez votre projet et je vous répondrai rapidement</p>
                         <form id="contactForm" class="space-y-4">
@@ -1133,40 +1127,105 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Smooth scroll for navigation links
+        // Initialisation AOS
+        AOS.init({
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 80
+        });
+
+        // Typed text effect
+        const typedElement = document.getElementById('typed-text');
+        const phrases = ["sites web", "applications", "landing pages", "plateformes métier"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typedElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => { isDeleting = true; }, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.textContent = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target + (target === 100 ? '%' : '+');
+                            }
+                        };
+                        updateCounter();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        animateCounters();
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Form submission handler
+        // Formulaire
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Log form data (in real implementation, send to server)
-            console.log('Form submitted:', data);
-
-            // Show success message
-            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
-
-            // Reset form
-            this.reset();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Message envoyé !';
+            btn.classList.add('bg-green-600');
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-green-600');
+                this.reset();
+            }, 3000);
         });
 
-        // Add scroll effect to navigation
+        // Shadow nav au scroll
         window.addEventListener('scroll', function () {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
