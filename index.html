@@ -78,6 +78,10 @@
       animation: blink 0.8s infinite;
     }
 
+[data-tilt] {
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
     @keyframes blink {
 
       0%,
@@ -92,7 +96,7 @@
   </style>
 </head>
 
-<body class="bg-white text-gray-900 antialiased">
+<body class="bg-white text-gray-900 antialiased overflow-x-hidden">
   <!-- Navigation -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
     <div class="container mx-auto px-4 py-4">
@@ -155,24 +159,26 @@
           </a>
         </div>
         <!-- Stats ajoutées pour animation compteur -->
-        <div class="flex justify-center gap-8 mt-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
-          <div class="text-center">
-            <span class="block text-3xl font-bold text-gray-900 counter" data-target="4">0</span>
-            <span class="text-sm text-gray-500">Ans d'expérience</span>
-          </div>
-          <div class="text-center">
-            <span class="block text-3xl font-bold text-gray-900 counter" data-target="30">0</span>
-            <span class="text-sm text-gray-500">Projets livrés</span>
-          </div>
-          <div class="text-center">
-            <span class="block text-3xl font-bold text-gray-900 counter" data-target="8">0</span>
-            <span class="text-sm text-gray-500">Technologies</span>
-          </div>
-          <div class="text-center">
-            <span class="block text-3xl font-bold text-gray-900 counter" data-target="100">0</span>
-            <span class="text-sm text-gray-500">% Satisfaction</span>
-          </div>
+      <!-- Stats (version responsive) -->
+      <div class="flex flex-wrap justify-center gap-4 md:gap-8 mt-8" data-aos="fade-up" data-aos-duration="800"
+        data-aos-delay="800">
+        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
+          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="4">0</span>
+          <span class="text-xs sm:text-sm text-gray-500">Ans d'expérience</span>
         </div>
+        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
+          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="30">0</span>
+          <span class="text-xs sm:text-sm text-gray-500">Projets livrés</span>
+        </div>
+        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
+          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="8">0</span>
+          <span class="text-xs sm:text-sm text-gray-500">Technologies</span>
+        </div>
+        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
+          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="100">0</span>
+          <span class="text-xs sm:text-sm text-gray-500">% Satisfaction</span>
+        </div>
+      </div>
         <div class="pt-8 animate-bounce">
           <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -322,7 +328,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Reason 1 -->
-          <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="0">
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="0">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -337,7 +343,7 @@
             </div>
           </div>
           <!-- Reason 2 -->
-          <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="100">
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="100">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -352,7 +358,7 @@
             </div>
           </div>
           <!-- Reason 3 -->
-          <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="200">
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="200">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -367,7 +373,7 @@
             </div>
           </div>
           <!-- Reason 4 -->
-          <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="300">
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="300">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -382,7 +388,7 @@
             </div>
           </div>
           <!-- Reason 5 -->
-          <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="400">
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="400">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -396,7 +402,7 @@
             </div>
           </div>
           <!-- Reason 6 -->
-          <div class="flex gap-4 group" data-aos="fade-right" data-aos-delay="500">
+          <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="500">
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -938,7 +944,7 @@
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Contact Info -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-right">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up">
             <h3 class="text-lg font-semibold mb-4">Informations de contact</h3>
             <p class="text-sm text-gray-600 mb-6">Plusieurs moyens pour entrer en contact</p>
             <div class="space-y-4">
@@ -982,7 +988,7 @@
             </div>
           </div>
           <!-- Contact Form -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-left">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up">
             <h3 class="text-lg font-semibold mb-4">Formulaire de contact</h3>
             <p class="text-sm text-gray-600 mb-6">Décrivez votre projet et je vous répondrai rapidement</p>
             <form id="contactForm" class="space-y-4">
