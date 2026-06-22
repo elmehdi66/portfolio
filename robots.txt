@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://project-8o0lw.vercel.app/sitemap.xml
