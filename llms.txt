@@ -1,0 +1,36 @@
+# https://gazry.dev/llms.txt
+# Ce fichier aide les modèles de langage à explorer le contenu du site.
+# Dernière mise à jour : 2026-07-02
+
+## Pages principales
+
+- Accueil : https://gazry.dev/
+  Description : Développeur Full-Stack Freelance au Maroc – sites vitrine, applications métier, WordPress, Laravel, Next.js.
+
+- Expertise / Services : https://gazry.dev/#expertise
+  Description : Liste des prestations : sites vitrine, landing pages, WordPress, Laravel, Next.js, Electron, maintenance, optimisation.
+
+- Réalisations : https://gazry.dev/#realisations
+  Description : Exemples de projets pour clients marocains (sites corporate, landing pages, applications de gestion, bornes interactives, plateformes de réservation, dashboards).
+
+- Processus de travail : https://gazry.dev/#processus
+  Description : Méthodologie en 6 étapes : analyse, proposition, développement, validation, mise en ligne, support.
+
+- Technologies maîtrisées : https://gazry.dev/#technologies
+  Description : Laravel, Next.js, React, PHP, JavaScript, TypeScript, WordPress, Electron, MySQL, Git.
+
+- Contact : https://gazry.dev/#contact
+  Description : Formulaire de contact, email (obfusqué), téléphone/WhatsApp, LinkedIn.
+
+## Pages géolocalisées
+
+- Développeur web freelance Casablanca : https://gazry.dev/developpeur-web-freelance-casablanca/
+  Description : Page dédiée aux entreprises de Casablanca avec rendez-vous physiques possibles, facturation en dirhams et connaissance du marché local.
+
+## Plan du site
+
+- Sitemap XML : https://gazry.dev/sitemap.xml
+
+## À propos
+
+Ce site est le portfolio professionnel d'Elmehdi Ghazri, développeur full-stack basé à Casablanca, Maroc.

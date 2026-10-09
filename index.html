@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="fr-MA">
 <head>
+  <!-- ========== GOOGLE TAG (gtag.js) UNIQUE ========== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQYD4113F1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    // Google Analytics
+    gtag('config', 'G-MQYD4113F1');
+    // Google Ads (conversion)
+    gtag('config', 'AW-18275149812');
+  </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WDC9FMXV');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elmehdi - Développeur Full-Stack Freelance | Sites Web & Applications</title>
-  <meta name="description"
-    content="Développeur Full-Stack freelance avec 4 ans d'expérience. Création de sites web professionnels, applications sur mesure, landing pages et plateformes métier. Laravel, Next.js, React, WordPress.">
-  <meta name="keywords"
-    content="Elmehdi, Développeur Full-Stack, Freelance, Sites web, Applications web, Laravel, Next.js, React, WordPress, Electron">
+  <!-- ========== SEO ONSITE MAROC OPTIMISÉ ========== -->
+  <title>Développeur Full-Stack Freelance au Maroc | Elmehdi</title>
+  <meta name="description" content="Développeur web freelance au Maroc (Casablanca, Rabat, Marrakech). Sites vitrine, apps sur mesure, WordPress, Laravel, Next.js. Devis gratuit en dirhams.">
+  <meta name="keywords" content="développeur web Maroc, freelance Maroc, création site internet Casablanca, développeur Laravel Maroc, site vitrine Marrakech, agence web Rabat, Elmehdi, Next.js Maroc, WordPress Maroc">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="MA">
+  <meta name="geo.placename" content="Casablanca, Maroc">
+  <link rel="canonical" href="https://gazry.dev/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Développeur Full-Stack Freelance au Maroc | Elmehdi – Sites & Apps">
+  <meta property="og:description" content="Développeur web freelance au Maroc. Sites vitrine, applications métier, WordPress, Laravel, Next.js. Devis gratuit.">
+  <meta property="og:url" content="https://gazry.dev/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Développeur Full-Stack Freelance au Maroc | Elmehdi">
+  <meta name="twitter:description" content="Sites web & apps sur mesure au Maroc. WordPress, Laravel, Next.js. Devis gratuit.">
+
+  <!-- Favicon et Apple Touch Icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+  <!-- Polices & Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,442 +53,285 @@
 
   <!-- AOS CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-  <!-- Vanilla-tilt -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <!-- Vanilla-tilt (defer) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
 
   <style>
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-link:hover {
-      color: #2563eb;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(10px);
-      }
-    }
-
-    .animate-bounce {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.5;
-      }
-    }
-
-    .animate-pulse {
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-
-    /* Curseur clignotant pour l'effet typed */
-    .typed-cursor {
-      display: inline-block;
-      width: 3px;
-      background-color: #2563eb;
-      margin-left: 2px;
-      animation: blink 0.8s infinite;
-    }
-
-[data-tilt] {
-  overflow: hidden;
-  transform-style: preserve-3d;
-}
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0;
-      }
-    }
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .nav-link:hover { color: #2563eb; }
+    @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(10px); } }
+    .animate-bounce { animation: bounce 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+    .typed-cursor { display:inline-block; width:3px; background-color:#2563eb; margin-left:2px; animation:blink 0.8s infinite; }
+    [data-tilt] { overflow:hidden; transform-style:preserve-3d; }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
   </style>
-</head>
 
+  <!-- Structured Data : Person + LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Elmehdi Ghazri",
+    "jobTitle": "Développeur Full-Stack Freelance",
+    "url": "https://gazry.dev",
+    "telephone": "+212621810047",
+    "email": "contact@gazry.dev",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Casablanca",
+      "addressCountry": "MA"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/elmehdi-ghazri/",
+      "https://wa.me/212621810047"
+    ],
+    "knowsAbout": ["Laravel", "Next.js", "React", "WordPress", "Electron", "Tailwind CSS"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Elmehdi Ghazri - Développeur Web Freelance",
+    "image": "https://gazry.dev/favicon.svg",
+    "url": "https://gazry.dev",
+    "telephone": "+212621810047",
+    "email": "contact@gazry.dev",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Casablanca",
+      "addressRegion": "Casablanca-Settat",
+      "addressCountry": "MA"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Casablanca" },
+      { "@type": "City", "name": "Rabat" },
+      { "@type": "City", "name": "Marrakech" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/elmehdi-ghazri/",
+      "https://wa.me/212621810047"
+    ]
+  }
+  </script>
+</head>
 <body class="bg-white text-gray-900 antialiased overflow-x-hidden">
+
   <!-- Navigation -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
     <div class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2">
           <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
           <span class="font-bold text-lg">Elmehdi</span>
-        </div>
+        </a>
         <div class="hidden md:flex items-center gap-6">
           <a href="#expertise" class="text-sm font-medium nav-link transition-colors">Expertise</a>
           <a href="#realisations" class="text-sm font-medium nav-link transition-colors">Réalisations</a>
+          <a href="#sites-en-ligne" class="text-sm font-medium nav-link transition-colors">Sites en ligne</a>
           <a href="#processus" class="text-sm font-medium nav-link transition-colors">Processus</a>
           <a href="#technologies" class="text-sm font-medium nav-link transition-colors">Technologies</a>
           <a href="#contact" class="text-sm font-medium nav-link transition-colors">Contact</a>
         </div>
-        <a href="#contact"
-          class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
-          Demander un devis
-        </a>
+        <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Devis gratuit</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="hero" class="relative py-20 md:py-32 overflow-hidden">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center space-y-8">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm" data-aos="fade-down"
-          data-aos-duration="600">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-sm" data-aos="fade-down" data-aos-duration="600">
           <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span class="font-medium">Développeur Full-Stack Freelance</span>
+          <span class="font-medium">Développeur Full-Stack Freelance au Maroc</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="200">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           Je transforme vos idées<br> en
           <span id="typed-text" class="text-blue-600"></span><span class="typed-cursor"></span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="800"
-          data-aos-delay="400">
-          Développeur Full-Stack avec 4 ans d'expérience en agence de communication. J'accompagne les
-          entreprises dans la création de sites web, plateformes métier et solutions digitales sur mesure.
+        <div class="sr-only">
+          sites web, applications, landing pages, plateformes métier
+        </div>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          Développeur Full-Stack avec 4 ans d’expérience, j’accompagne les <strong>entreprises marocaines</strong> dans la création de sites web modernes, plateformes métier et solutions digitales sur mesure. Intervention à Casablanca, Rabat, Marrakech et partout au Maroc.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up"
-          data-aos-duration="800" data-aos-delay="600">
-          <a href="#contact"
-            class="px-6 py-3 bg-blue-600 text-white rounded-md text-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+          <a href="#contact" class="px-6 py-3 bg-blue-600 text-white rounded-md text-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
             Demander un devis
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </a>
-          <a href="#realisations"
-            class="px-6 py-3 border-2 border-gray-300 rounded-md text-lg font-medium hover:bg-gray-50 transition-colors">
-            Voir mes réalisations
-          </a>
+          <a href="#realisations" class="px-6 py-3 border-2 border-gray-300 rounded-md text-lg font-medium hover:bg-gray-50 transition-colors">Voir mes réalisations</a>
         </div>
-        <!-- Stats ajoutées pour animation compteur -->
-      <!-- Stats (version responsive) -->
-      <div class="flex flex-wrap justify-center gap-4 md:gap-8 mt-8" data-aos="fade-up" data-aos-duration="800"
-        data-aos-delay="800">
-        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
-          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="4">0</span>
-          <span class="text-xs sm:text-sm text-gray-500">Ans d'expérience</span>
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-center gap-4 md:gap-8 mt-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+          <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto"><span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="4">0</span><span class="text-xs sm:text-sm text-gray-500">Ans d'expérience</span></div>
+          <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto"><span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="30">0</span><span class="text-xs sm:text-sm text-gray-500">Projets livrés</span></div>
+          <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto"><span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="8">0</span><span class="text-xs sm:text-sm text-gray-500">Technologies</span></div>
+          <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto"><span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="100">0</span><span class="text-xs sm:text-sm text-gray-500">% Satisfaction</span></div>
         </div>
-        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
-          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="30">0</span>
-          <span class="text-xs sm:text-sm text-gray-500">Projets livrés</span>
-        </div>
-        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
-          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="8">0</span>
-          <span class="text-xs sm:text-sm text-gray-500">Technologies</span>
-        </div>
-        <div class="text-center w-[calc(50%-0.5rem)] sm:w-auto">
-          <span class="block text-2xl sm:text-3xl font-bold text-gray-900 counter" data-target="100">0</span>
-          <span class="text-xs sm:text-sm text-gray-500">% Satisfaction</span>
-        </div>
-      </div>
         <div class="pt-8 animate-bounce">
-          <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+          <svg class="w-6 h-6 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Expertise Section -->
+  <!-- Expertise -->
   <section id="expertise" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
-          <h2 class="text-3xl md:text-4xl font-bold">Mon expertise</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Des solutions web adaptées à vos besoins professionnels
-          </p>
+          <h2 class="text-3xl md:text-4xl font-bold">Développement web sur mesure pour entreprises marocaines</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Des solutions web adaptées aux besoins des TPE, PME et startups marocaines</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Service 1 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="0">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="0">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Sites vitrine professionnels</h3>
-            <p class="text-sm text-gray-600">Présence en ligne moderne et efficace pour votre entreprise</p>
+            <p class="text-sm text-gray-600">Présence en ligne moderne et efficace pour votre entreprise au Maroc</p>
           </div>
           <!-- Service 2 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="100">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Landing pages à fort taux de conversion</h3>
-            <p class="text-sm text-gray-600">Pages optimisées pour transformer vos visiteurs en clients</p>
+            <p class="text-sm text-gray-600">Solutions optimisées pour transformer vos visiteurs en clients</p>
           </div>
           <!-- Service 3 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="200">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Développement WordPress</h3>
-            <p class="text-sm text-gray-600">Solutions CMS flexibles et personnalisées</p>
+            <p class="text-sm text-gray-600">Solutions CMS flexibles adaptées au marché marocain</p>
           </div>
           <!-- Service 4 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="300">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Applications web Laravel</h3>
-            <p class="text-sm text-gray-600">Applications métier robustes et évolutives</p>
+            <p class="text-sm text-gray-600">Applications métier robustes pour entreprises marocaines</p>
           </div>
           <!-- Service 5 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="400">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold mb-2">Applications web Next.js</h3>
-            <p class="text-sm text-gray-600">Applications React modernes et performantes</p>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Applications Next.js</h3>
+            <p class="text-sm text-gray-600">Applications React modernes et ultra-performantes</p>
           </div>
           <!-- Service 6 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="500">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="500">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Applications Electron</h3>
-            <p class="text-sm text-gray-600">Bornes interactives et applications de bureau</p>
+            <p class="text-sm text-gray-600">Bornes interactives et solutions de bureau sur mesure</p>
           </div>
           <!-- Service 7 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="600">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="600">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Maintenance et évolution</h3>
-            <p class="text-sm text-gray-600">Support continu pour vos projets existants</p>
+            <p class="text-sm text-gray-600">Support continu et mises à jour pour vos projets existants</p>
           </div>
           <!-- Service 8 -->
-          <div
-            class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer"
-            data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up"
-            data-aos-delay="700">
-            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 cursor-pointer" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1" data-aos="fade-up" data-aos-delay="700">
+            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg></div>
             <h3 class="text-lg font-semibold mb-2">Optimisation des performances</h3>
-            <p class="text-sm text-gray-600">Amélioration de la vitesse et de l'efficacité</p>
+            <p class="text-sm text-gray-600">Sites plus rapides pour un meilleur référencement au Maroc</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pourquoi Section -->
+  <!-- Pourquoi (contenu enrichi) -->
   <section class="py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
-          <h2 class="text-3xl md:text-4xl font-bold">Pourquoi travailler avec moi</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Un partenaire de confiance pour vos projets digitaux
-          </p>
+          <h2 class="text-3xl md:text-4xl font-bold">Pourquoi me choisir ?</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Un partenaire local, disponible et expert pour vos projets digitaux</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Reason 1 -->
+          <!-- Raison 1 -->
           <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="0">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </div>
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
             <div class="space-y-2">
               <h3 class="font-semibold text-lg">4 ans d'expérience</h3>
-              <p class="text-sm text-gray-600">Expérience professionnelle en environnement agence avec des
-                projets variés</p>
+              <p class="text-sm text-gray-600">Expérience en agence et projets variés pour le marché marocain</p>
             </div>
           </div>
-          <!-- Reason 2 -->
+          <!-- Raison 2 -->
           <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="100">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
             <div class="space-y-2">
               <h3 class="font-semibold text-lg">Projet de A à Z</h3>
-              <p class="text-sm text-gray-600">Gestion complète de votre projet, de la conception à la
-                mise en ligne</p>
+              <p class="text-sm text-gray-600">Gestion complète, de la conception à la mise en ligne</p>
             </div>
           </div>
-          <!-- Reason 3 -->
+          <!-- Raison 3 -->
           <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="200">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-            </div>
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
             <div class="space-y-2">
               <h3 class="font-semibold text-lg">Communication claire</h3>
-              <p class="text-sm text-gray-600">Transparence et échanges réguliers tout au long du projet
-              </p>
+              <p class="text-sm text-gray-600">Transparence et échanges réguliers tout au long du projet</p>
             </div>
           </div>
-          <!-- Reason 4 -->
+          <!-- Raison 4 -->
           <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="300">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
             <div class="space-y-2">
               <h3 class="font-semibold text-lg">Respect des délais</h3>
-              <p class="text-sm text-gray-600">Livraison dans les temps et gestion rigoureuse du planning
-              </p>
+              <p class="text-sm text-gray-600">Livraison ponctuelle, gestion rigoureuse du planning</p>
             </div>
           </div>
-          <!-- Reason 5 -->
+          <!-- Raison 5 -->
           <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="400">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-              </svg>
-            </div>
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg></div>
             <div class="space-y-2">
               <h3 class="font-semibold text-lg">Solutions adaptées</h3>
-              <p class="text-sm text-gray-600">Technologies choisies en fonction de vos besoins réels</p>
+              <p class="text-sm text-gray-600">Technologies choisies selon vos objectifs business</p>
             </div>
           </div>
-          <!-- Reason 6 -->
+          <!-- Raison 6 -->
           <div class="flex gap-4 group" data-aos="fade-up" data-aos-delay="500">
-            <div
-              class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors"><svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
             <div class="space-y-2">
               <h3 class="font-semibold text-lg">Accompagnement après livraison</h3>
-              <p class="text-sm text-gray-600">Support et maintenance pour assurer la pérennité de votre
-                projet</p>
+              <p class="text-sm text-gray-600">Support et maintenance pour la pérennité de votre projet</p>
             </div>
           </div>
+        </div>
+        <!-- Nouvelle section d'approche -->
+        <div class="mt-16 p-8 bg-blue-50 rounded-xl text-center" data-aos="fade-up" data-aos-delay="600">
+          <h3 class="text-2xl font-bold mb-4">Une approche centrée sur vos objectifs</h3>
+          <p class="text-gray-700 max-w-3xl mx-auto">
+            Je ne me contente pas de coder : j’analyse vos besoins, vos contraintes et vos opportunités pour vous proposer une solution technique qui vous ressemble. Que vous soyez une TPE à Casablanca ou une startup à Rabat, je m’adapte à votre contexte et vous accompagne avec des outils modernes (Laravel, Next.js, WordPress) pour garantir performance, évolutivité et simplicité de gestion.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Réalisations Section -->
+  <!-- Réalisations (exemples) -->
   <section id="realisations" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
-          <h2 class="text-3xl md:text-4xl font-bold">Exemples de projets et compétences</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Découvrez les types de solutions que je développe et les compétences mises en œuvre
-          </p>
+          <h2 class="text-3xl md:text-4xl font-bold">Exemples de projets</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">Découvrez les types de solutions développées pour des entreprises au Maroc</p>
           <div class="inline-flex items-start gap-2 px-4 py-3 bg-amber-50 rounded-lg text-sm max-w-2xl">
-            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            <p class="text-amber-800">
-              Certains projets réalisés dans le cadre de missions en agence sont soumis à des accords de
-              confidentialité. Les exemples présentés illustrent les types de solutions développées et les
-              compétences mises en œuvre.
-            </p>
+            <svg class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <p class="text-amber-800">Certains projets réalisés dans le cadre de missions en agence sont soumis à des accords de confidentialité. Les exemples présentés illustrent les types de solutions développées et les compétences mises en œuvre.</p>
           </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Project 1 -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
-            data-aos="zoom-in" data-aos-delay="0">
+          <!-- Projet 1 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300" data-aos="zoom-in" data-aos-delay="0">
             <h3 class="text-lg font-semibold mb-2">Site vitrine d'entreprise</h3>
-            <p class="text-sm text-gray-600 mb-4">Site corporate moderne avec présentation des services,
-              équipe et actualités de l'entreprise</p>
+            <p class="text-sm text-gray-600 mb-4">Site corporate moderne pour une société marocaine</p>
             <div class="mb-4">
               <p class="text-sm font-medium mb-2">Technologies</p>
               <div class="flex flex-wrap gap-2">
@@ -463,36 +343,16 @@
             <div>
               <p class="text-sm font-medium mb-2">Fonctionnalités</p>
               <ul class="space-y-1">
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Design responsive
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  SEO optimisé
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Interface admin
-                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Design responsive</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>SEO optimisé</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Interface admin</li>
               </ul>
             </div>
           </div>
-          <!-- Project 2 -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
-            data-aos="zoom-in" data-aos-delay="100">
+          <!-- Projet 2 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
             <h3 class="text-lg font-semibold mb-2">Landing page marketing</h3>
-            <p class="text-sm text-gray-600 mb-4">Page de destination optimisée pour la conversion avec
-              formulaire de contact et appels à l'action</p>
+            <p class="text-sm text-gray-600 mb-4">Page de conversion pour une campagne au Maroc</p>
             <div class="mb-4">
               <p class="text-sm font-medium mb-2">Technologies</p>
               <div class="flex flex-wrap gap-2">
@@ -504,36 +364,16 @@
             <div>
               <p class="text-sm font-medium mb-2">Fonctionnalités</p>
               <ul class="space-y-1">
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Animations fluides
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  A/B testing ready
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Analytics intégré
-                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Animations fluides</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>A/B testing ready</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Analytics intégré</li>
               </ul>
             </div>
           </div>
-          <!-- Project 3 -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
-            data-aos="zoom-in" data-aos-delay="200">
+          <!-- Projet 3 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
             <h3 class="text-lg font-semibold mb-2">Application de gestion interne</h3>
-            <p class="text-sm text-gray-600 mb-4">Dashboard administratif pour la gestion des ressources et
-              suivi des performances</p>
+            <p class="text-sm text-gray-600 mb-4">Dashboard administratif pour PME marocaine</p>
             <div class="mb-4">
               <p class="text-sm font-medium mb-2">Technologies</p>
               <div class="flex flex-wrap gap-2">
@@ -545,36 +385,16 @@
             <div>
               <p class="text-sm font-medium mb-2">Fonctionnalités</p>
               <ul class="space-y-1">
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Authentification
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Rôles utilisateurs
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Export données
-                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Authentification</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Rôles utilisateurs</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Export données</li>
               </ul>
             </div>
           </div>
-          <!-- Project 4 -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
-            data-aos="zoom-in" data-aos-delay="300">
+          <!-- Projet 4 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
             <h3 class="text-lg font-semibold mb-2">Borne interactive</h3>
-            <p class="text-sm text-gray-600 mb-4">Application kiosk pour l'information en libre-service dans
-              les espaces publics</p>
+            <p class="text-sm text-gray-600 mb-4">Application kiosk pour espace public à Casablanca</p>
             <div class="mb-4">
               <p class="text-sm font-medium mb-2">Technologies</p>
               <div class="flex flex-wrap gap-2">
@@ -586,36 +406,16 @@
             <div>
               <p class="text-sm font-medium mb-2">Fonctionnalités</p>
               <ul class="space-y-1">
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Mode plein écran
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Navigation tactile
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Contenu dynamique
-                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Mode plein écran</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Navigation tactile</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Contenu dynamique</li>
               </ul>
             </div>
           </div>
-          <!-- Project 5 -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
-            data-aos="zoom-in" data-aos-delay="400">
+          <!-- Projet 5 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300" data-aos="zoom-in" data-aos-delay="400">
             <h3 class="text-lg font-semibold mb-2">Plateforme de réservation</h3>
-            <p class="text-sm text-gray-600 mb-4">Système de réservation en ligne avec gestion des
-              disponibilités et paiements</p>
+            <p class="text-sm text-gray-600 mb-4">Réservation en ligne pour un service marocain</p>
             <div class="mb-4">
               <p class="text-sm font-medium mb-2">Technologies</p>
               <div class="flex flex-wrap gap-2">
@@ -627,36 +427,16 @@
             <div>
               <p class="text-sm font-medium mb-2">Fonctionnalités</p>
               <ul class="space-y-1">
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Calendrier interactif
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Notifications
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Paiement sécurisé
-                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Calendrier interactif</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Notifications</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Paiement sécurisé</li>
               </ul>
             </div>
           </div>
-          <!-- Project 6 -->
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300"
-            data-aos="zoom-in" data-aos-delay="500">
+          <!-- Projet 6 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300" data-aos="zoom-in" data-aos-delay="500">
             <h3 class="text-lg font-semibold mb-2">Tableau de bord administratif</h3>
-            <p class="text-sm text-gray-600 mb-4">Interface de gestion avec visualisation des données et
-              outils d'analyse</p>
+            <p class="text-sm text-gray-600 mb-4">Dashboard analytics pour entreprise marocaine</p>
             <div class="mb-4">
               <p class="text-sm font-medium mb-2">Technologies</p>
               <div class="flex flex-wrap gap-2">
@@ -668,27 +448,9 @@
             <div>
               <p class="text-sm font-medium mb-2">Fonctionnalités</p>
               <ul class="space-y-1">
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Graphiques dynamiques
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Filtres avancés
-                </li>
-                <li class="flex items-center gap-2 text-sm text-gray-600">
-                  <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Exports
-                </li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Graphiques dynamiques</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Filtres avancés</li>
+                <li class="flex items-center gap-2 text-sm text-gray-600"><svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Exports</li>
               </ul>
             </div>
           </div>
@@ -697,116 +459,152 @@
     </div>
   </section>
 
-  <!-- Processus Section -->
+   <!-- Sites en ligne -->
+  <section id="sites-en-ligne" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 space-y-4" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold">Sites en ligne</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Une sélection de sites développés et actuellement en production</p>
+          <p class="text-sm text-gray-500 max-w-2xl mx-auto">Les projets marqués <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Avec agence</span> ont été développés en partenariat avec une agence de communication.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="https://www.bagcapital.ma/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="0">
+            <div>
+              <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">BAG Capital <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Avec agence</span></h3>
+              <p class="text-sm text-gray-500">bagcapital.ma</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://lincoln-casablanca.com/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="50">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Lincoln Casablanca</h3>
+              <p class="text-sm text-gray-500">lincoln-casablanca.com</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://blancatv.ma/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="100">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Blanca TV</h3>
+              <p class="text-sm text-gray-500">blancatv.ma</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://dfs.ci/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="150">
+            <div>
+              <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">DFS <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Avec agence</span></h3>
+              <p class="text-sm text-gray-500">dfs.ci</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://bag.co.ma/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="200">
+            <div>
+              <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">BAG <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Avec agence</span></h3>
+              <p class="text-sm text-gray-500">bag.co.ma</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://odm.ma/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="225">
+            <div>
+              <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">ODM <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-medium">Avec agence</span></h3>
+              <p class="text-sm text-gray-500">odm.ma</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://ugc-project-8pn3.vercel.app/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="250">
+            <div>
+              <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">UGC Project <span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-xs font-medium">Projet en cours</span></h3>
+              <p class="text-sm text-gray-500">ugc-project-8pn3.vercel.app</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://artimezia.com/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="300">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Artimezia</h3>
+              <p class="text-sm text-gray-500">artimezia.com</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://prosalon.ma/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="350">
+            <div>
+              <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">ProSalon <span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-xs font-medium">Projet en cours</span></h3>
+              <p class="text-sm text-gray-500">prosalon.ma</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <a href="https://www.pigeon-worldwide.com/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="400">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Pigeon Worldwide</h3>
+              <p class="text-sm text-gray-500">pigeon-worldwide.com</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+           <a href="https://www.rhsemploi.com/" target="_blank" rel="noopener" class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 card-hover transition-all duration-300 flex items-center justify-between" data-aos="zoom-in" data-aos-delay="400">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Rhs Emploi</h3>
+              <p class="text-sm text-gray-500">rhsemploi.com/</p>
+            </div>
+            <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Processus -->
   <section id="processus" class="py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
           <h2 class="text-3xl md:text-4xl font-bold">Mon processus de travail</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Une méthodologie éprouvée pour mener votre projet au succès
-          </p>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Une méthodologie éprouvée pour votre projet au Maroc</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Phase 1 -->
           <div class="relative group" data-aos="fade-up" data-aos-delay="0">
-            <div
-              class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-              01</div>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">01</div>
             <div class="pl-16 pt-2">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <h3 class="font-semibold text-lg">Analyse du besoin</h3>
-              </div>
-              <p class="text-sm text-gray-600">Compréhension approfondie de vos objectifs, contraintes et
-                attentes pour définir le périmètre du projet</p>
+              <div class="flex items-center gap-2 mb-2"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><h3 class="font-semibold text-lg">Analyse du besoin</h3></div>
+              <p class="text-sm text-gray-600">Compréhension de vos objectifs et contraintes</p>
             </div>
           </div>
           <!-- Phase 2 -->
           <div class="relative group" data-aos="fade-up" data-aos-delay="100">
-            <div
-              class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-              02</div>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">02</div>
             <div class="pl-16 pt-2">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                </svg>
-                <h3 class="font-semibold text-lg">Proposition de solution</h3>
-              </div>
-              <p class="text-sm text-gray-600">Présentation d'une solution adaptée avec planning estimatif
-                et devis détaillé</p>
+              <div class="flex items-center gap-2 mb-2"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg><h3 class="font-semibold text-lg">Proposition de solution</h3></div>
+              <p class="text-sm text-gray-600">Devis détaillé et planning adapté à votre budget</p>
             </div>
           </div>
           <!-- Phase 3 -->
           <div class="relative group" data-aos="fade-up" data-aos-delay="200">
-            <div
-              class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-              03</div>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">03</div>
             <div class="pl-16 pt-2">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <h3 class="font-semibold text-lg">Développement</h3>
-              </div>
-              <p class="text-sm text-gray-600">Réalisation technique avec livraisons régulières et
-                validations intermédiaires</p>
+              <div class="flex items-center gap-2 mb-2"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><h3 class="font-semibold text-lg">Développement</h3></div>
+              <p class="text-sm text-gray-600">Réalisation technique avec validations régulières</p>
             </div>
           </div>
           <!-- Phase 4 -->
           <div class="relative group" data-aos="fade-up" data-aos-delay="300">
-            <div
-              class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-              04</div>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">04</div>
             <div class="pl-16 pt-2">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <h3 class="font-semibold text-lg">Validation</h3>
-              </div>
-              <p class="text-sm text-gray-600">Tests complets et ajustements selon vos retours pour
-                garantir la qualité finale</p>
+              <div class="flex items-center gap-2 mb-2"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><h3 class="font-semibold text-lg">Validation</h3></div>
+              <p class="text-sm text-gray-600">Tests complets et ajustements selon vos retours</p>
             </div>
           </div>
           <!-- Phase 5 -->
           <div class="relative group" data-aos="fade-up" data-aos-delay="400">
-            <div
-              class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-              05</div>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">05</div>
             <div class="pl-16 pt-2">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <h3 class="font-semibold text-lg">Mise en ligne</h3>
-              </div>
-              <p class="text-sm text-gray-600">Déploiement sur vos serveurs avec configuration des
-                domaines et optimisations</p>
+              <div class="flex items-center gap-2 mb-2"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg><h3 class="font-semibold text-lg">Mise en ligne</h3></div>
+              <p class="text-sm text-gray-600">Déploiement et configuration de votre nom de domaine</p>
             </div>
           </div>
           <!-- Phase 6 -->
           <div class="relative group" data-aos="fade-up" data-aos-delay="500">
-            <div
-              class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">
-              06</div>
+            <div class="absolute top-0 left-0 w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-lg">06</div>
             <div class="pl-16 pt-2">
-              <div class="flex items-center gap-2 mb-2">
-                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                <h3 class="font-semibold text-lg">Support</h3>
-              </div>
-              <p class="text-sm text-gray-600">Accompagnement post-lancement pour assurer le bon
-                fonctionnement et l'évolution</p>
+              <div class="flex items-center gap-2 mb-2"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg><h3 class="font-semibold text-lg">Support</h3></div>
+              <p class="text-sm text-gray-600">Accompagnement post-lancement et maintenance</p>
             </div>
           </div>
         </div>
@@ -814,117 +612,82 @@
     </div>
   </section>
 
-  <!-- Technologies Section -->
+  <!-- Technologies -->
   <section id="technologies" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
           <h2 class="text-3xl md:text-4xl font-bold">Technologies maîtrisées</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Un stack moderne et éprouvé pour des solutions robustes
-          </p>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Un stack moderne adapté au marché marocain</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="0">
-            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-            <span class="font-medium">Laravel</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="50">
-            <span class="font-medium">Next.js</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="100">
-            <span class="font-medium">React</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="150">
-            <span class="font-medium">PHP</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="200">
-            <span class="font-medium">JavaScript</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="250">
-            <span class="font-medium">TypeScript</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="300">
-            <span class="font-medium">WordPress</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="350">
-            <span class="font-medium">Electron</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="400">
-            <span class="font-medium">MySQL</span>
-          </div>
-          <div
-            class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600"
-            data-aos="zoom-in" data-aos-delay="450">
-            <span class="font-medium">Git</span>
-          </div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="0"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg><span class="font-medium">Laravel</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="50"><span class="font-medium">Next.js</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="100"><span class="font-medium">React</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="150"><span class="font-medium">PHP</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="200"><span class="font-medium">JavaScript</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="250"><span class="font-medium">TypeScript</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="300"><span class="font-medium">WordPress</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="350"><span class="font-medium">Electron</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="400"><span class="font-medium">MySQL</span></div>
+          <div class="flex items-center justify-center gap-2 p-4 bg-white rounded-lg border hover:shadow-md transition-all duration-300 hover:border-blue-600" data-aos="zoom-in" data-aos-delay="450"><span class="font-medium">Git</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Témoignages Section -->
+  <!-- Témoignages -->
   <section class="py-20">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
-          <h2 class="text-3xl md:text-4xl font-bold">Témoignages clients</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            L'avis de mes clients sur nos collaborations
-          </p>
+          <h2 class="text-3xl md:text-4xl font-bold">Ils m'ont fait confiance</h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Retrouvez quelques avis de clients satisfaits</p>
         </div>
-        <div class="max-w-3xl mx-auto bg-white rounded-xl p-8 shadow-sm border border-gray-200" data-aos="zoom-in">
-          <div class="text-center space-y-4">
-            <div class="flex justify-center gap-1">
-              <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Avis 1 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up" data-aos-delay="0">
+            <div class="flex justify-center gap-1 mb-4">
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
-            <p class="text-lg text-gray-600 italic">
-              "L'espace est réservé pour partager les témoignages de mes futurs clients."
-            </p>
+            <p class="text-gray-600 italic text-sm leading-relaxed mb-4">« Elmehdi est quelqu'un de sérieux, ça se sent dès le départ. Il pose les bonnes questions, ne part pas dans tous les sens, et le rendu était exactement ce qu'on voulait. Les délais ont été tenus, c'est déjà pas rien. Je retravaillerai avec lui. »</p>
             <div class="border-t pt-4">
-              <p class="text-sm text-gray-600">
-                Votre témoignage pourrait apparaître ici après notre collaboration
-              </p>
+              <p class="font-semibold text-sm">Ayoub</p>
+              <p class="text-xs text-gray-500">Directeur transformation digitale</p>
+            </div>
+          </div>
+          <!-- Avis 2 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex justify-center gap-1 mb-4">
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="text-gray-600 italic text-sm leading-relaxed mb-4">« Bon développeur. Projet livré dans les temps, interface propre, et il a pensé à des détails auxquels je n'avais pas pensé moi-même. »</p>
+            <div class="border-t pt-4">
+              <p class="font-semibold text-sm">Zakaria</p>
+              <p class="text-xs text-gray-500">Chef de projet digital</p>
+            </div>
+          </div>
+          <!-- Avis 3 -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex justify-center gap-1 mb-4">
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="text-gray-600 italic text-sm leading-relaxed mb-4">« Pour ceux ou celles qui ont besoin d'un développeur fullstack, je vous recommande vivement ce profil dont je suis ravie du résultat. À l'écoute, rapide et très pro, il a fait un travail impeccable. »</p>
+            <div class="border-t pt-4">
+              <p class="font-semibold text-sm">Safaa</p>
+              <p class="text-xs text-gray-500">Responsable marketing</p>
             </div>
           </div>
         </div>
@@ -932,99 +695,76 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16 space-y-4" data-aos="fade-up">
           <h2 class="text-3xl md:text-4xl font-bold">Parlons de votre projet</h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Vous avez une idée, un besoin ou un projet à développer ? Contactez-moi pour en discuter.
-          </p>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">Vous avez une idée ? Contactez-moi pour un devis gratuit en dirhams.</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Contact Info -->
           <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up">
             <h3 class="text-lg font-semibold mb-4">Informations de contact</h3>
-            <p class="text-sm text-gray-600 mb-6">Plusieurs moyens pour entrer en contact</p>
+            <p class="text-sm text-gray-600 mb-6">Basé à Casablanca, disponible dans tout le Maroc</p>
             <div class="space-y-4">
               <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
                 <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </div>
                 <div>
                   <p class="text-sm font-medium">Email</p>
-                  <p class="text-sm text-gray-600">elmehdighazri@gmail.com</p>
+                  <!-- Email obfusqué via JS -->
+                  <p class="text-sm text-gray-600" id="emailDisplay">
+                    <a href="mailto:contact@gazry.dev" >Contact@gazry.dev</a>
+                  </p>
                 </div>
               </div>
               <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
                 <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 </div>
                 <div>
-                  <p class="text-sm font-medium">Téléphone</p>
+                  <p class="text-sm font-medium">Téléphone / WhatsApp</p>
                   <p class="text-sm text-gray-600">+212 621 810 047</p>
                 </div>
               </div>
               <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
                 <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </div>
                 <div>
                   <p class="text-sm font-medium">LinkedIn</p>
                   <p class="text-sm text-gray-600">linkedin.com/in/elmehdi-ghazri</p>
                 </div>
               </div>
-           
             </div>
           </div>
           <!-- Contact Form -->
           <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200" data-aos="fade-up">
             <h3 class="text-lg font-semibold mb-4">Formulaire de contact</h3>
-            <p class="text-sm text-gray-600 mb-6">Décrivez votre projet et je vous répondrai rapidement</p>
+            <p class="text-sm text-gray-600 mb-6">Décrivez votre projet, je vous réponds sous 24h</p>
             <form id="contactForm" class="space-y-4">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="space-y-2">
                   <label for="name" class="text-sm font-medium">Nom</label>
-                  <input type="text" id="name" name="name" placeholder="Votre nom"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required>
+                  <input type="text" id="name" name="name" placeholder="Votre nom" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
                 </div>
                 <div class="space-y-2">
                   <label for="email" class="text-sm font-medium">Email</label>
-                  <input type="email" id="email" name="email" placeholder="votre@email.com"
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required>
+                  <input type="email" id="email" name="email" placeholder="votre@email.com" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
                 </div>
               </div>
               <div class="space-y-2">
                 <label for="subject" class="text-sm font-medium">Sujet</label>
-                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message"
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required>
+                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
               </div>
               <div class="space-y-2">
                 <label for="message" class="text-sm font-medium">Message</label>
-                <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="5"
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  required></textarea>
+                <textarea id="message" name="message" placeholder="Décrivez votre projet..." rows="5" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" required></textarea>
               </div>
-              <button type="submit"
-                class="w-full px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
-                Envoyer le message
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
+              <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">Envoyer le message <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></button>
             </form>
           </div>
         </div>
@@ -1037,90 +777,83 @@
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="space-y-4">
-          <div class="flex items-center gap-2">
+          <a href="/" class="flex items-center gap-2">
             <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
             </div>
             <span class="font-bold text-lg">Elmehdi</span>
-          </div>
-          <p class="text-sm text-gray-600">
-            Développeur Full-Stack Freelance spécialisé dans la création de sites web et applications sur
-            mesure.
-          </p>
+          </a>
+          <p class="text-sm text-gray-600">Développeur Full-Stack Freelance au Maroc – création de sites web et applications sur mesure.</p>
         </div>
         <div class="space-y-4">
           <h3 class="font-semibold">Navigation</h3>
           <div class="space-y-2">
             <a href="#expertise" class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Expertise</a>
-            <a href="#realisations"
-              class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Réalisations</a>
+            <a href="#realisations" class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Réalisations</a>
+            <a href="#sites-en-ligne" class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Sites en ligne</a>
             <a href="#processus" class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Processus</a>
+            <a href="#technologies" class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Technologies</a>
             <a href="#contact" class="block text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
           </div>
         </div>
         <div class="space-y-4">
           <h3 class="font-semibold">Services</h3>
           <div class="space-y-2 text-sm text-gray-600">
-            <p>Sites vitrine professionnels</p>
-            <p>Applications web sur mesure</p>
+            <p>Sites vitrine</p>
+            <p>Applications web</p>
             <p>Landing pages</p>
-            <p>Maintenance et support</p>
+            <p>Maintenance</p>
+          </div>
+          <div class="space-y-2 text-sm">
+            <a href="/developpeur-web-freelance-casablanca/" class="text-blue-600 hover:underline">Développeur freelance à Casablanca</a>
           </div>
         </div>
       </div>
       <div class="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-gray-600">
-          © 2024 Elmehdi. Tous droits réservés.
-        </p>
+        <p class="text-sm text-gray-600">© 2026 Elmehdi. Tous droits réservés – Développeur freelance au Maroc</p>
         <div class="flex items-center gap-4">
-          <a target="_blank" href="https://www.linkedin.com/in/elmehdi-ghazri/"
-            class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
+          <a target="_blank" href="https://www.linkedin.com/in/elmehdi-ghazri/" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
-          <a target="_blank" href="mailto:elmehdighazri@gmail.com"
-            class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+          <a target="_blank" href="https://wa.me/212621810047" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors" aria-label="WhatsApp">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
           </a>
-          <a target="_blank" href="https://wa.me/212621810047"
-            class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
+          <!-- Facebook (placeholder) -->
+          <a target="_blank" href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-700 hover:text-white transition-colors" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
+          <!-- Twitter (placeholder) -->
+          <a target="_blank" href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-blue-400 hover:text-white transition-colors" aria-label="X">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- Instagram (placeholder) -->
+          <a target="_blank" href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- YouTube (placeholder) -->
+          <a target="_blank" href="#" class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors" aria-label="YouTube">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="/llms.txt" class="text-blue-600 hover:underline">llms.txt</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <script>
-    // Initialisation AOS
-    AOS.init({
-      duration: 700,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 80
+    // AOS init
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.AOS) AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
     });
 
     // Typed text effect
     const typedElement = document.getElementById('typed-text');
     const phrases = ["sites web", "applications", "landing pages", "plateformes métier"];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    let phraseIndex = 0, charIndex = 0, isDeleting = false;
 
     function typeEffect() {
       const currentPhrase = phrases[phraseIndex];
@@ -1131,18 +864,14 @@
         typedElement.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
       }
-
       if (!isDeleting && charIndex === currentPhrase.length) {
         setTimeout(() => { isDeleting = true; }, 2000);
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
       }
-
-      const speed = isDeleting ? 50 : 100;
-      setTimeout(typeEffect, speed);
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
     }
-
     typeEffect();
 
     // Counter animation
@@ -1156,7 +885,6 @@
             const duration = 2000;
             const step = target / (duration / 16);
             let current = 0;
-
             const updateCounter = () => {
               current += step;
               if (current < target) {
@@ -1171,78 +899,71 @@
           }
         });
       }, { threshold: 0.5 });
-
       counters.forEach(counter => observer.observe(counter));
     }
-
     animateCounters();
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+    
+    
+  function reportContactConversion() {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18275149812/DXQeCIuqo-scEPTPoopE'
+    });
+  }
 
-    // Formulaire
-    (function () {
-        // Initialise EmailJS avec ta clé publique (remplace "YOUR_PUBLIC_KEY")
-        emailjs.init("vilPJFv51bdyDN9dY");
-      })();
 
-      document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const btn = this.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
-
-        // Change le bouton en état "envoi..."
-        btn.innerHTML = 'Envoi en cours...';
-        btn.classList.add('bg-gray-500');
-        btn.disabled = true;
-
-        // Envoi via EmailJS (remplace SERVICE_ID et TEMPLATE_ID par les tiens)
-        emailjs.sendForm('service_oqgwels', 'template_yfgh8ko', this)
-          .then(() => {
-            // Succès
-            btn.innerHTML = 'Message envoyé !';
-            btn.classList.remove('bg-gray-500');
-            btn.classList.add('bg-green-600');
-            this.reset();
-            setTimeout(() => {
-              btn.innerHTML = originalText;
-              btn.classList.remove('bg-green-600');
-              btn.disabled = false;
-            }, 3000);
-          }, (error) => {
-            // Erreur
-            console.error('Erreur EmailJS:', error);
-            btn.innerHTML = 'Erreur, réessayez';
-            btn.classList.remove('bg-gray-500');
-            btn.classList.add('bg-red-600');
+    // EmailJS
+    (function() { emailjs.init("vilPJFv51bdyDN9dY"); })();
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Envoi en cours...';
+      btn.classList.add('bg-gray-500');
+      btn.disabled = true;
+      emailjs.sendForm('service_oqgwels', 'template_yfgh8ko', this)
+        .then(() => {
+             // Google Ads conversion
+    reportContactConversion();
+          btn.innerHTML = 'Message envoyé !';
+          btn.classList.remove('bg-gray-500');
+          btn.classList.add('bg-green-600');
+          this.reset();
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.remove('bg-green-600');
             btn.disabled = false;
-            setTimeout(() => {
-              btn.innerHTML = originalText;
-              btn.classList.remove('bg-red-600');
-            }, 3000);
-          });
-      });
+          }, 3000);
+        }, (error) => {
+          console.error('Erreur EmailJS:', error);
+          btn.innerHTML = 'Erreur, réessayez';
+          btn.classList.remove('bg-gray-500');
+          btn.classList.add('bg-red-600');
+          btn.disabled = false;
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.classList.remove('bg-red-600');
+          }, 3000);
+        });
+    });
 
-
-    // Shadow nav au scroll
-    window.addEventListener('scroll', function () {
+    // Shadow nav on scroll
+    window.addEventListener('scroll', function() {
       const nav = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        nav.classList.add('shadow-md');
-      } else {
-        nav.classList.remove('shadow-md');
-      }
+      if (window.scrollY > 50) nav.classList.add('shadow-md');
+      else nav.classList.remove('shadow-md');
     });
   </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDC9FMXV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </body>
-
 </html>

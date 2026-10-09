@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.gazry\.dev [NC]
+RewriteRule ^(.*)$ https://gazry.dev/$1 [L,R=301]
