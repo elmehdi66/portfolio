@@ -1,0 +1,20 @@
+{
+  "name": "gazry-dev",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portfolio d'Elmehdi Ghazri — développeur web full-stack freelance à Casablanca (gazry.dev)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^5.0.2",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.0.2",
+    "astro": "^7.3.8"
+  }
+}
