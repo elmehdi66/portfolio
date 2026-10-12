@@ -1,45 +1,25 @@
 # Current State — refonte gazry.dev
 
-Branche : `refonte-2026` (commit 74234b5 = snapshot du site en ligne avant refonte, fichiers serveur inclus).
+Branche `refonte-2026` (non poussée). `74234b5` = copie du site en ligne avant refonte.
 
-## Stack retenue
-- Astro 7 (sortie 100 % statique, `build.format: 'directory'`, `trailingSlash: 'always'`) → `dist/` à téléverser dans `public_html` (Hostinger, Apache).
-- CSS maison (tokens dans `src/styles/global.css`), aucune lib JS hors EmailJS (chargé à la demande).
-- Polices auto-hébergées : Bricolage Grotesque (titres), Instrument Sans (texte), JetBrains Mono (labels).
-- Direction artistique : éditoriale, papier chaud `#f4f1ea` + encre `#141311` + accent argile `#b5401f`, filets fins, grilles asymétriques, sections « nuit » pour les CTA.
-
-## À conserver du site actuel
-- GA4 `G-MQYD4113F1`, Google Ads `AW-18275149812` + conversion contact, GTM `GTM-WDC9FMXV` (dans `src/data/site.ts`).
-- EmailJS (service_oqgwels / template_yfgh8ko / clé publique) : garder les champs `name`, `email`, `subject`, `message` ; composer les champs ajoutés (type, budget, entreprise) dans `subject`/`message`.
-- WhatsApp +212 621 810 047, e-mail contact@gazry.dev, LinkedIn, page locale Casablanca + FAQ schema, `googlec5668a7df50980b0.html`, `llms.txt`.
-
-## Audit — constats confirmés
-- `/developpeur-web-freelance-casablanca/` (canonical + lien footer) → 404 ; seul le `.html` répond 200.
-- `favicon.svg` cité dans le JSON-LD → 404 ; favicon emoji.
-- `old.html` et `README.md` publics (contenu dupliqué).
-- Tailwind via CDN en production, AOS + vanilla-tilt, effet machine à écrire.
-- Pas de menu mobile (liens masqués < md).
-- Compteurs invérifiables (30+ projets, 100 % satisfaction) + bug d'affichage « 100% / % Satisfaction ».
-- Réalisations = 6 cartes génériques sans visuel ; liens sociaux placeholders (`#`).
-- E-mail incohérent (contact@gazry.dev vs elmehdighazri@gmail.com).
-
-## Projets (audit agents interrompu — à reprendre)
-- ProSalon : prosalon.ma affiche « Coming soon » publiquement. Sources locales : `Downloads/prosalon-*`.
-- MLI : `Desktop/elmehdi/mli/mli-web-hostinger` (+ `Downloads/mli*`).
-- Atlas Lagoon : `Desktop/elmehdi/hpmedi-hpimmo/atlas-lagoon`.
-- SOWENZIA : nom introuvable (web + disque). Seul SaaS IA trouvé : UGC.AI (`Downloads/video-app-corrected/video-app`, React+Vite+TS, Clerk, Express, Prisma/Neon, Cloudinary, Gemini + Veo), https://ugc-project-8pn3.vercel.app/ → **demander à l'utilisateur si SOWENZIA = UGC.AI**.
-- Autres : Artimezia, Pigeon Worldwide, projets agence (BAG Capital, BAG, DFS, ODM), Lincoln, Blanca TV, RHS Emploi, bornes Electron (GITEX 2024).
-- Captures : outil `C:\Users\mghaz\AppData\Local\Temp\gztools\shoot.mjs` (Edge headless, playwright-core). Sorties dans `_research/shots/` (ignoré par git).
-- Reprise du workflow d'audit (résultats déjà terminés en cache) : `Workflow({scriptPath: <script gazry-portfolio-audit>, resumeFromRunId: "wf_487fc305-77e"})`.
+## Stack
+Astro 7 statique → `dist/` à téléverser dans `public_html` (Hostinger). CSS maison, polices auto-hébergées, EmailJS, GA4/Ads/GTM (chargement différé).
 
 ## Fait
-- Repo restructuré (`public/` : .htaccess, robots, llms, vérif. Google), anciens fichiers retirés (dans l'historique git).
-- `package.json`, `astro.config.mjs`, `tsconfig.json`, `src/styles/global.css`, `src/data/site.ts`, `src/data/services.ts` (5 services, 5 étapes, FAQ).
+- Audit complet (site actuel, Lighthouse, 15 projets vérifiés dans le code / en ligne / devis-factures, benchmark de portfolios).
+- Pages : accueil, réalisations, 4 études de cas (MLI, ProSalon, Atlas Lagoon, Masoku), services, à propos, contact, page Casablanca, 404, sitemap.
+- SEO : titles/descriptions uniques, canonical, OG (images générées), JSON-LD, 301 des anciennes URL, robots.txt, llms.txt.
+- Formulaire testé avec EmailJS simulé (validation, succès, erreur, données envoyées). Aucun e-mail réel envoyé.
+- Lighthouse local (mobile) : accueil 90 / 100 / 100 / 100 ; desktop 99 ; études de cas 98. Avant : 27 / 100 / 100 / 100.
+- Aucun lien interne cassé (497 vérifiés), pas de débordement horizontal (390 px et 1440 px).
 
-## Prochaines étapes
-1. Vérifier le build de test (`npx astro build`).
-2. Reprendre l'audit projets → `src/data/projects.ts` + captures dans `src/assets/projects/<slug>/`.
-3. Layout (SEO, header avec menu mobile, footer), composants (BrowserFrame, PhoneFrame, ProjectRow, ContactForm, FAQ).
-4. Pages : `/`, `/realisations/`, `/realisations/[slug]/`, `/services/`, `/a-propos/`, `/contact/`, `/developpeur-web-freelance-casablanca/`, `404`, `sitemap.xml`.
-5. `.htaccess` : 301 `.html` → URL propre, `old.html` → `/`, cache `/_astro/`, en-têtes de sécurité, `ErrorDocument 404`.
-6. OG images + favicon, tests desktop/tablette/mobile, Lighthouse, revue finale, zip `dist/`.
+## Reste à faire / à valider par Elmehdi
+1. Envoyer un vrai message test depuis /contact/ après mise en ligne (vérifier la réception sur le template EmailJS).
+2. Confirmer l'accord des clients pour publier les captures (surtout Atlas Lagoon : rendus fournis par des tiers, préproduction).
+3. Témoignages : repris de l'ancien site (prénoms seulement) — idéalement ajouter nom, entreprise, lien.
+4. Vérifier que l'adresse contact@gazry.dev reçoit bien les e-mails.
+5. Quand ProSalon / Masoku / Artimezia seront lancés : mettre à jour statut, liens et captures (`src/data/projects.ts`).
+6. Optionnel : version anglaise `/en/` (voir DECISIONS.md), pages services dédiées si le contenu grandit.
+
+## Commandes
+`npm run build`, `npm run preview`, `npm run og` (PowerShell), `node scripts/diagrams.mjs`.

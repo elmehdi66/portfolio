@@ -80,7 +80,7 @@ const jsonld = schema.length ? JSON.stringify(graph(...schema)).replace(/</g, '\
       setTimeout(function () { if (!window.__gzReady) document.documentElement.classList.remove('js'); }, 2500);
     </script>
 
-    <!-- Google tag (GA4 + Google Ads) et Google Tag Manager : mêmes identifiants que l'ancien site,
+    <!-- Google tag (GA4 + Google Ads) et Google Tag Manager : mêmes identifiants que l'ancien site,
          chargés après l'affichage (ou à la première interaction) pour ne pas ralentir la page.
          Les appels gtag() faits avant le chargement sont mis en file d'attente dans dataLayer. -->
     <script is:inline define:vars={{ ga4: tracking.ga4, ads: tracking.ads, gtm: tracking.gtm }}>

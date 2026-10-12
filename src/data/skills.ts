@@ -27,7 +27,7 @@ export const skills = [
   },
   {
     group: 'Mise en production',
-    text: 'Versionnement, déploiement, hébergement et suivi : du dépôt Git au site en ligne.',
+    text: 'Versionnement, déploiement, hébergement et suivi : du dépôt Git au site en ligne.',
     items: ['Git / GitHub', 'Vercel', 'Hostinger', 'Postman', 'Figma'],
   },
 ];

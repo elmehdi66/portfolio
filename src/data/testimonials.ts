@@ -1,5 +1,5 @@
 // Avis repris tels quels du site précédent (fournis par Elmehdi).
-// Idéalement : ajouter nom complet, entreprise et lien LinkedIn avec l'accord des auteurs.
+// Idéalement : ajouter nom complet, entreprise et lien LinkedIn avec l'accord des auteurs.
 export const testimonials = [
   {
     quote:

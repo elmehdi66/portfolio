@@ -1,8 +1,0 @@
-[
-  { "in": "_research/shots/prosalon/home-ar-desktop.png", "out": "prosalon/home.webp", "width": 2400 },
-  { "in": "_research/shots/prosalon/home-ar-mobile.png", "out": "prosalon/home-mobile.webp", "width": 780 },
-  { "in": "_research/shots/prosalon/product-ar-desktop.png", "out": "prosalon/product.webp", "width": 2400 },
-  { "in": "_research/shots/prosalon/product-ar-full.png", "out": "prosalon/product-sections.webp", "width": 2400, "top": 3260, "crop": 1500 },
-  { "in": "_research/shots/prosalon/product-ar-mobile.png", "out": "prosalon/product-mobile.webp", "width": 780 },
-  { "in": "_research/shots/prosalon/brand-revlon-ar-mobile.png", "out": "prosalon/brand-mobile.webp", "width": 780 }
-]
