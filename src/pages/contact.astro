@@ -1,0 +1,154 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Faq from '../components/Faq.astro';
+import Icon from '../components/Icon.astro';
+import portrait from '../assets/img/elmehdi-ghazri.jpg';
+import { site, whatsappUrl } from '../data/site';
+import { faq } from '../data/services';
+import { breadcrumbSchema, businessSchema } from '../data/schema';
+
+const next = [
+  { t: 'Je lis votre demande', x: 'Et je vous réponds sous 24 h ouvrées, avec mes premières questions.' },
+  { t: 'On en parle', x: 'Par téléphone, en visio, ou en rendez-vous si vous êtes à Casablanca.' },
+  { t: 'Vous recevez un devis', x: 'Détaillé et gratuit : périmètre, choix techniques, planning et budget.' },
+];
+const contactPage = { '@type': 'ContactPage', name: 'Contact — Elmehdi Ghazri', url: `${site.url}/contact/` };
+---
+<Layout
+  title="Contact & devis gratuit — Elmehdi Ghazri, développeur web à Casablanca"
+  description="Décrivez votre projet de site, d’e-commerce ou d’application web : réponse sous 24 h ouvrées et devis gratuit en dirhams. Formulaire, WhatsApp, e-mail ou téléphone."
+  path="/contact/"
+  hideMobileBar
+  hideFooterCta
+  schema={[businessSchema(), contactPage, breadcrumbSchema([{ name: 'Contact', path: '/contact/' }])]}
+>
+  <section class="wrap page-hero ct-hero">
+    <Breadcrumbs items={[{ name: 'Contact' }]} />
+    <p class="label page-hero__label">
+      {site.available ? <><span class="dot" aria-hidden="true"></span> {site.availabilityLabel}</> : <><span class="idx">●</span> Contact</>}
+    </p>
+    <h1 class="t-3xl balance">
+      <span class="rise"><span style="--i:0">Parlons de</span></span>
+      <span class="rise"><span style="--i:1">votre projet.</span></span>
+    </h1>
+  </section>
+
+  <section class="wrap ct" aria-label="Formulaire et coordonnées">
+    <div class="ct__form">
+      <p class="lede fade-in">Quelques lignes suffisent pour commencer. Plus vous me donnez de contexte, plus ma réponse sera précise.</p>
+      <div class="ct__card fade-in" style="--delay:0.6s">
+        <ContactForm />
+      </div>
+    </div>
+
+    <aside class="ct__side" aria-label="Autres moyens de contact">
+      <div class="who">
+        <Picture src={portrait} alt="" widths={[64, 128]} sizes="64px" formats={['avif', 'webp']} fallbackFormat="jpg" class="who__img" />
+        <div>
+          <p class="who__name">Elmehdi Ghazri</p>
+          <p class="mono who__role">Votre interlocuteur unique</p>
+        </div>
+      </div>
+
+      <ul class="direct" role="list">
+        <li>
+          <a class="direct__row" href={whatsappUrl()} target="_blank" rel="noopener">
+            <span class="direct__ic direct__ic--wa"><Icon name="whatsapp" size={20} /></span>
+            <span><span class="direct__t">WhatsApp</span><span class="direct__v">{site.phoneDisplay}</span></span>
+            <Icon name="external" size={16} class="direct__go" />
+          </a>
+        </li>
+        <li>
+          <a class="direct__row" href={`mailto:${site.email}`}>
+            <span class="direct__ic"><Icon name="mail" size={20} /></span>
+            <span><span class="direct__t">E-mail</span><span class="direct__v">{site.email}</span></span>
+            <Icon name="arrow" size={16} class="direct__go" />
+          </a>
+          <button type="button" class="direct__copy mono" data-copy={site.email}><Icon name="copy" size={13} /> <span data-copy-label>Copier</span></button>
+        </li>
+        <li>
+          <a class="direct__row" href={`tel:${site.phone}`}>
+            <span class="direct__ic"><Icon name="phone" size={20} /></span>
+            <span><span class="direct__t">Téléphone</span><span class="direct__v">{site.phoneDisplay}</span></span>
+            <Icon name="arrow" size={16} class="direct__go" />
+          </a>
+        </li>
+        <li>
+          <a class="direct__row" href={site.linkedin} target="_blank" rel="noopener">
+            <span class="direct__ic"><Icon name="linkedin" size={20} /></span>
+            <span><span class="direct__t">LinkedIn</span><span class="direct__v">elmehdi-ghazri</span></span>
+            <Icon name="external" size={16} class="direct__go" />
+          </a>
+        </li>
+      </ul>
+
+      <div class="next">
+        <p class="label">Et ensuite ?</p>
+        <ol role="list">
+          {next.map((n, i) => (
+            <li><span class="mono next__n">0{i + 1}</span><span><strong>{n.t}</strong><br />{n.x}</span></li>
+          ))}
+        </ol>
+      </div>
+
+      <p class="where mono"><Icon name="pin" size={14} /> <span data-clock>Casablanca, Maroc</span></p>
+    </aside>
+  </section>
+
+  <section class="wrap section" aria-labelledby="faq">
+    <div class="faq-grid">
+      <div>
+        <p class="label"><span class="idx">(FAQ)</span> Avant d’écrire</p>
+        <h2 id="faq" class="t-xl balance faq-title">Questions fréquentes</h2>
+      </div>
+      <Faq items={faq.slice(0, 4)} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ct-hero { padding-bottom: clamp(2rem, 4vw, 3rem); }
+  .ct { display: grid; gap: 3rem; padding-bottom: var(--section); }
+  .ct__card { margin-top: 2rem; padding: clamp(1.25rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: #fbfaf6; border: 1px solid var(--line); }
+  @media (min-width: 1080px) {
+    .ct { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .ct__form { grid-column: 1 / span 7; }
+    .ct__side { grid-column: 9 / span 4; position: sticky; top: calc(var(--header-h) + 1.5rem); align-self: start; }
+  }
+  .who { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.5rem; }
+  .who :global(.who__img) { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+  .who__name { font-family: var(--f-display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; }
+  .who__role { color: var(--ink-3); }
+
+  .direct { border-top: 1px solid var(--line); }
+  .direct li { position: relative; border-bottom: 1px solid var(--line); }
+  .direct__row { display: grid; grid-template-columns: 44px 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; }
+  .direct__ic { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--paper-2); transition: background-color 0.25s, color 0.25s; }
+  .direct__ic--wa { background: #dcefe3; color: #155f39; }
+  .direct__row:hover .direct__ic { background: var(--ink); color: var(--paper); }
+  .direct__row:hover .direct__ic--wa { background: #1d8a52; color: #fff; }
+  .direct__t { display: block; font-weight: 600; }
+  .direct__v { display: block; color: var(--ink-3); font-size: 0.9375rem; overflow-wrap: anywhere; }
+  .direct__row :global(.direct__go) { color: var(--ink-3); transition: transform 0.3s var(--ease-out); }
+  .direct__row:hover :global(.direct__go) { transform: translateX(3px); color: var(--clay); }
+  .direct__copy {
+    position: absolute; right: 2rem; top: 50%; transform: translateY(-50%);
+    display: inline-flex; align-items: center; gap: 0.35rem; min-height: 32px; padding: 0 0.65rem; border-radius: 999px;
+    border: 1px solid var(--line-strong); font-size: 0.625rem; background: var(--paper);
+  }
+  .direct__copy:hover { border-color: var(--ink); }
+
+  .next { margin-top: 2rem; padding: 1.5rem; border-radius: var(--radius-lg); background: var(--paper-2); }
+  .next ol { margin-top: 1rem; display: grid; gap: 1rem; }
+  .next li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; font-size: 0.9375rem; color: var(--ink-2); }
+  .next strong { color: var(--ink); }
+  .next__n { color: var(--clay); padding-top: 0.15rem; }
+  .where { margin-top: 1.5rem; color: var(--ink-3); display: flex; align-items: center; gap: 0.4rem; }
+
+  .faq-grid { display: grid; gap: 2rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .faq-title { margin-top: 1rem; }
+  @media (min-width: 980px) { .faq-grid { grid-template-columns: 4fr 8fr; column-gap: var(--gutter); } }
+</style>

@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ReferenceList from '../components/ReferenceList.astro';
+import Faq from '../components/Faq.astro';
+import Icon from '../components/Icon.astro';
+import { services } from '../data/services';
+import { projects, references } from '../data/projects';
+import { site, whatsappUrl } from '../data/site';
+import { breadcrumbSchema, businessSchema, faqSchema } from '../data/schema';
+
+const why = [
+  { t: 'Rendez-vous physiques possibles', x: 'Pour les entreprises basées à Casablanca, un échange en personne est possible pour cadrer le projet, ce qui simplifie souvent la prise de besoin.' },
+  { t: 'Connaissance du tissu local', x: 'Casablanca concentre une grande partie des PME, startups et agences du Maroc : je connais les attentes courantes de ces clients, du site vitrine à l’outil de gestion interne.' },
+  { t: 'Même fuseau, mêmes horaires', x: 'Pas de délai de réponse lié au décalage horaire : on avance au rythme de votre équipe.' },
+  { t: 'Devis et paiement en dirhams', x: 'Une facturation simple, sans les complications administratives d’un prestataire à l’étranger.' },
+];
+
+const localFaq = [
+  { q: 'Combien coûte un site web réalisé par un freelance à Casablanca ?', a: 'Le tarif dépend de la complexité du projet : site vitrine, e-commerce ou application sur mesure. Je fournis un devis détaillé et gratuit, en dirhams, après un premier échange sur vos besoins.' },
+  { q: 'Peut-on se rencontrer en personne à Casablanca ?', a: 'Oui, un rendez-vous physique est possible à Casablanca pour cadrer le projet, en complément des échanges à distance pendant le développement.' },
+  { q: 'Combien de temps faut-il pour livrer un site vitrine ?', a: 'Pour un site vitrine standard, comptez généralement quelques semaines entre le cadrage et la mise en ligne, selon la disponibilité des contenus et le nombre d’allers-retours de validation.' },
+];
+
+const casaRefs = references.filter((r) => /Lincoln|Pigeon|HP Immo|Blanca/.test(r.name));
+const mli = projects.find((p) => p.slug === 'mli');
+---
+<Layout
+  title="Développeur web freelance à Casablanca | Elmehdi Ghazri"
+  description="Développeur web freelance à Casablanca : sites vitrines, e-commerce, applications Laravel et Next.js pour entreprises et indépendants. Rendez-vous possible, devis gratuit en dirhams."
+  path="/developpeur-web-freelance-casablanca/"
+  schema={[businessSchema(), breadcrumbSchema([{ name: 'Développeur web freelance à Casablanca', path: '/developpeur-web-freelance-casablanca/' }]), faqSchema(localFaq)]}
+>
+  <section class="wrap page-hero">
+    <Breadcrumbs items={[{ name: 'Développeur web à Casablanca' }]} />
+    <p class="label page-hero__label">
+      {site.available ? <><span class="dot" aria-hidden="true"></span> Disponible pour des projets à Casablanca</> : <><span class="idx">●</span> Casablanca</>}
+    </p>
+    <h1 class="t-3xl balance">
+      <span class="rise"><span style="--i:0">Développeur web</span></span>
+      <span class="rise"><span style="--i:1">freelance</span></span>
+      <span class="rise"><span style="--i:2">à Casablanca.</span></span>
+    </h1>
+    <div class="page-hero__foot">
+      <p class="lede fade-in">Je conçois et développe des sites web, des boutiques en ligne et des applications métier pour les entreprises et les indépendants de Casablanca. Du premier rendez-vous jusqu’à la mise en ligne, avec un seul interlocuteur.</p>
+      <div class="fade-in casa-cta" style="--delay:0.65s">
+        <a class="btn" href="/contact/">Demander un devis gratuit <Icon name="arrow" class="arrow" /></a>
+        <a class="btn btn--ghost btn--wa" href={whatsappUrl('Bonjour Elmehdi, je suis à Casablanca et j’ai un projet de site web.')} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="pourquoi">
+    <SectionHead index="01" label="Pourquoi local" id="pourquoi" title="Un partenaire technique sur place." />
+    <div class="why">
+      {why.map((w, i) => (
+        <div class="why__item" data-reveal style={`--d:${i}`}>
+          <p class="mono why__n">0{i + 1}</p>
+          <h3>{w.t}</h3>
+          <p>{w.x}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="prestations">
+    <SectionHead index="02" label="Prestations" id="prestations" title="Ce que je réalise pour les entreprises casablancaises." />
+    <ul class="casa-svc" role="list">
+      {services.map((s) => (
+        <li data-reveal>
+          <a href={`/services/#${s.id}`}>
+            <span class="casa-svc__t">{s.title}</span>
+            <span class="casa-svc__x">{s.short}</span>
+            <Icon name="arrow" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="casa-refs">
+    <SectionHead index="03" label="Références" id="casa-refs" title="Quelques projets pour des structures casablancaises." />
+    {mli && (
+      <a class="casa-feat" href={`/realisations/${mli.slug}/`} data-reveal>
+        <span class="label">Étude de cas</span>
+        <span class="casa-feat__n">{mli.client}</span>
+        <span class="casa-feat__x">{mli.summary}</span>
+        <span class="arrow-link">Lire l’étude de cas <Icon name="arrow" /></span>
+      </a>
+    )}
+    <div class="casa-list"><ReferenceList items={casaRefs} /></div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="faq">
+    <SectionHead index="04" label="Questions fréquentes" id="faq" title="Ce qu’on me demande le plus souvent." />
+    <div class="faq-wrap"><Faq items={localFaq} /></div>
+  </section>
+</Layout>
+
+<style>
+  .section--flush-top { padding-top: 0; }
+  .casa-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .why { margin-top: clamp(2rem, 4vw, 3.5rem); display: grid; gap: 2rem; }
+  .why__item { padding-top: 1.25rem; border-top: 1px solid var(--line); display: grid; gap: 0.6rem; align-content: start; }
+  .why__n { color: var(--clay); }
+  .why__item h3 { font-size: var(--t-lg); letter-spacing: -0.025em; }
+  .why__item p:last-child { color: var(--ink-2); }
+  @media (min-width: 760px) { .why { grid-template-columns: 1fr 1fr; column-gap: var(--gutter); } }
+  @media (min-width: 1200px) { .why { grid-template-columns: repeat(4, 1fr); } }
+
+  .casa-svc { margin-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--line); }
+  .casa-svc li { border-bottom: 1px solid var(--line); }
+  .casa-svc a { display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; padding: 1.25rem 0; align-items: baseline; }
+  .casa-svc__t { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.025em; }
+  .casa-svc__x { grid-column: 1; color: var(--ink-2); }
+  .casa-svc a :global(svg) { grid-column: 2; grid-row: 1; transition: transform 0.4s var(--ease-out); }
+  .casa-svc a:hover :global(svg) { transform: translateX(5px); color: var(--clay); }
+  @media (min-width: 900px) { .casa-svc a { grid-template-columns: 5fr 6fr auto; } .casa-svc__x { grid-column: 2; } .casa-svc a :global(svg) { grid-column: 3; } }
+
+  .casa-feat { margin-top: clamp(2rem, 4vw, 3rem); display: grid; gap: 0.6rem; padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: var(--paper-2); }
+  .casa-feat__n { font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.04em; line-height: 1; }
+  .casa-feat__x { color: var(--ink-2); max-width: 40rem; }
+  .casa-list { margin-top: 2rem; }
+  .faq-wrap { margin-top: clamp(2rem, 4vw, 3rem); }
+  @media (min-width: 980px) { .faq-wrap { margin-left: calc(25% + var(--gutter) * 0.75); } }
+</style>

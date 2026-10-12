@@ -1,0 +1,180 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Icon from '../components/Icon.astro';
+import portrait from '../assets/img/elmehdi-ghazri.jpg';
+import { site } from '../data/site';
+import { skills } from '../data/skills';
+import { breadcrumbSchema, personSchema, PERSON_ID } from '../data/schema';
+
+const timeline = [
+  {
+    when: 'Depuis déc. 2022',
+    what: 'Développeur full-stack en agence créative',
+    where: 'Casablanca',
+    text: 'Applications web, tableaux de bord et sites vitrines en React et Laravel, de l’expression de besoin à la mise en production. API REST, intégrations de services tiers, expériences interactives pour des événements. Collaboration quotidienne avec designers et chefs de projet.',
+  },
+  {
+    when: 'Depuis mars 2022',
+    what: 'Développeur web freelance',
+    where: 'Maroc & à distance',
+    text: 'Sites vitrines et e-commerce sur mesure (WordPress, WooCommerce, React + Laravel), un outil interne de devis et de facturation, maintenance et évolution d’applications existantes. Relation directe avec les clients, du chiffrage à l’accompagnement après livraison.',
+  },
+  {
+    when: '2021 — 2022',
+    what: '3W Academy',
+    where: 'Casablanca',
+    text: 'Bootcamp intensif d’un an en développement web full-stack, dans le cadre d’une reconversion après une première expérience dans la logistique.',
+  },
+  {
+    when: '2015 — 2017',
+    what: 'Centre Casablanca d’Informatique',
+    where: 'Casablanca',
+    text: 'Formation de technicien spécialisé en développement informatique.',
+  },
+];
+
+const principles = [
+  { t: 'Comprendre avant de coder', x: 'Je commence par vos objectifs, vos utilisateurs et vos contraintes. Les bonnes questions au départ évitent les mauvaises surprises à l’arrivée.' },
+  { t: 'Choisir l’outil adapté', x: 'WordPress quand vous voulez gérer vos contenus seul, Next.js pour un site rapide et sur mesure, Laravel quand la logique métier domine. Je vous explique pourquoi.' },
+  { t: 'Livrer proprement', x: 'Responsive, rapide, accessible et bien référencé : je teste sur ordinateur, tablette et mobile avant chaque mise en ligne.' },
+  { t: 'Rester joignable', x: 'Un seul interlocuteur, en français, en arabe ou en anglais, par e-mail, téléphone ou WhatsApp. Pendant le projet et après.' },
+];
+
+const profilePage = {
+  '@type': 'ProfilePage',
+  name: 'À propos d’Elmehdi Ghazri',
+  url: `${site.url}/a-propos/`,
+  mainEntity: { '@id': PERSON_ID },
+};
+---
+<Layout
+  title="À propos — Elmehdi Ghazri, développeur web full-stack à Casablanca"
+  description="Parcours, compétences et méthode de travail d’Elmehdi Ghazri, développeur web full-stack freelance basé à Casablanca : React, Next.js, Laravel, WordPress, intégrations API et IA."
+  path="/a-propos/"
+  ogType="profile"
+  schema={[personSchema(), profilePage, breadcrumbSchema([{ name: 'À propos', path: '/a-propos/' }])]}
+>
+  <section class="wrap page-hero">
+    <Breadcrumbs items={[{ name: 'À propos' }]} />
+    <p class="label page-hero__label"><span class="idx">●</span> À propos</p>
+    <h1 class="t-3xl balance">
+      <span class="rise"><span style="--i:0">Du besoin</span></span>
+      <span class="rise"><span style="--i:1">à la production.</span></span>
+    </h1>
+    <div class="page-hero__foot">
+      <div class="intro fade-in">
+        <Picture src={portrait} alt="Portrait d’Elmehdi Ghazri" widths={[110, 220]} sizes="110px" formats={['avif', 'webp']} fallbackFormat="jpg" class="intro__img" loading="eager" />
+        <p class="lede">Je m’appelle Elmehdi Ghazri. Je suis développeur web full-stack, basé à Casablanca, et je conçois des sites et des applications web pour des entreprises, des startups et des agences depuis {site.startYear}.</p>
+      </div>
+      <div class="facts fade-in" style="--delay:0.65s">
+        <dl>
+          <div><dt class="label">Basé à</dt><dd>Casablanca, Maroc</dd></div>
+          <div><dt class="label">Expérience</dt><dd>{site.experienceYears} ans, en agence et en freelance</dd></div>
+          <div><dt class="label">Langues</dt><dd>Arabe, français, anglais</dd></div>
+          <div><dt class="label">Disponibilité</dt><dd>{site.available ? 'Ouvert à de nouveaux projets' : 'Sur demande'}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="histoire">
+    <SectionHead index="01" label="Mon histoire" id="histoire" title="Un développeur qui parle aussi votre langage.">
+      <div class="prose" data-reveal style="--d:2">
+        <p>Avant le code, j’ai travaillé dans la logistique. En 2021, j’ai choisi de revenir au développement, mon premier métier d’études, en suivant un bootcamp intensif d’un an. Depuis, je n’ai plus arrêté de livrer.</p>
+        <p>En freelance d’abord, pour des petites entreprises, des startups et des particuliers, puis au sein d’une agence créative casablancaise, sur des projets à forte visibilité : sites institutionnels, applications web, expériences interactives pour des événements. J’ai appris à travailler avec des designers, des chefs de projet et des clients exigeants, et à tenir des délais.</p>
+        <p>Aujourd’hui, j’accompagne mes clients sur l’ensemble du projet : <strong>analyse du besoin, choix techniques, développement front-end et back-end, intégrations, mise en production et suivi</strong>. Je suis un développeur polyvalent : je mène un projet web de bout en bout, et je vous dis franchement quand un besoin sort de mon périmètre.</p>
+      </div>
+    </SectionHead>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="parcours">
+    <SectionHead index="02" label="Parcours" id="parcours" title="Quatre ans de projets livrés." />
+    <ol class="tl" role="list">
+      {timeline.map((t, i) => (
+        <li class="tl__item" data-reveal style={`--d:${i}`}>
+          <p class="tl__when mono">{t.when}</p>
+          <div>
+            <h3 class="tl__what">{t.what}</h3>
+            <p class="tl__where mono">{t.where}</p>
+          </div>
+          <p class="tl__text">{t.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="on-night section" aria-labelledby="competences">
+    <div class="wrap">
+      <SectionHead index="03" label="Compétences" id="competences" title="Les outils que j’utilise au quotidien." lede="Pas de mur de logos : voici ce que je fais concrètement avec chaque technologie." />
+      <div class="sk">
+        {skills.map((g, i) => (
+          <div class="sk__group" data-reveal style={`--d:${i % 3}`}>
+            <h3 class="sk__t">{g.group}</h3>
+            <p class="sk__x">{g.text}</p>
+            <ul class="tags" role="list">{g.items.map((it) => <li class="tag">{it}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="facon">
+    <SectionHead index="04" label="Façon de travailler" id="facon" title="Quatre principes, sur chaque projet." />
+    <div class="pr">
+      {principles.map((p, i) => (
+        <div class="pr__item" data-reveal style={`--d:${i}`}>
+          <p class="mono pr__n">0{i + 1}</p>
+          <h3 class="pr__t">{p.t}</h3>
+          <p class="pr__x">{p.x}</p>
+        </div>
+      ))}
+    </div>
+    <div class="about-cta" data-reveal>
+      <a class="btn" href="/contact/">Demander un devis <Icon name="arrow" class="arrow" /></a>
+      <a class="btn btn--ghost" href="/realisations/">Voir les réalisations</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intro { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start; }
+  .intro :global(.intro__img) { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; filter: saturate(0.9); }
+  @media (min-width: 720px) { .intro :global(.intro__img) { width: 110px; height: 110px; } }
+  .facts dl { display: grid; border-top: 1px solid var(--line); }
+  .facts dl > div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .facts dd { font-weight: 500; }
+  .section--flush-top { padding-top: 0; }
+
+  .tl { margin-top: clamp(2rem, 4vw, 3.5rem); border-top: 1px solid var(--line); }
+  .tl__item { display: grid; gap: 0.5rem 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  .tl__when { color: var(--clay); }
+  .tl__what { font-size: var(--t-lg); letter-spacing: -0.025em; }
+  .tl__where { color: var(--ink-3); margin-top: 0.35rem; }
+  .tl__text { color: var(--ink-2); max-width: 40rem; }
+  @media (min-width: 980px) {
+    .tl__item { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .tl__when { grid-column: 1 / span 3; padding-top: 0.45rem; }
+    .tl__item > div { grid-column: 4 / span 4; }
+    .tl__text { grid-column: 8 / span 5; }
+  }
+
+  .sk { margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; gap: 0; }
+  .sk__group { display: grid; gap: 0.75rem; padding: 1.75rem 0; border-top: 1px solid var(--line-night); align-content: start; }
+  .sk__t { font-size: var(--t-lg); letter-spacing: -0.025em; }
+  .sk__x { color: var(--on-night-2); max-width: 30rem; }
+  .sk .tags { margin-top: 0.4rem; }
+  @media (min-width: 760px) { .sk { grid-template-columns: 1fr 1fr; column-gap: var(--gutter); } }
+  @media (min-width: 1100px) { .sk { grid-template-columns: repeat(3, 1fr); } }
+
+  .pr { margin-top: clamp(2rem, 4vw, 3.5rem); display: grid; gap: 2rem; }
+  .pr__item { padding-top: 1.25rem; border-top: 1px solid var(--line); display: grid; gap: 0.6rem; align-content: start; }
+  .pr__n { color: var(--clay); }
+  .pr__t { font-size: var(--t-lg); letter-spacing: -0.025em; }
+  .pr__x { color: var(--ink-2); }
+  @media (min-width: 760px) { .pr { grid-template-columns: 1fr 1fr; column-gap: var(--gutter); } }
+  @media (min-width: 1200px) { .pr { grid-template-columns: repeat(4, 1fr); } }
+  .about-cta { margin-top: clamp(3rem, 6vw, 5rem); display: flex; flex-wrap: wrap; gap: 0.75rem; }
+</style>

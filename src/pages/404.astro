@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout
+  title="Page introuvable — gazry.dev"
+  description="Cette page n’existe pas ou a été déplacée."
+  path="/404/"
+  noindex
+>
+  <section class="wrap nf">
+    <p class="label"><span class="idx">(404)</span> Page introuvable</p>
+    <h1 class="t-3xl balance">Cette page a pris un autre chemin.</h1>
+    <p class="lede">Le lien est peut-être ancien, ou l’adresse contient une faute de frappe. Ces pages devraient vous aider :</p>
+    <ul class="nf__links" role="list">
+      <li><a class="arrow-link" href="/">Accueil <Icon name="arrow" /></a></li>
+      <li><a class="arrow-link" href="/realisations/">Réalisations <Icon name="arrow" /></a></li>
+      <li><a class="arrow-link" href="/services/">Services <Icon name="arrow" /></a></li>
+      <li><a class="arrow-link" href="/contact/">Contact <Icon name="arrow" /></a></li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .nf { padding-top: calc(var(--header-h) + clamp(4rem, 10vw, 9rem)); padding-bottom: var(--section); display: grid; gap: 2rem; }
+  .nf__links { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; font-size: var(--t-md); }
+</style>

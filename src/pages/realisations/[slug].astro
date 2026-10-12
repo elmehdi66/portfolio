@@ -1,0 +1,254 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BrowserFrame from '../../components/BrowserFrame.astro';
+import PhoneFrame from '../../components/PhoneFrame.astro';
+import Icon from '../../components/Icon.astro';
+import { projects } from '../../data/projects';
+import { abs, breadcrumbSchema, PERSON_ID } from '../../data/schema';
+import { whatsappUrl } from '../../data/site';
+import type { Project } from '../../data/types';
+
+export function getStaticPaths() {
+  return projects.map((p, i) => ({
+    params: { slug: p.slug },
+    props: { project: p, next: projects[(i + 1) % projects.length], index: i + 1 },
+  }));
+}
+
+interface Props { project: Project; next: Project; index: number }
+const { project: p, next, index } = Astro.props;
+const path = `/realisations/${p.slug}/`;
+const creativeWork = {
+  '@type': 'CreativeWork',
+  '@id': `${abs(path)}#projet`,
+  name: `${p.name} — ${p.kind}`,
+  headline: p.headline,
+  description: p.description,
+  url: abs(path),
+  image: abs(`/og/${p.slug}.png`),
+  creator: { '@id': PERSON_ID },
+  dateCreated: p.year.match(/\d{4}/)?.[0],
+  inLanguage: 'fr',
+  keywords: p.stack.join(', '),
+  ...(p.url ? { isBasedOn: p.url } : {}),
+};
+const meta = [
+  { k: 'Client', v: p.client },
+  { k: 'Secteur', v: p.sector },
+  { k: 'Lieu', v: p.location },
+  { k: 'Année', v: p.year },
+  { k: 'Rôle', v: p.role },
+  { k: 'Cadre', v: p.engagement },
+];
+---
+<Layout
+  title={`${p.name} — ${p.kind} | Étude de cas, Elmehdi Ghazri`}
+  description={p.description}
+  path={path}
+  ogImage={`/og/${p.slug}.png`}
+  ogType="article"
+  schema={[creativeWork, breadcrumbSchema([{ name: 'Réalisations', path: '/realisations/' }, { name: p.name, path }])]}
+>
+  <article>
+    <header class="wrap page-hero cs-hero">
+      <Breadcrumbs items={[{ name: 'Réalisations', path: '/realisations/' }, { name: p.name }]} />
+      <p class="label page-hero__label"><span class="idx">({String(index).padStart(2, '0')})</span> Étude de cas · {p.kind}</p>
+      <h1 class="t-3xl cs-title">
+        <span class="rise"><span style="--i:0">{p.name}</span></span>
+      </h1>
+      <div class="cs-intro">
+        <p class="cs-headline balance fade-in">{p.headline}</p>
+        <div class="cs-status fade-in" style="--delay:0.6s">
+          <p class="mono cs-status__s"><span class:list={['cs-dot', { 'cs-dot--live': /en ligne/i.test(p.status) }]}></span>{p.status}</p>
+          {p.url && (
+            <a class="btn btn--ghost btn--sm" href={p.url} target="_blank" rel="noopener">
+              {p.urlLabel ?? 'Voir le site'} <Icon name="external" size={16} />
+            </a>
+          )}
+        </div>
+      </div>
+      <dl class="cs-meta fade-in" style="--delay:0.75s">
+        {meta.map((m) => <div><dt class="label">{m.k}</dt><dd>{m.v}</dd></div>)}
+      </dl>
+    </header>
+
+    <div class="wrap">
+      <div class="cs-stage" style={p.tint ? `--tint:${p.tint}` : undefined}>
+        <BrowserFrame src={p.cover.src} alt={p.cover.alt} url={p.url} bare={p.cover.bare} eager sizes="(min-width: 1440px) 1240px, 92vw" />
+      </div>
+    </div>
+
+    <section class="wrap section cs-tldr" aria-label="En bref">
+      <div class="cs-tldr__item" data-reveal><p class="label"><span class="idx">01</span> Le besoin</p><p>{p.tldr.besoin}</p></div>
+      <div class="cs-tldr__item" data-reveal style="--d:1"><p class="label"><span class="idx">02</span> L’approche</p><p>{p.tldr.approche}</p></div>
+      <div class="cs-tldr__item" data-reveal style="--d:2"><p class="label"><span class="idx">03</span> Ce qui a été livré</p><p>{p.tldr.livre}</p></div>
+    </section>
+
+    <div class="wrap cs-body">
+      <section class="cs-sec" aria-labelledby="contexte">
+        <h2 id="contexte" class="cs-sec__t">Contexte</h2>
+        <div class="prose" data-reveal>{p.context.map((t) => <p>{t}</p>)}</div>
+      </section>
+      <section class="cs-sec" aria-labelledby="defi">
+        <h2 id="defi" class="cs-sec__t">Le défi</h2>
+        <div class="prose" data-reveal>{p.problem.map((t) => <p>{t}</p>)}</div>
+      </section>
+      <section class="cs-sec" aria-labelledby="contribution">
+        <h2 id="contribution" class="cs-sec__t">Ma contribution</h2>
+        <ul class="cs-list" role="list" data-reveal>
+          {p.contribution.map((c) => <li><Icon name="check" size={16} /><span>{c}</span></li>)}
+        </ul>
+      </section>
+    </div>
+
+    {p.gallery[0] && (
+      <figure class="wrap cs-shot" data-reveal>
+        <div class="cs-stage cs-stage--soft" style={p.tint ? `--tint:${p.tint}` : undefined}>
+          <BrowserFrame src={p.gallery[0].src} alt={p.gallery[0].alt} url={p.url} sizes="(min-width: 1440px) 1240px, 92vw" />
+        </div>
+        {p.gallery[0].caption && <figcaption class="mono cs-cap">{p.gallery[0].caption}</figcaption>}
+      </figure>
+    )}
+
+    <div class="wrap cs-body">
+      <section class="cs-sec" aria-labelledby="solutions">
+        <h2 id="solutions" class="cs-sec__t">Solutions techniques</h2>
+        <ol class="cs-sol" role="list">
+          {p.solutions.map((s, i) => (
+            <li data-reveal style={`--d:${i % 3}`}>
+              <span class="mono cs-sol__n">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <section class="cs-sec" aria-labelledby="fonctionnalites">
+        <h2 id="fonctionnalites" class="cs-sec__t">Fonctionnalités clés</h2>
+        <ul class="cs-feat" role="list" data-reveal>
+          {p.features.map((f) => <li>{f}</li>)}
+        </ul>
+      </section>
+      <section class="cs-sec" aria-labelledby="stack">
+        <h2 id="stack" class="cs-sec__t">Technologies</h2>
+        <ul class="tags cs-tags" role="list" data-reveal>{p.stack.map((t) => <li class="tag">{t}</li>)}</ul>
+      </section>
+    </div>
+
+    {(p.mobiles?.length ?? 0) > 0 && (
+      <section class="wrap cs-mobiles" aria-label="Captures mobiles">
+        <div class="cs-mobiles__stage" style={p.tint ? `--tint:${p.tint}` : undefined}>
+          {p.mobiles!.map((m, i) => (
+            <div class="cs-mobiles__item" data-reveal style={`--d:${i}`}>
+              <PhoneFrame src={m.src} alt={m.alt} sizes="(min-width: 980px) 280px, 60vw" />
+              {m.caption && <p class="mono cs-cap">{m.caption}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {p.gallery.slice(1).map((g) => (
+      <figure class="wrap cs-shot" data-reveal>
+        <div class="cs-stage cs-stage--soft" style={p.tint ? `--tint:${p.tint}` : undefined}>
+          <BrowserFrame src={g.src} alt={g.alt} url={p.url} sizes="(min-width: 1440px) 1240px, 92vw" />
+        </div>
+        {g.caption && <figcaption class="mono cs-cap">{g.caption}</figcaption>}
+      </figure>
+    ))}
+
+    {p.notes && p.notes.length > 0 && (
+      <aside class="wrap cs-notes" aria-label="Précisions">
+        <p class="label">Précisions</p>
+        <ul role="list">{p.notes.map((n) => <li>{n}</li>)}</ul>
+      </aside>
+    )}
+
+    <section class="wrap section cs-end" aria-labelledby="cs-cta">
+      <div class="cs-end__cta">
+        <h2 id="cs-cta" class="t-xl balance">Un projet similaire&nbsp;? Parlons-en.</h2>
+        <div class="btn-row">
+          <a class="btn" href="/contact/">Demander un devis <Icon name="arrow" class="arrow" /></a>
+          <a class="btn btn--ghost btn--wa" href={whatsappUrl(`Bonjour Elmehdi, j’ai vu l’étude de cas ${p.name} sur gazry.dev et j’ai un projet similaire.`)} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+        </div>
+      </div>
+      <a class="cs-next" href={`/realisations/${next.slug}/`}>
+        <span class="label">Projet suivant</span>
+        <span class="cs-next__name">{next.name}<Icon name="arrow" size={28} /></span>
+        <span class="cs-next__kind mono">{next.kind}</span>
+      </a>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .cs-hero { padding-bottom: clamp(2rem, 4vw, 3.5rem); }
+  .cs-title { font-size: clamp(3rem, 1.6rem + 7vw, 9.5rem); }
+  .cs-intro { margin-top: clamp(1.5rem, 3vw, 2.5rem); display: grid; gap: 1.5rem; align-items: end; }
+  .cs-headline { font-family: var(--f-display); font-weight: 500; font-size: var(--t-lg); line-height: 1.2; letter-spacing: -0.02em; max-width: 44rem; color: var(--ink-2); }
+  .cs-status { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.25rem; }
+  .cs-status__s { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--ink-2); }
+  .cs-dot { width: 8px; height: 8px; border-radius: 50%; background: #c49a2c; }
+  .cs-dot--live { background: #2f9e62; }
+  @media (min-width: 980px) { .cs-intro { grid-template-columns: 1fr auto; } }
+  .cs-meta { margin-top: clamp(2rem, 4vw, 3rem); display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .cs-meta > div { padding: 1rem 1rem 1rem 0; border-bottom: 1px solid var(--line); }
+  .cs-meta dd { margin-top: 0.3rem; font-weight: 500; font-size: 0.9375rem; line-height: 1.35; }
+  @media (min-width: 760px) { .cs-meta { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1200px) { .cs-meta { grid-template-columns: repeat(6, 1fr); } .cs-meta > div { border-bottom: 0; } }
+
+  .cs-stage { --tint: var(--paper-2); background: var(--tint); border-radius: var(--radius-lg); padding: clamp(1rem, 4.5vw, 4.5rem); }
+  .cs-stage--soft { padding: clamp(0.75rem, 3.5vw, 3.5rem); }
+
+  .cs-tldr { display: grid; gap: 2rem; }
+  .cs-tldr__item { display: grid; gap: 0.9rem; align-content: start; padding-top: 1.25rem; border-top: 1px solid var(--ink); }
+  .cs-tldr__item p:last-child { font-size: var(--t-md); line-height: 1.5; }
+  @media (min-width: 900px) { .cs-tldr { grid-template-columns: repeat(3, 1fr); column-gap: var(--gutter); } }
+
+  .cs-body { display: grid; gap: clamp(3rem, 6vw, 5rem); padding-bottom: var(--section); }
+  .cs-sec { display: grid; gap: 1.25rem; }
+  .cs-sec__t { font-size: var(--t-lg); letter-spacing: -0.025em; }
+  @media (min-width: 980px) {
+    .cs-sec { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .cs-sec__t { grid-column: 1 / span 4; position: sticky; top: calc(var(--header-h) + 2rem); align-self: start; }
+    .cs-sec > :not(.cs-sec__t) { grid-column: 5 / span 8; }
+  }
+  .cs-list { display: grid; gap: 0.85rem; max-width: 44rem; }
+  .cs-list li { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0.75rem; color: var(--ink-2); }
+  .cs-list li :global(svg) { margin-top: 0.35rem; color: var(--clay); }
+  .cs-sol { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .cs-sol li { display: grid; grid-template-columns: 2.75rem 1fr; gap: 0.35rem 0.75rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+  .cs-sol__n { color: var(--clay); grid-row: span 2; padding-top: 0.3rem; }
+  .cs-sol h3 { font-size: 1.25rem; letter-spacing: -0.02em; line-height: 1.2; }
+  .cs-sol p { color: var(--ink-2); max-width: 42rem; }
+  .cs-feat { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .cs-feat li { padding: 0.85rem 0 0.85rem 1.4rem; border-bottom: 1px solid var(--line); position: relative; }
+  .cs-feat li::before { content: ''; position: absolute; left: 0; top: 1.45rem; width: 7px; height: 7px; background: var(--clay); border-radius: 2px; }
+  @media (min-width: 760px) { .cs-feat { grid-template-columns: 1fr 1fr; column-gap: var(--gutter); } }
+
+  .cs-shot { padding-bottom: var(--section); }
+  .cs-cap { margin-top: 1rem; color: var(--ink-3); }
+  .cs-mobiles { padding-bottom: var(--section); }
+  .cs-mobiles__stage {
+    --tint: var(--paper-2); background: var(--tint); border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 5vw, 5rem) clamp(1rem, 4vw, 4rem); display: grid; gap: 2rem; justify-items: center;
+  }
+  .cs-mobiles__item { width: min(100%, 280px); }
+  @media (min-width: 760px) { .cs-mobiles__stage { grid-template-columns: repeat(auto-fit, minmax(200px, 280px)); justify-content: center; column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; } .cs-mobiles__item:nth-child(2) { margin-top: 3rem; } }
+
+  .cs-notes { padding-bottom: 3rem; }
+  .cs-notes ul { margin-top: 0.75rem; display: grid; gap: 0.5rem; max-width: 52rem; color: var(--ink-3); font-size: 0.9375rem; }
+  .cs-notes li { padding-left: 1rem; position: relative; }
+  .cs-notes li::before { content: '—'; position: absolute; left: 0; }
+
+  .cs-end { display: grid; gap: 3rem; border-top: 1px solid var(--line); }
+  .cs-end__cta { display: grid; gap: 1.5rem; align-content: start; }
+  .cs-next { display: grid; gap: 0.6rem; padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: var(--ink); color: var(--paper); }
+  .cs-next .label { color: var(--on-night-2); }
+  .cs-next__name { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.04em; line-height: 1; }
+  .cs-next__name :global(svg) { transition: transform 0.4s var(--ease-out); flex: none; }
+  .cs-next:hover .cs-next__name :global(svg) { transform: translateX(6px); }
+  .cs-next__kind { color: var(--on-night-2); }
+  @media (min-width: 980px) { .cs-end { grid-template-columns: 7fr 5fr; column-gap: var(--gutter); align-items: end; } }
+</style>

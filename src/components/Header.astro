@@ -1,0 +1,130 @@
+---
+import Icon from './Icon.astro';
+import { nav, site, whatsappUrl } from '../data/site';
+
+interface Props { path: string }
+const { path } = Astro.props;
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<header class="hdr" data-header>
+  <div class="wrap hdr__in">
+    <a href="/" class="brand">
+      <span class="brand__mark" aria-hidden="true">eg</span>
+      <span class="brand__name">Elmehdi Ghazri</span>
+      <span class="brand__role mono hide-sm">Full-stack · Casablanca</span>
+    </a>
+
+    <nav class="hdr__nav" aria-label="Navigation principale">
+      <ul role="list">
+        {nav.map((item, i) => (
+          <li>
+            <a href={item.href} class="hdr__link" aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              <span class="hdr__idx mono" aria-hidden="true">0{i + 1}</span>{item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="hdr__end">
+      <a href="/contact/" class="btn btn--sm hdr__cta">Demander un devis</a>
+      <button class="hdr__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+        <span class="mono">Menu</span>
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </div>
+
+  <div class="menu" id="menu" hidden data-menu>
+    <div class="wrap menu__in">
+      <div class="menu__top">
+        <span class="label"><span class="idx">●</span> Navigation</span>
+        <button class="hdr__burger" type="button" data-menu-close>
+          <span class="mono">Fermer</span>
+          <Icon name="close" size={20} />
+        </button>
+      </div>
+      <nav aria-label="Navigation mobile">
+        <ul role="list" class="menu__list">
+          <li><a href="/" aria-current={path === '/' ? 'page' : undefined}><span class="mono">00</span>Accueil</a></li>
+          {nav.map((item, i) => (
+            <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}><span class="mono">0{i + 1}</span>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="menu__foot">
+        <a class="btn" href="/contact/">Demander un devis <Icon name="arrow" class="arrow" /></a>
+        <a class="btn btn--ghost btn--wa" href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+        <a class="menu__mail link" href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hdr {
+    position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--header-h);
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    border-bottom: 1px solid transparent;
+    transition: transform 0.45s var(--ease-out), border-color 0.3s, background-color 0.3s;
+  }
+  :global(.is-scrolled) .hdr { border-bottom-color: var(--line); }
+  :global(.is-hidden-hdr) .hdr { transform: translateY(-100%); }
+  .hdr__in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+
+  .brand { display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--f-display); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.02em; }
+  .brand__mark {
+    display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px;
+    background: var(--ink); color: var(--paper); font-size: 0.95rem; letter-spacing: -0.04em;
+    transition: background-color 0.3s;
+  }
+  .brand:hover .brand__mark { background: var(--clay); }
+  .brand__role { color: var(--ink-3); font-size: 0.6875rem; padding-left: 0.7rem; border-left: 1px solid var(--line-strong); }
+
+  .hdr__nav { display: none; }
+  .hdr__nav ul { display: flex; gap: clamp(1rem, 2.2vw, 2.25rem); }
+  .hdr__link { position: relative; display: inline-flex; align-items: flex-start; gap: 0.3rem; font-weight: 500; font-size: 0.975rem; padding-block: 0.4rem; }
+  .hdr__idx { font-size: 0.625rem; color: var(--ink-3); transform: translateY(-0.15rem); }
+  .hdr__link::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0.15rem; height: 1px; background: currentColor;
+    transform: scaleX(0); transform-origin: right; transition: transform 0.4s var(--ease-out);
+  }
+  .hdr__link:hover::after, .hdr__link[aria-current='page']::after { transform: scaleX(1); transform-origin: left; }
+  .hdr__link[aria-current='page'] .hdr__idx { color: var(--clay); }
+
+  .hdr__end { display: flex; align-items: center; gap: 0.75rem; }
+  .hdr__cta { display: none; }
+  .hdr__burger { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 0.25rem; }
+  .hdr__burger .mono { font-size: 0.75rem; }
+
+  @media (min-width: 980px) {
+    .hdr__nav { display: block; }
+    .hdr__cta { display: inline-flex; }
+    .hdr__burger { display: none; }
+  }
+
+  .menu {
+    position: fixed; inset: 0; z-index: 60; background: var(--paper); overflow-y: auto;
+    display: flex; flex-direction: column;
+  }
+  .menu[hidden] { display: none; }
+  .menu__in { flex: 1; display: flex; flex-direction: column; padding-bottom: 2rem; }
+  .menu__top { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
+  .menu__list { margin-top: 1.5rem; border-top: 1px solid var(--line); }
+  .menu__list li { border-bottom: 1px solid var(--line); }
+  .menu__list a {
+    display: flex; align-items: baseline; gap: 1rem; padding: 1rem 0;
+    font-family: var(--f-display); font-weight: 600; font-size: clamp(2rem, 9vw, 3.25rem); letter-spacing: -0.04em; line-height: 1;
+  }
+  .menu__list a .mono { font-size: 0.75rem; color: var(--ink-3); }
+  .menu__list a[aria-current='page'] { color: var(--clay); }
+  .menu__foot { margin-top: auto; padding-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+  .menu__mail { width: 100%; margin-top: 0.5rem; font-weight: 500; }
+  @media (prefers-reduced-motion: no-preference) {
+    .menu:not([hidden]) .menu__list li { animation: fade 0.6s var(--ease-out) both; }
+    .menu:not([hidden]) .menu__list li:nth-child(2) { animation-delay: 0.04s; }
+    .menu:not([hidden]) .menu__list li:nth-child(3) { animation-delay: 0.08s; }
+    .menu:not([hidden]) .menu__list li:nth-child(4) { animation-delay: 0.12s; }
+    .menu:not([hidden]) .menu__list li:nth-child(5) { animation-delay: 0.16s; }
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import BrowserFrame from './BrowserFrame.astro';
+import PhoneFrame from './PhoneFrame.astro';
+import Icon from './Icon.astro';
+import type { Project } from '../data/types';
+
+interface Props {
+  project: Project;
+  index: number;
+  flip?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+const { project: p, index, flip = false, headingLevel: H = 'h3' } = Astro.props;
+const href = `/realisations/${p.slug}/`;
+const n = String(index).padStart(2, '0');
+---
+<article class:list={['pf', { 'pf--flip': flip }]} aria-labelledby={`pf-${p.slug}`}>
+  <div class="pf__meta">
+    <p class="pf__n mono" data-reveal>{n}</p>
+    <H id={`pf-${p.slug}`} class="pf__name" data-reveal style="--d:1">
+      <a href={href}>{p.name}</a>
+    </H>
+    <p class="pf__headline pretty" data-reveal style="--d:2">{p.headline}</p>
+    <dl class="pf__dl" data-reveal style="--d:3">
+      <div><dt class="label">Type</dt><dd>{p.kind}</dd></div>
+      <div><dt class="label">Secteur</dt><dd>{p.sector}</dd></div>
+      <div><dt class="label">Année</dt><dd>{p.year}</dd></div>
+      <div><dt class="label">Rôle</dt><dd>{p.role}</dd></div>
+    </dl>
+    <ul class="tags" role="list" data-reveal style="--d:4">
+      {p.stack.slice(0, 5).map((t) => <li class="tag">{t}</li>)}
+    </ul>
+    <a class="arrow-link pf__cta" href={href} data-reveal style="--d:5">
+      Voir l’étude de cas <span class="sr-only">{p.name}</span><Icon name="arrow" />
+    </a>
+  </div>
+
+  <a class="pf__stage" href={href} tabindex="-1" aria-hidden="true" style={p.tint ? `--tint:${p.tint}` : undefined} data-reveal>
+    <div class="pf__desk parallax-wrap">
+      <BrowserFrame src={p.cover.src} alt="" url={p.url} bare={p.cover.bare} ratio={16 / 10} sizes="(min-width: 1440px) 900px, (min-width: 980px) 62vw, 92vw" widths={[640, 900, 1200, 1600, 1900]} />
+    </div>
+    {p.mobile && (
+      <div class="pf__phone">
+        <PhoneFrame src={p.mobile.src} alt="" sizes="(min-width: 980px) 220px, 34vw" />
+      </div>
+    )}
+  </a>
+</article>
+
+<style>
+  .pf { display: grid; gap: 2rem; }
+  .pf__n { color: var(--clay); font-size: 0.8125rem; }
+  .pf__name { font-size: var(--t-2xl); margin-top: 0.75rem; }
+  .pf__name a { background-image: linear-gradient(currentColor, currentColor); background-size: 0 2px; background-position: 0 92%; background-repeat: no-repeat; transition: background-size 0.5s var(--ease-out); }
+  .pf__name a:hover { background-size: 100% 2px; }
+  .pf__headline { margin-top: 1rem; font-size: var(--t-md); color: var(--ink-2); max-width: 30rem; line-height: 1.45; }
+  .pf__dl { margin-top: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+  .pf__dl dd { margin-top: 0.2rem; font-weight: 500; font-size: 0.9375rem; line-height: 1.35; }
+  .pf .tags { margin-top: 1.5rem; }
+  .pf__cta { margin-top: 1.75rem; }
+
+  .pf__stage {
+    --tint: var(--paper-2);
+    position: relative; display: block; border-radius: var(--radius-lg);
+    background: var(--tint); padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem) 0;
+    overflow: hidden; isolation: isolate;
+  }
+  .pf__desk { position: relative; transition: transform 0.9s var(--ease-out); transform-origin: 50% 100%; }
+  .pf__desk :global(.frame) { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: 0; }
+  .pf__stage:hover .pf__desk { transform: translateY(-6px); }
+  .pf__phone {
+    position: absolute; right: clamp(0.75rem, 3vw, 2.5rem); bottom: clamp(0.75rem, 3vw, 2rem);
+    width: clamp(92px, 22%, 210px); transition: transform 0.9s var(--ease-out);
+  }
+  .pf__stage:hover .pf__phone { transform: translateY(-12px) rotate(-1deg); }
+
+  @media (min-width: 980px) {
+    .pf { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; }
+    .pf__meta { grid-column: 1 / span 4; grid-row: 1; padding-bottom: 0.5rem; }
+    .pf__stage { grid-column: 5 / span 8; grid-row: 1; }
+    .pf--flip .pf__meta { grid-column: 9 / span 4; }
+    .pf--flip .pf__stage { grid-column: 1 / span 8; }
+    .pf--flip .pf__phone { right: auto; left: clamp(0.75rem, 3vw, 2.5rem); }
+  }
+</style>

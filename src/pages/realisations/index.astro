@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import ProjectFeature from '../../components/ProjectFeature.astro';
+import ReferenceList from '../../components/ReferenceList.astro';
+import { projects, references, interactive } from '../../data/projects';
+import { abs, breadcrumbSchema, PERSON_ID } from '../../data/schema';
+
+const list = {
+  '@type': 'ItemList',
+  name: 'Études de cas',
+  itemListElement: projects.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: abs(`/realisations/${p.slug}/`),
+    name: p.name,
+  })),
+};
+const page = { '@type': 'CollectionPage', name: 'Réalisations — Elmehdi Ghazri', url: abs('/realisations/'), author: { '@id': PERSON_ID } };
+---
+<Layout
+  title="Réalisations & études de cas — Elmehdi Ghazri, développeur web"
+  description="Études de cas détaillées : e-commerce B2B, site institutionnel Next.js, plateforme immobilière, SaaS d’IA. Plus une sélection de sites en ligne réalisés en freelance et en agence."
+  path="/realisations/"
+  schema={[page, list, breadcrumbSchema([{ name: 'Réalisations', path: '/realisations/' }])]}
+>
+  <section class="wrap page-hero">
+    <Breadcrumbs items={[{ name: 'Réalisations' }]} />
+    <p class="label page-hero__label"><span class="idx">●</span> Réalisations</p>
+    <h1 class="t-3xl balance">
+      <span class="rise"><span style="--i:0">Projets livrés,</span></span>
+      <span class="rise"><span style="--i:1">expliqués en détail.</span></span>
+    </h1>
+    <div class="page-hero__foot">
+      <p class="lede fade-in">Pour chaque étude de cas : le contexte du client, le problème à résoudre, ce que j’ai réellement fait et les choix techniques. Aucun chiffre inventé, et des liens vers les sites quand ils sont en ligne.</p>
+      <dl class="rh-facts fade-in" style="--delay:0.65s">
+        <div><dt class="label">Études de cas</dt><dd>{projects.length}</dd></div>
+        <div><dt class="label">Autres références</dt><dd>{references.length}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-label="Études de cas">
+    <div class="work">
+      {projects.map((p, i) => <ProjectFeature project={p} index={i + 1} flip={i % 2 === 1} headingLevel="h2" />)}
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="refs">
+    <SectionHead index="+" label="Autres références" id="refs" title="D’autres sites et applications livrés." lede="Projets réalisés en freelance ou au sein d’une agence créative casablancaise. La mention indique le cadre de chaque mission." />
+    <div class="refs"><ReferenceList items={references} /></div>
+  </section>
+
+  {interactive && (
+    <section class="wrap section section--flush-top" aria-labelledby="interactive">
+      <SectionHead index="++" label="Expériences interactives" id="interactive" title={interactive.title} lede={interactive.text} />
+      {interactive.items.length > 0 && (
+        <ul class="tags inter-tags" role="list">{interactive.items.map((t) => <li class="tag">{t}</li>)}</ul>
+      )}
+    </section>
+  )}
+</Layout>
+
+<style>
+  .section--flush-top { padding-top: 0; }
+  .rh-facts { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .rh-facts > div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .rh-facts dd { font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.04em; margin-top: 0.4rem; }
+  .work { display: grid; gap: clamp(4.5rem, 10vw, 9rem); }
+  .refs { margin-top: clamp(2rem, 4vw, 3.5rem); }
+  .inter-tags { margin-top: 2rem; }
+  @media (min-width: 980px) { .inter-tags { margin-left: calc(25% + var(--gutter) * 0.75); } }
+</style>

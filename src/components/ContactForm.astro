@@ -1,0 +1,228 @@
+---
+import Icon from './Icon.astro';
+import { emailjs, tracking } from '../data/site';
+
+const types = ['Site vitrine / institutionnel', 'E-commerce', 'Application web / SaaS', 'API, automatisation ou IA', 'Maintenance / refonte', 'Autre'];
+const budgets = ['À définir ensemble', 'Moins de 15 000 MAD', '15 000 – 40 000 MAD', '40 000 – 100 000 MAD', 'Plus de 100 000 MAD'];
+const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise'];
+---
+<form
+  class="cf"
+  novalidate
+  data-contact-form
+  data-service={emailjs.serviceId}
+  data-template={emailjs.templateId}
+  data-key={emailjs.publicKey}
+  data-conversion={tracking.adsContactConversion}
+>
+  <fieldset class="cf__group">
+    <legend class="cf__legend">Votre projet</legend>
+    <div class="cf__chips" role="radiogroup" aria-label="Type de projet">
+      {types.map((t, i) => (
+        <label class="chip">
+          <input type="radio" name="project_type" value={t} checked={i === 0} />
+          <span>{t}</span>
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <div class="cf__row">
+    <div class="field">
+      <label for="cf-name">Nom et prénom <span aria-hidden="true">*</span></label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120" />
+      <p class="field__err" id="cf-name-err" hidden></p>
+    </div>
+    <div class="field">
+      <label for="cf-email">E-mail <span aria-hidden="true">*</span></label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" />
+      <p class="field__err" id="cf-email-err" hidden></p>
+    </div>
+  </div>
+
+  <div class="cf__row">
+    <div class="field">
+      <label for="cf-phone">Téléphone / WhatsApp <span class="opt">(facultatif)</span></label>
+      <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" />
+    </div>
+    <div class="field">
+      <label for="cf-company">Entreprise <span class="opt">(facultatif)</span></label>
+      <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="120" />
+    </div>
+  </div>
+
+  <div class="cf__row">
+    <div class="field">
+      <label for="cf-budget">Budget estimé <span class="opt">(facultatif)</span></label>
+      <select id="cf-budget" name="budget">
+        {budgets.map((b) => <option value={b}>{b}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="cf-delay">Délai souhaité <span class="opt">(facultatif)</span></label>
+      <select id="cf-delay" name="timeline">
+        {delays.map((d) => <option value={d}>{d}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="cf-message">Décrivez votre projet <span aria-hidden="true">*</span></label>
+    <textarea id="cf-message" name="message" rows="6" required minlength="20" maxlength="4000"
+      placeholder="Votre activité, ce que vous souhaitez construire ou améliorer, un site existant éventuel, vos échéances…"></textarea>
+    <p class="field__err" id="cf-message-err" hidden></p>
+  </div>
+
+  <div class="cf__hp" aria-hidden="true">
+    <label for="cf-website">Ne pas remplir</label>
+    <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="cf__foot">
+    <button type="submit" class="btn cf__submit" data-submit>
+      <span data-submit-label>Envoyer la demande</span>
+      <Icon name="arrow" class="arrow" />
+    </button>
+    <p class="cf__note">Vos informations servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées à d’autres fins.</p>
+  </div>
+  <div class="cf__status" role="status" aria-live="polite" tabindex="-1" data-status hidden></div>
+</form>
+
+<script>
+  type Fields = Record<string, string>;
+
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('[data-status]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]')!;
+    const messages: Record<string, { valueMissing: string; typeMismatch?: string; tooShort?: string }> = {
+      name: { valueMissing: 'Indiquez votre nom.' },
+      email: { valueMissing: 'Indiquez votre adresse e-mail.', typeMismatch: 'Cette adresse e-mail ne semble pas valide.' },
+      message: { valueMissing: 'Décrivez votre projet en quelques lignes.', tooShort: 'Ajoutez quelques détails (20 caractères minimum).' },
+    };
+
+    const showError = (input: HTMLInputElement | HTMLTextAreaElement) => {
+      const err = form.querySelector<HTMLElement>(`#${input.id}-err`);
+      const m = messages[input.name];
+      if (!err || !m) return true;
+      let text = '';
+      if (input.validity.valueMissing) text = m.valueMissing;
+      else if (input.validity.typeMismatch && m.typeMismatch) text = m.typeMismatch;
+      else if (input.validity.tooShort && m.tooShort) text = m.tooShort;
+      err.textContent = text;
+      err.hidden = !text;
+      input.setAttribute('aria-invalid', text ? 'true' : 'false');
+      if (text) input.setAttribute('aria-describedby', err.id); else input.removeAttribute('aria-describedby');
+      return !text;
+    };
+
+    form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input[required], textarea[required]').forEach((el) => {
+      el.addEventListener('blur', () => { if (el.value) showError(el); });
+      el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') showError(el); });
+    });
+
+    const setStatus = (kind: 'ok' | 'err' | 'info', html: string) => {
+      status.hidden = false;
+      status.dataset.kind = kind;
+      status.innerHTML = html;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const required = Array.from(form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input[required], textarea[required]'));
+      const invalid = required.filter((el) => !showError(el));
+      if (invalid.length) { invalid[0].focus(); return; }
+
+      const data = Object.fromEntries(new FormData(form).entries()) as Fields;
+      if (data.website) return; // pot de miel anti-spam
+
+      const details = [
+        `Type de projet : ${data.project_type}`,
+        `Budget : ${data.budget}`,
+        `Délai : ${data.timeline}`,
+        data.company ? `Entreprise : ${data.company}` : '',
+        data.phone ? `Téléphone / WhatsApp : ${data.phone}` : '',
+      ].filter(Boolean).join('\n');
+
+      const params = {
+        name: data.name,
+        email: data.email,
+        reply_to: data.email,
+        subject: `Nouveau projet — ${data.project_type}${data.company ? ` — ${data.company}` : ''}`,
+        message: `${data.message}\n\n———\n${details}\n\nEnvoyé depuis gazry.dev`,
+        project_type: data.project_type,
+        budget: data.budget,
+        timeline: data.timeline,
+        company: data.company || '',
+        phone: data.phone || '',
+      };
+
+      submit.disabled = true;
+      submitLabel.textContent = 'Envoi en cours…';
+      status.hidden = true;
+
+      try {
+        const { send } = await import('@emailjs/browser');
+        await send(form.dataset.service!, form.dataset.template!, params, { publicKey: form.dataset.key! });
+        const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+        w.gtag?.('event', 'conversion', { send_to: form.dataset.conversion });
+        w.gtag?.('event', 'generate_lead', { form: 'contact', project_type: data.project_type });
+        form.reset();
+        setStatus('ok', '<strong>Merci, votre demande est bien envoyée.</strong> Je vous réponds sous 24 h ouvrées, par e-mail ou par téléphone si vous l’avez indiqué.');
+        submitLabel.textContent = 'Demande envoyée';
+        setTimeout(() => { submit.disabled = false; submitLabel.textContent = 'Envoyer la demande'; }, 4000);
+      } catch (err) {
+        console.error('Envoi du formulaire impossible', err);
+        setStatus('err', '<strong>L’envoi n’a pas abouti.</strong> Réessayez dans un instant, ou écrivez-moi directement à <a href="mailto:contact@gazry.dev">contact@gazry.dev</a> ou sur <a href="https://wa.me/212621810047" target="_blank" rel="noopener">WhatsApp</a>.');
+        submit.disabled = false;
+        submitLabel.textContent = 'Envoyer la demande';
+      }
+      status.focus?.();
+    });
+  }
+</script>
+
+<style>
+  .cf { display: grid; gap: 1.5rem; }
+  .cf__group { border: 0; padding: 0; min-width: 0; }
+  .cf__legend { font-weight: 600; margin-bottom: 0.75rem; }
+  .cf__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chip { position: relative; cursor: pointer; }
+  .chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .chip span {
+    display: inline-flex; align-items: center; min-height: 42px; padding: 0.5rem 1rem; border-radius: 999px;
+    border: 1px solid var(--line-strong); font-size: 0.9375rem; font-weight: 500; transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .chip:hover span { border-color: var(--ink); }
+  .chip input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chip input:focus-visible + span { outline: 2px solid var(--clay); outline-offset: 2px; }
+
+  .cf__row { display: grid; gap: 1.5rem; }
+  @media (min-width: 640px) { .cf__row { grid-template-columns: 1fr 1fr; } }
+  .field { display: grid; gap: 0.45rem; }
+  .field label { font-weight: 600; font-size: 0.9375rem; }
+  .opt { font-weight: 400; color: var(--ink-3); }
+  .field input, .field select, .field textarea {
+    width: 100%; min-height: 50px; padding: 0.75rem 0.9rem; border-radius: var(--radius);
+    background: #fbfaf6; border: 1px solid var(--line-strong); font-size: 1rem; line-height: 1.4;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .field textarea { resize: vertical; min-height: 150px; }
+  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23141311' stroke-width='1.6'%3E%3Cpath d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.4rem; }
+  .field input:hover, .field select:hover, .field textarea:hover { border-color: var(--ink-3); }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgb(181 64 31 / 0.18); }
+  .field [aria-invalid='true'] { border-color: var(--err); }
+  .field__err { color: var(--err); font-size: 0.875rem; font-weight: 500; }
+  .field textarea::placeholder { color: #8a847a; }
+
+  .cf__hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .cf__foot { display: grid; gap: 1rem; align-items: center; }
+  @media (min-width: 640px) { .cf__foot { grid-template-columns: auto 1fr; gap: 1.5rem; } }
+  .cf__submit[disabled] { opacity: 0.7; cursor: progress; }
+  .cf__note { font-size: 0.8125rem; color: var(--ink-3); max-width: 28rem; }
+  .cf__status { padding: 1rem 1.15rem; border-radius: var(--radius); border: 1px solid var(--line-strong); }
+  .cf__status[data-kind='ok'] { background: #e5efe6; border-color: #9cc2a8; color: #123d27; }
+  .cf__status[data-kind='err'] { background: #f6e1db; border-color: #dba596; color: #5e1b0e; }
+  .cf__status :global(a) { text-decoration: underline; text-underline-offset: 2px; }
+</style>

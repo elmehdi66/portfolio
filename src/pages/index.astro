@@ -1,4 +1,193 @@
-﻿---
-import '../styles/global.css';
 ---
-<html lang="fr"><head><meta charset="utf-8" /><title>test</title></head><body><h1 class="t-3xl">Test</h1></body></html>
+import { Picture } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ProjectThumb from '../components/ProjectThumb.astro';
+import ProjectFeature from '../components/ProjectFeature.astro';
+import ReferenceList from '../components/ReferenceList.astro';
+import Steps from '../components/Steps.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Icon from '../components/Icon.astro';
+import portrait from '../assets/img/elmehdi-ghazri.jpg';
+import { projects, references } from '../data/projects';
+import { services } from '../data/services';
+import { site, whatsappUrl } from '../data/site';
+import { businessSchema, personSchema, websiteSchema } from '../data/schema';
+---
+<Layout
+  title="Elmehdi Ghazri — Développeur web full-stack freelance à Casablanca"
+  description="Sites sur mesure, e-commerce B2B, applications web et SaaS avec IA : je conçois et développe vos projets web de l’idée à la mise en ligne. React, Next.js, Laravel, WordPress. Devis gratuit."
+  path="/"
+  schema={[websiteSchema(), personSchema(), businessSchema()]}
+>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero__meta fade-in" style="--delay:0.1s">
+      <p class="label">
+        {site.available ? <span class="dot" aria-hidden="true"></span> : <span class="idx">●</span>}
+        {site.available ? site.availabilityLabel : 'Développeur web full-stack'}
+      </p>
+      <p class="label hide-sm"><Icon name="pin" size={13} /> <span data-clock>Casablanca, Maroc</span></p>
+      <p class="label hide-sm">{site.responseTime}</p>
+    </div>
+
+    <h1 id="hero-title" class="hero__title t-3xl">
+      <span class="sr-only">Elmehdi Ghazri, développeur web full-stack freelance à Casablanca : </span>
+      <span class="rise"><span style="--i:0">Sites & applications web</span></span>
+      <span class="rise"><span style="--i:1"><em>sur mesure,</em> de l’idée</span></span>
+      <span class="rise"><span style="--i:2">à la mise en ligne.</span></span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="lede fade-in" style="--delay:0.55s">
+        Je suis <strong>Elmehdi Ghazri</strong>, développeur full-stack freelance à Casablanca. J’accompagne PME, startups, agences et promoteurs immobiliers, au Maroc et à l’international : sites institutionnels, e-commerce B2B, plateformes immobilières et SaaS intégrant l’IA.
+      </p>
+      <div class="hero__actions fade-in" style="--delay:0.7s">
+        <div class="btn-row">
+          <a class="btn" href="/contact/">Demander un devis <Icon name="arrow" class="arrow" /></a>
+          <a class="btn btn--ghost" href="#realisations">Voir les réalisations</a>
+        </div>
+        <p class="hero__wa"><a class="link link--reveal" href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" size={16} /> Ou écrivez-moi sur WhatsApp</a></p>
+        <p class="mono hero__stack">React · Next.js · Laravel · WordPress · API & IA</p>
+      </div>
+    </div>
+
+    <div class="hero__strip">
+      <p class="label hero__strip-l fade-in" style="--delay:0.85s"><span class="idx">↓</span> Sélection récente</p>
+      <ul class="hero__thumbs" role="list">
+        {projects.slice(0, 4).map((p, i) => (
+          <li class="fade-in" style={`--delay:${0.9 + i * 0.08}s`}><ProjectThumb project={p} index={i + 1} eager /></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section wrap" id="realisations" aria-labelledby="work-title">
+    <SectionHead index="01" label="Réalisations" id="work-title" title="Des projets réels, pour des clients réels." lede="Une sélection de projets sur lesquels j’ai travaillé, du cadrage à la mise en production. Chaque étude de cas détaille le besoin, ce que j’ai fait et les choix techniques." />
+    <div class="work">
+      {projects.map((p, i) => <ProjectFeature project={p} index={i + 1} flip={i % 2 === 1} />)}
+    </div>
+    <div class="refs">
+      <div class="refs__head">
+        <p class="label"><span class="idx">+</span> Autres références</p>
+        <a class="arrow-link" href="/realisations/">Toutes les réalisations <Icon name="arrow" /></a>
+      </div>
+      <ReferenceList items={references.slice(0, 5)} showDescription={false} />
+    </div>
+  </section>
+
+  <section class="section wrap svc-sec" aria-labelledby="svc-title">
+    <SectionHead index="02" label="Services" id="svc-title" title="Ce que je peux faire pour vous." lede="Des prestations claires, pensées pour les entreprises qui ont besoin d’un développeur capable de mener un projet de bout en bout." />
+    <ol class="svc-rows" role="list">
+      {services.map((s, i) => (
+        <li data-reveal style={`--d:${i}`}>
+          <a class="svc-row" href={`/services/#${s.id}`}>
+            <span class="mono svc-row__n">0{i + 1}</span>
+            <span class="svc-row__t">{s.title}</span>
+            <span class="svc-row__x">{s.short}</span>
+            <span class="svc-row__go" aria-hidden="true"><Icon name="arrow" size={22} /></span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="on-night section" aria-labelledby="method-title">
+    <div class="wrap">
+      <SectionHead index="03" label="Méthode" id="method-title" title="Un déroulé simple, des étapes validées avec vous." lede="Pas d’effet tunnel : vous savez à chaque étape ce qui est fait et ce qui reste à faire." />
+      <div class="steps-wrap"><Steps /></div>
+    </div>
+  </section>
+
+  <section class="section wrap" aria-labelledby="about-title">
+    <SectionHead index="04" label="À propos" id="about-title" title="Un seul interlocuteur, du premier échange à la production." />
+    <div class="about">
+      <div class="about__who" data-reveal>
+        <Picture src={portrait} alt="Portrait d’Elmehdi Ghazri" widths={[96, 192]} sizes="96px" formats={['avif', 'webp']} fallbackFormat="jpg" class="about__img" />
+        <div>
+          <p class="about__name">Elmehdi Ghazri</p>
+          <p class="mono about__role">Développeur web full-stack · Casablanca</p>
+        </div>
+      </div>
+      <div class="about__text prose" data-reveal style="--d:1">
+        <p>Depuis {site.startYear}, je développe des sites et des applications web entre une agence créative casablancaise et mes propres clients en freelance. Cette double expérience m’a appris à travailler avec des designers et des chefs de projet, à respecter des délais serrés et à expliquer simplement des choix techniques.</p>
+        <p>Je travaille principalement avec <strong>React, Next.js, Laravel et WordPress</strong>, et j’intègre des API tierces (paiement, livraison, intelligence artificielle) quand elles apportent un vrai gain.</p>
+        <p><a class="arrow-link" href="/a-propos/">Mon parcours et ma façon de travailler <Icon name="arrow" /></a></p>
+      </div>
+    </div>
+    <div class="quotes">
+      <p class="label quotes__l" data-reveal><span class="idx">“</span> Ce qu’en disent mes clients</p>
+      <Testimonials />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding-top: calc(var(--header-h) + clamp(1.5rem, 4vw, 3rem)); padding-bottom: clamp(3rem, 6vw, 5rem); }
+  .hero__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+  .hero__title { margin-top: clamp(2rem, 4.5vw, 4rem); }
+  .hero__title em { font-style: normal; color: var(--clay); }
+  @media (max-width: 719px) {
+    .hero__title { text-wrap: balance; font-size: clamp(2.6rem, 11.5vw, 3.4rem); }
+    .hero__title .rise { display: inline; overflow: visible; }
+    .hero__title .rise > span { display: inline; transform: none; animation: none; }
+    .hero__title .rise + .rise::before { content: ' '; }
+  }
+  .hero__foot { margin-top: clamp(1.75rem, 3vw, 2.75rem); display: grid; gap: 2rem; align-items: start; }
+  .hero__foot .lede strong { color: var(--ink); font-weight: 600; }
+  .hero__actions { display: grid; gap: 1rem; justify-items: start; }
+  .hero__wa a { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 500; color: var(--ink-2); }
+  .hero__stack { color: var(--ink-3); }
+  @media (min-width: 980px) {
+    .hero__foot { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .hero__foot .lede { grid-column: 1 / span 6; }
+    .hero__actions { grid-column: 8 / span 5; }
+  }
+  .hero__strip { margin-top: clamp(2.5rem, 5vw, 4.5rem); }
+  .hero__strip-l { margin-bottom: 1.25rem; }
+  .hero__thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem var(--gutter); }
+  @media (min-width: 1100px) { .hero__thumbs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (max-width: 560px) {
+    .hero__thumbs { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 74%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.75rem; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; }
+    .hero__thumbs::-webkit-scrollbar { display: none; }
+    .hero__thumbs > li { scroll-snap-align: start; }
+  }
+
+  .work { margin-top: clamp(3rem, 6vw, 5.5rem); display: grid; gap: clamp(4.5rem, 10vw, 9rem); }
+  .refs { margin-top: clamp(4.5rem, 9vw, 8rem); }
+  .refs__head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 1.25rem; }
+
+  .svc-sec { padding-top: 0; }
+  .svc-rows { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 1px solid var(--line); }
+  .svc-rows li { border-bottom: 1px solid var(--line); }
+  .svc-row { position: relative; display: grid; grid-template-columns: 2.5rem 1fr auto; gap: 0.4rem 1rem; padding: 1.5rem 0; align-items: baseline; transition: padding 0.45s var(--ease-out); }
+  .svc-row__n { color: var(--clay); }
+  .svc-row__t { font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.035em; line-height: 1; }
+  .svc-row__x { grid-column: 2; color: var(--ink-2); max-width: 32rem; }
+  .svc-row__go { grid-column: 3; grid-row: 1; transition: transform 0.45s var(--ease-out), color 0.2s; }
+  .svc-row:hover .svc-row__go { transform: translateX(6px); color: var(--clay); }
+  .svc-row:hover .svc-row__t { color: var(--clay-ink); }
+  @media (min-width: 980px) {
+    .svc-row { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding: 2rem 0; }
+    .svc-row__n { grid-column: 1 / span 1; }
+    .svc-row__t { grid-column: 2 / span 6; }
+    .svc-row__x { grid-column: 8 / span 4; }
+    .svc-row__go { grid-column: 12; justify-self: end; }
+    .svc-row:hover { padding-left: 1rem; }
+  }
+
+  .steps-wrap { margin-top: clamp(2.5rem, 5vw, 4.5rem); }
+
+  .about { margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; gap: 2rem; }
+  .about__who { display: flex; gap: 1rem; align-items: center; align-self: start; }
+  .about :global(.about__img) { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+  .about__name { font-family: var(--f-display); font-weight: 600; font-size: 1.375rem; letter-spacing: -0.02em; }
+  .about__role { color: var(--ink-3); margin-top: 0.2rem; }
+  .about__text { font-size: var(--t-md); }
+  @media (min-width: 980px) {
+    .about { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .about__who { grid-column: 1 / span 4; }
+    .about__text { grid-column: 5 / span 7; }
+  }
+  .quotes { margin-top: clamp(4rem, 8vw, 7rem); }
+  .quotes__l { margin-bottom: 1.5rem; }
+</style>

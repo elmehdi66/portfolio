@@ -1,0 +1,31 @@
+---
+import { testimonials } from '../data/testimonials';
+---
+<div class="tm">
+  {testimonials.map((t, i) => (
+    <figure class:list={['tm__item', { 'tm__item--lead': i === 0 }]} data-reveal style={`--d:${i}`}>
+      <blockquote>
+        <p>« {t.quote} »</p>
+      </blockquote>
+      <figcaption>
+        <span class="tm__name">{t.name}</span>
+        <span class="tm__role mono">{t.role}</span>
+      </figcaption>
+    </figure>
+  ))}
+</div>
+
+<style>
+  .tm { display: grid; gap: 2.5rem; }
+  .tm__item { display: grid; gap: 1.25rem; align-content: start; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  .tm__item blockquote p { font-size: var(--t-md); line-height: 1.5; color: var(--ink); text-wrap: pretty; }
+  .tm__item--lead blockquote p { font-family: var(--f-display); font-weight: 500; font-size: var(--t-lg); line-height: 1.25; letter-spacing: -0.02em; }
+  figcaption { display: grid; gap: 0.2rem; }
+  .tm__name { font-weight: 600; }
+  .tm__role { color: var(--ink-3); }
+  @media (min-width: 980px) {
+    .tm { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 3rem; }
+    .tm__item--lead { grid-column: 1 / span 7; grid-row: span 2; }
+    .tm__item:not(.tm__item--lead) { grid-column: 9 / span 4; }
+  }
+</style>

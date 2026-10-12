@@ -1,0 +1,21 @@
+---
+interface Props { items: { name: string; path?: string }[] }
+const { items } = Astro.props;
+---
+<nav class="bc mono" aria-label="Fil d’Ariane">
+  <ol role="list">
+    <li><a href="/" class="link link--reveal">Accueil</a></li>
+    {items.map((it) => (
+      <li>
+        {it.path ? <a href={it.path} class="link link--reveal">{it.name}</a> : <span aria-current="page">{it.name}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .bc ol { display: flex; flex-wrap: wrap; gap: 0.4rem; color: var(--ink-3); }
+  .bc li { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .bc li + li::before { content: '/'; opacity: 0.6; }
+  .bc [aria-current] { color: var(--ink); }
+</style>

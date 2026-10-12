@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+import { whatsappUrl } from '../data/site';
+---
+<div class="mbar" data-mbar>
+  <a class="mbar__wa" href={whatsappUrl()} target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+    <Icon name="whatsapp" size={22} />
+  </a>
+  <a class="mbar__cta" href="/contact/">Demander un devis <Icon name="arrow" size={16} /></a>
+</div>
+
+<style>
+  .mbar {
+    position: fixed; z-index: 40; left: 0.75rem; right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    display: flex; gap: 0.5rem; padding: 0.4rem; border-radius: 999px;
+    background: var(--ink); box-shadow: 0 18px 40px -18px rgb(20 19 17 / 0.6);
+    transform: translateY(160%); transition: transform 0.5s var(--ease-out);
+  }
+  :global(.is-past-hero) .mbar { transform: none; }
+  :global(.menu-open) .mbar, :global(.at-footer) .mbar { transform: translateY(160%); }
+  .mbar__wa {
+    flex: none; width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
+    background: #1d8a52; color: #fff;
+  }
+  .mbar__cta {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 50px;
+    border-radius: 999px; background: var(--paper); color: var(--ink); font-weight: 600;
+  }
+  @media (min-width: 720px) { .mbar { display: none; } }
+</style>

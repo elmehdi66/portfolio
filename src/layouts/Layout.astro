@@ -1,0 +1,123 @@
+---
+import '../styles/global.css';
+import displayFont from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-opsz-normal.woff2?url';
+import textFont from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileBar from '../components/MobileBar.astro';
+import { site, tracking } from '../data/site';
+import { abs, graph } from '../data/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Chemin canonique, ex. "/services/" */
+  path: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  noindex?: boolean;
+  schema?: object[];
+  /** Masque la barre mobile (ex. page contact) */
+  hideMobileBar?: boolean;
+  /** Masque le grand CTA du pied de page (ex. page contact) */
+  hideFooterCta?: boolean;
+}
+
+const {
+  title,
+  description,
+  path,
+  ogImage = '/og/default.png',
+  ogType = 'website',
+  noindex = false,
+  schema = [],
+  hideMobileBar = false,
+  hideFooterCta = false,
+} = Astro.props;
+
+const canonical = abs(path);
+const ogUrl = abs(ogImage);
+const jsonld = schema.length ? JSON.stringify(graph(...schema)).replace(/</g, '\\u003c') : null;
+---
+<!doctype html>
+<html lang="fr-MA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content="#f4f1ea" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={textFont} as="font" type="font/woff2" crossorigin />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:site_name" content="Elmehdi Ghazri — gazry.dev" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      setTimeout(function () { if (!window.__gzReady) document.documentElement.classList.remove('js'); }, 2500);
+    </script>
+
+    <!-- Google tag (GA4 + Google Ads) et Google Tag Manager : mêmes identifiants que l'ancien site,
+         chargés après l'affichage (ou à la première interaction) pour ne pas ralentir la page.
+         Les appels gtag() faits avant le chargement sont mis en file d'attente dans dataLayer. -->
+    <script is:inline define:vars={{ ga4: tracking.ga4, ads: tracking.ads, gtm: tracking.gtm }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', ga4);
+      gtag('config', ads);
+      dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      (function () {
+        var done = false;
+        function load() {
+          if (done) return; done = true;
+          ['https://www.googletagmanager.com/gtag/js?id=' + ga4, 'https://www.googletagmanager.com/gtm.js?id=' + gtm].forEach(function (src) {
+            var s = document.createElement('script'); s.async = true; s.src = src; document.head.appendChild(s);
+          });
+        }
+        ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (e) { addEventListener(e, load, { once: true, passive: true }); });
+        addEventListener('load', function () { setTimeout(load, 2500); });
+      })();
+    </script>
+
+    {jsonld && <script type="application/ld+json" set:html={jsonld} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtm}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <Header path={path} />
+    <main id="contenu" tabindex="-1">
+      <slot />
+    </main>
+    <Footer hideCta={hideFooterCta} />
+    {!hideMobileBar && <MobileBar />}
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

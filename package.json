@@ -8,7 +8,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "shots": "node scripts/import-shots.mjs scripts/shots.json",
+    "og": "node scripts/og.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^5.0.2",
@@ -16,5 +18,8 @@
     "@fontsource-variable/instrument-sans": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.0.2",
     "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.48.2"
   }
 }

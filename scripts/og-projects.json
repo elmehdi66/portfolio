@@ -1,0 +1,6 @@
+[
+  { "slug": "mli", "name": "MLI", "kind": "Site institutionnel & CMS", "headline": "Site bilingue Next.js + Payload CMS, avec un configurateur de programmes assisté par IA.", "image": "src/assets/projects/mli/home.webp", "tint": "#ead9d6" },
+  { "slug": "prosalon", "name": "ProSalon", "kind": "E-commerce B2B", "headline": "Boutique WooCommerce pour les pros de la coiffure : prix pro, promotions, livraisons automatisées.", "image": "src/assets/projects/prosalon/home.webp", "tint": "#ece3cf" },
+  { "slug": "atlas-lagoon", "name": "Atlas Lagoon", "kind": "Immobilier & réservation", "headline": "De la maquette 3D à la réservation en ligne d’un appartement.", "image": "src/assets/projects/atlas-lagoon/home.webp", "tint": "#d9e0e2" },
+  { "slug": "masoku", "name": "Masoku", "kind": "SaaS · IA générative", "headline": "Images et vidéos générées par IA, facturées en crédits.", "image": "src/assets/projects/masoku/architecture.webp", "tint": "#2a2622" }
+]

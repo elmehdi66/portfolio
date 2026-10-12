@@ -1,0 +1,34 @@
+---
+interface Props {
+  index?: string;
+  label: string;
+  title: string;
+  id?: string;
+  lede?: string;
+  as?: 'h1' | 'h2';
+  size?: 'xl' | '2xl';
+  class?: string;
+}
+const { index, label, title, id, lede, as: Tag = 'h2', size = 'xl', class: cls } = Astro.props;
+---
+<div class:list={['sh', cls]}>
+  <p class="label sh__label" data-reveal>
+    {index && <span class="idx">({index})</span>}
+    {label}
+  </p>
+  <div class="sh__main">
+    <Tag id={id} class:list={['balance', size === '2xl' ? 't-2xl' : 't-xl']} data-reveal style="--d:1">{title}</Tag>
+    {lede && <p class="lede pretty" data-reveal style="--d:2">{lede}</p>}
+    <slot />
+  </div>
+</div>
+
+<style>
+  .sh { display: grid; gap: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .on-night .sh, :global(.on-night) .sh { border-top-color: var(--line-night); }
+  .sh__main { display: grid; gap: 1.25rem; max-width: 62rem; }
+  @media (min-width: 980px) {
+    .sh { grid-template-columns: 3fr 9fr; gap: var(--gutter); }
+    .sh__label { padding-top: 0.6rem; }
+  }
+</style>

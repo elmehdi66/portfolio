@@ -1,0 +1,100 @@
+---
+import Icon from './Icon.astro';
+import { nav, site, whatsappUrl } from '../data/site';
+import { services } from '../data/services';
+
+interface Props { hideCta?: boolean }
+const { hideCta = false } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="ftr on-night">
+  {!hideCta && (
+    <section class="wrap ftr__cta" aria-labelledby="ftr-cta-title">
+      <p class="label"><span class="idx">●</span> {site.available ? site.availabilityLabel : 'Prochaines disponibilités sur demande'}</p>
+      <h2 id="ftr-cta-title" class="ftr__title balance">
+        Un projet en tête&nbsp;?<br />
+        <span class="ftr__title-2">Parlons-en.</span>
+      </h2>
+      <div class="ftr__cta-row">
+        <a class="btn btn--light" href="/contact/">Demander un devis <Icon name="arrow" class="arrow" /></a>
+        <a class="btn btn--ghost-light btn--wa" href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" /> Écrire sur WhatsApp</a>
+      </div>
+      <p class="ftr__mail">
+        <a href={`mailto:${site.email}`} class="link">{site.email}</a>
+        <button type="button" class="ftr__copy mono" data-copy={site.email} aria-label="Copier l’adresse e-mail">
+          <Icon name="copy" size={14} /> <span data-copy-label>Copier</span>
+        </button>
+      </p>
+    </section>
+  )}
+
+  <div class="wrap ftr__grid">
+    <div class="ftr__about">
+      <p class="ftr__brand">Elmehdi Ghazri</p>
+      <p class="muted">{site.role} basé à {site.city}. Sites, e-commerce, applications web et intégrations API pour PME, startups et agences, au Maroc et à l’international.</p>
+    </div>
+    <nav class="ftr__col" aria-label="Pied de page">
+      <p class="label">Navigation</p>
+      <ul role="list">
+        <li><a class="link link--reveal" href="/">Accueil</a></li>
+        {nav.map((n) => <li><a class="link link--reveal" href={n.href}>{n.label}</a></li>)}
+        <li><a class="link link--reveal" href="/developpeur-web-freelance-casablanca/">Développeur web à Casablanca</a></li>
+      </ul>
+    </nav>
+    <div class="ftr__col">
+      <p class="label">Services</p>
+      <ul role="list">
+        {services.map((s) => <li><a class="link link--reveal" href={`/services/#${s.id}`}>{s.title}</a></li>)}
+      </ul>
+    </div>
+    <div class="ftr__col">
+      <p class="label">Contact</p>
+      <ul role="list">
+        <li><a class="link link--reveal" href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><a class="link link--reveal" href={`tel:${site.phone}`}>{site.phoneDisplay}</a></li>
+        <li><a class="link link--reveal" href={whatsappUrl()} target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a class="link link--reveal" href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap ftr__base">
+    <p class="mono">© {year} Elmehdi Ghazri</p>
+    <p class="mono"><Icon name="pin" size={13} /> <span data-clock>{site.city}, {site.country}</span></p>
+    <a class="mono link link--reveal" href="#contenu">Haut de page ↑</a>
+  </div>
+</footer>
+
+<style>
+  .ftr { padding-top: var(--section); padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+  .ftr__cta { padding-bottom: var(--section); }
+  .ftr__title {
+    margin-top: 1.5rem; font-size: clamp(3rem, 1.4rem + 8vw, 10.5rem); letter-spacing: -0.05em; line-height: 0.9; color: var(--on-night);
+  }
+  .ftr__title-2 { color: #e07a55; }
+  .ftr__cta-row { margin-top: clamp(2rem, 4vw, 3rem); display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .ftr__mail { margin-top: 1.75rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: var(--t-md); }
+  .ftr__copy {
+    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 36px; padding: 0 0.75rem;
+    border: 1px solid var(--line-night); border-radius: 999px; color: var(--on-night-2); font-size: 0.6875rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .ftr__copy:hover { color: var(--on-night); border-color: var(--on-night-2); }
+
+  .ftr__grid {
+    display: grid; gap: 2.5rem; grid-template-columns: 1fr; padding-block: 3rem; border-top: 1px solid var(--line-night);
+  }
+  .ftr__brand { font-family: var(--f-display); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .ftr__about p.muted { max-width: 30rem; }
+  .ftr__col ul { margin-top: 1rem; display: grid; gap: 0.5rem; }
+  .ftr__col a { color: var(--on-night); }
+  @media (min-width: 720px) { .ftr__grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1100px) { .ftr__grid { grid-template-columns: 2fr 1fr 1.2fr 1fr; } }
+
+  .ftr__base {
+    display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; align-items: center;
+    padding-top: 1.5rem; border-top: 1px solid var(--line-night); color: var(--on-night-2);
+  }
+  .ftr__base p { display: inline-flex; align-items: center; gap: 0.4rem; }
+  @media (max-width: 719px) { .ftr { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); } }
+</style>

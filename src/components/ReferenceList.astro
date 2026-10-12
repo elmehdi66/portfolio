@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+import type { Reference } from '../data/types';
+
+interface Props { items: Reference[]; showDescription?: boolean }
+const { items, showDescription = true } = Astro.props;
+---
+<ul class="rl" role="list">
+  {items.map((r) => {
+    const Tag = r.url ? 'a' : 'div';
+    return (
+      <li data-reveal>
+        <Tag class="rl__row" {...(r.url ? { href: r.url, target: '_blank', rel: 'noopener' } : {})}>
+          <span class="rl__name">{r.name}</span>
+          <span class="rl__kind">{r.kind}</span>
+          <span class="rl__ctx mono">{r.context}{r.year ? ` · ${r.year}` : ''}</span>
+          <span class="rl__go" aria-hidden="true">{r.url ? <Icon name="external" /> : null}</span>
+          {showDescription && <span class="rl__desc">{r.description}</span>}
+          {r.url && <span class="sr-only">(site en ligne, nouvel onglet)</span>}
+        </Tag>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .rl { border-top: 1px solid var(--line); }
+  .rl li { border-bottom: 1px solid var(--line); }
+  .rl__row {
+    display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; padding: 1.25rem 0; align-items: baseline;
+    transition: padding 0.4s var(--ease-out), background-color 0.3s;
+  }
+  .rl__name { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.025em; line-height: 1.1; }
+  .rl__kind { grid-column: 1; color: var(--ink-2); font-weight: 500; }
+  .rl__ctx { grid-column: 1; color: var(--ink-3); }
+  .rl__go { grid-column: 2; grid-row: 1; color: var(--ink-3); transition: transform 0.4s var(--ease-out), color 0.2s; }
+  .rl__desc { grid-column: 1 / -1; color: var(--ink-3); font-size: 0.9375rem; max-width: 46rem; }
+  a.rl__row:hover .rl__go { color: var(--clay); transform: translate(3px, -3px); }
+  a.rl__row:hover .rl__name { color: var(--clay-ink); }
+  @media (min-width: 900px) {
+    .rl__row { grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 2.4fr) 2rem; column-gap: var(--gutter); }
+    .rl__kind, .rl__ctx { grid-column: auto; }
+    .rl__go { grid-column: 4; justify-self: end; }
+    .rl__desc { grid-column: 1 / span 3; }
+    a.rl__row:hover { padding-left: 0.75rem; padding-right: 0.25rem; }
+  }
+</style>

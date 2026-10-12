@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import Steps from '../../components/Steps.astro';
+import Faq from '../../components/Faq.astro';
+import Icon from '../../components/Icon.astro';
+import { services, faq } from '../../data/services';
+import { projects } from '../../data/projects';
+import { businessSchema, breadcrumbSchema, faqSchema, personSchema } from '../../data/schema';
+
+const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+const fit = [
+  'Vous voulez un interlocuteur unique, du cadrage à la mise en ligne.',
+  'Votre projet demande du sur-mesure : règles métier, intégrations, back-office.',
+  'Vous tenez à un site rapide, propre techniquement et bien référencé.',
+  'Vous êtes une agence et cherchez un renfort de développement fiable.',
+];
+const noFit = [
+  'Vous cherchez une application mobile native iOS ou Android.',
+  'Vous avez besoin d’une identité visuelle ou d’un design graphique seul, sans développement.',
+  'Le projet exige une grande équipe dédiée sur une très courte période.',
+];
+---
+<Layout
+  title="Services de développement web sur mesure | Elmehdi Ghazri, Casablanca"
+  description="Sites vitrines et institutionnels, e-commerce WooCommerce B2B, applications web et SaaS, intégrations API et IA, maintenance et optimisation. Développeur full-stack freelance à Casablanca."
+  path="/services/"
+  schema={[businessSchema(), personSchema(), breadcrumbSchema([{ name: 'Services', path: '/services/' }]), faqSchema(faq)]}
+>
+  <section class="wrap page-hero">
+    <Breadcrumbs items={[{ name: 'Services' }]} />
+    <p class="label page-hero__label"><span class="idx">●</span> Services</p>
+    <h1 class="t-3xl balance">
+      <span class="rise"><span style="--i:0">Ce que je développe</span></span>
+      <span class="rise"><span style="--i:1">pour vous.</span></span>
+    </h1>
+    <div class="page-hero__foot">
+      <p class="lede fade-in">Cinq façons de travailler ensemble, du site vitrine à l’application métier. Chaque projet commence par un échange pour comprendre votre besoin, et se termine par une mise en ligne soignée.</p>
+      <ol class="svc-index fade-in" role="list" style="--delay:0.65s">
+        {services.map((s, i) => (
+          <li><a href={`#${s.id}`}><span class="mono">0{i + 1}</span>{s.title}<Icon name="arrow-down" size={16} /></a></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <div class="wrap svc-list">
+    {services.map((s, i) => (
+      <section class="svc" id={s.id} aria-labelledby={`${s.id}-t`}>
+        <div class="svc__head">
+          <p class="mono svc__n" data-reveal>0{i + 1}</p>
+          <h2 id={`${s.id}-t`} class="t-xl balance" data-reveal style="--d:1">{s.title}</h2>
+          <p class="svc__for" data-reveal style="--d:2"><span class="label">Pour qui</span>{s.forWho}</p>
+        </div>
+        <div class="svc__body">
+          <p class="svc__pitch pretty" data-reveal>{s.pitch}</p>
+          <div class="svc__cols">
+            <div data-reveal style="--d:1">
+              <p class="label">Ce qui est inclus</p>
+              <ul class="checks" role="list">
+                {s.deliverables.map((d) => <li><Icon name="check" size={16} />{d}</li>)}
+              </ul>
+            </div>
+            <div data-reveal style="--d:2">
+              <p class="label">Technologies</p>
+              <ul class="tags svc__tags" role="list">{s.stack.map((t) => <li class="tag">{t}</li>)}</ul>
+              {s.related && s.related.some((slug) => bySlug[slug]) && (
+                <>
+                  <p class="label svc__rel-l">Projet lié</p>
+                  <ul class="svc__rel" role="list">
+                    {s.related.filter((slug) => bySlug[slug]).map((slug) => (
+                      <li><a class="arrow-link" href={`/realisations/${slug}/`}>{bySlug[slug].name}<Icon name="arrow" size={16} /></a></li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          </div>
+          <a class="btn btn--ghost btn--sm svc__cta" href="/contact/">Parler de ce type de projet <Icon name="arrow" class="arrow" size={16} /></a>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <section class="on-night section" aria-labelledby="methode">
+    <div class="wrap">
+      <SectionHead index="06" label="Méthode" id="methode" title="Un déroulé simple, sans zone d’ombre." lede="Vous savez à chaque étape ce qui est fait, ce qui reste à faire et ce que j’attends de vous." />
+      <div class="steps-wrap"><Steps /></div>
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="match">
+    <SectionHead index="07" label="Avant de me contacter" id="match" title="Sommes-nous faits pour travailler ensemble ?" />
+    <div class="match">
+      <div class="match__col" data-reveal>
+        <p class="match__t">Un bon match si…</p>
+        <ul role="list">{fit.map((f) => <li><Icon name="check" size={18} />{f}</li>)}</ul>
+      </div>
+      <div class="match__col match__col--no" data-reveal style="--d:1">
+        <p class="match__t">Probablement pas la bonne personne si…</p>
+        <ul role="list">{noFit.map((f) => <li><Icon name="close" size={18} />{f}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="faq">
+    <SectionHead index="08" label="Questions fréquentes" id="faq" title="Les questions qu’on me pose souvent." />
+    <div class="faq-wrap"><Faq items={faq} /></div>
+  </section>
+</Layout>
+
+<style>
+  .svc-index { margin-top: 0; display: grid; border-top: 1px solid var(--line); }
+  .svc-index a { display: grid; grid-template-columns: 2.25rem 1fr auto; align-items: center; gap: 0.5rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); font-weight: 500; }
+  .svc-index a .mono { color: var(--clay); }
+  .svc-index a:hover { color: var(--clay-ink); }
+
+  .svc-list { padding-bottom: var(--section); }
+  .svc { display: grid; gap: 2rem; padding-block: clamp(3rem, 6vw, 5.5rem); border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header-h) + 1rem); }
+  .svc__n { color: var(--clay); margin-bottom: 1rem; }
+  .svc__for { margin-top: 1.5rem; display: grid; gap: 0.35rem; color: var(--ink-2); max-width: 22rem; }
+  .svc__pitch { font-size: var(--t-md); line-height: 1.55; color: var(--ink); max-width: 44rem; }
+  .svc__cols { margin-top: 2.25rem; display: grid; gap: 2rem; }
+  .checks { margin-top: 0.9rem; display: grid; gap: 0.6rem; }
+  .checks li { display: grid; grid-template-columns: 1.25rem 1fr; gap: 0.6rem; align-items: start; }
+  .checks li :global(svg) { margin-top: 0.3rem; color: var(--clay); }
+  .svc__tags { margin-top: 0.9rem; }
+  .svc__rel-l { margin-top: 1.75rem; }
+  .svc__rel { margin-top: 0.6rem; display: grid; gap: 0.4rem; }
+  .svc__cta { margin-top: 2.25rem; }
+  @media (min-width: 980px) {
+    .svc { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .svc__head { grid-column: 1 / span 4; position: sticky; top: calc(var(--header-h) + 2rem); align-self: start; }
+    .svc__body { grid-column: 6 / span 7; }
+    .svc__cols { grid-template-columns: 1.3fr 1fr; gap: var(--gutter); }
+  }
+
+  .steps-wrap { margin-top: clamp(2.5rem, 5vw, 4.5rem); }
+
+  .match { margin-top: clamp(2rem, 4vw, 3.5rem); display: grid; gap: 1.25rem; }
+  .match__col { padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: var(--paper-2); }
+  .match__col--no { background: transparent; border: 1px solid var(--line-strong); }
+  .match__t { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  .match ul { display: grid; gap: 0.85rem; }
+  .match li { display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.6rem; }
+  .match li :global(svg) { margin-top: 0.2rem; color: var(--clay); }
+  .match__col--no li :global(svg) { color: var(--ink-3); }
+  @media (min-width: 900px) { .match { grid-template-columns: 1fr 1fr; } }
+
+  .section--flush-top { padding-top: 0; }
+  .faq-wrap { margin-top: clamp(2rem, 4vw, 3rem); }
+  @media (min-width: 980px) { .faq-wrap { margin-left: calc(25% + var(--gutter) * 0.75); } }
+</style>

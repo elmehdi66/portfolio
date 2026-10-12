@@ -4,8 +4,7 @@
    ========================================================================== */
 
 @import '@fontsource-variable/bricolage-grotesque/opsz.css';
-@import '@fontsource-variable/instrument-sans/wdth.css';
-@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource-variable/instrument-sans/wght.css';
 @import '@fontsource/jetbrains-mono/latin-500.css';
 
 :root {
@@ -41,7 +40,7 @@
   --t-lg: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
   --t-xl: clamp(1.875rem, 1.45rem + 1.9vw, 3.125rem);
   --t-2xl: clamp(2.5rem, 1.7rem + 3.6vw, 5rem);
-  --t-3xl: clamp(2.875rem, 1.6rem + 5.9vw, 8.25rem);
+  --t-3xl: clamp(2.75rem, 1.5rem + 5.2vw, 7rem);
 
   /* Space & layout */
   --gutter: clamp(1rem, 0.6rem + 1.9vw, 2.5rem);
@@ -71,7 +70,6 @@ body {
   font-family: var(--f-text);
   font-size: var(--t-base);
   line-height: 1.6;
-  font-variation-settings: 'wdth' 100;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -162,7 +160,8 @@ h3 { letter-spacing: -0.02em; line-height: 1.1; }
 .link:hover { background-size: 0 1px; background-position: 100% 100%; }
 .link--reveal { background-size: 0 1px; background-position: 100% 100%; }
 .link--reveal:hover { background-size: 100% 1px; background-position: 0 100%; }
-.prose a { color: var(--clay-ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose a.arrow-link { color: var(--ink); text-decoration: none; }
+.prose a:not(.arrow-link) { color: var(--clay-ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -269,10 +268,20 @@ h3 { letter-spacing: -0.02em; line-height: 1.1; }
   }
 }
 
+/* ---------- Page hero (pages intérieures) ---------- */
+.page-hero { padding-top: calc(var(--header-h) + clamp(1.5rem, 4vw, 3rem)); padding-bottom: clamp(3rem, 6vw, 5.5rem); }
+.page-hero__label { margin-top: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1.5rem; }
+.page-hero__foot { margin-top: clamp(2rem, 4vw, 3.5rem); display: grid; gap: 2.5rem; align-items: start; }
+@media (min-width: 980px) {
+  .page-hero__foot { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+  .page-hero__foot > :first-child { grid-column: 1 / span 6; }
+  .page-hero__foot > :nth-child(2) { grid-column: 8 / span 5; }
+}
+
 /* ---------- Utilities ---------- */
 .stack > * + * { margin-top: var(--s, 1rem); }
 .flow-sm > * + * { margin-top: 0.5rem; }
 .center { text-align: center; }
 .nowrap { white-space: nowrap; }
-.hide-sm { display: none; }
-@media (min-width: 720px) { .hide-sm { display: revert; } .hide-md { display: none; } }
+@media (max-width: 719px) { .hide-sm { display: none !important; } }
+@media (min-width: 720px) { .hide-md { display: none !important; } }

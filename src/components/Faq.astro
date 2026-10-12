@@ -1,0 +1,40 @@
+---
+interface Props {
+  items: { q: string; a: string }[];
+}
+const { items } = Astro.props;
+---
+<div class="faq">
+  {items.map((f, i) => (
+    <details class="faq__item" name="faq" open={i === 0}>
+      <summary>
+        <span class="faq__n mono" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+        <span class="faq__q">{f.q}</span>
+        <span class="faq__plus" aria-hidden="true"></span>
+      </summary>
+      <p class="faq__a">{f.a}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq { border-top: 1px solid var(--line); }
+  .faq__item { border-bottom: 1px solid var(--line); }
+  summary {
+    list-style: none; display: grid; grid-template-columns: 2.5rem 1fr 24px; align-items: center; gap: 0.75rem;
+    padding: 1.35rem 0; cursor: pointer; font-family: var(--f-display); font-weight: 600; font-size: var(--t-md);
+    letter-spacing: -0.015em; line-height: 1.25;
+  }
+  summary::-webkit-details-marker { display: none; }
+  .faq__n { color: var(--ink-3); font-family: var(--f-mono); font-weight: 500; }
+  .faq__plus { position: relative; width: 20px; height: 20px; }
+  .faq__plus::before, .faq__plus::after {
+    content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 1.5px; background: currentColor;
+    transform: translate(-50%, -50%); transition: transform 0.35s var(--ease-out);
+  }
+  .faq__plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+  details[open] .faq__plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+  summary:hover .faq__q { color: var(--clay-ink); }
+  .faq__a { padding: 0 0 1.5rem 3.25rem; max-width: 46rem; color: var(--ink-2); }
+  @media (max-width: 600px) { .faq__a { padding-left: 0; } summary { grid-template-columns: 2rem 1fr 20px; } }
+</style>
