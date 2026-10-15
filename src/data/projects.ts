@@ -177,7 +177,7 @@ export const projects: Project[] = [
   {
     slug: 'artimezia',
     name: 'Artimezia',
-    headline: 'Une plateforme bilingue anglais / arabe pour une école d’art : catalogue de formations, demandes d’inscription et back-office complet.',
+    headline: 'Une plateforme bilingue anglais / arabe pour une école d’art : catalogue de formations, demandes d’inscription et back-office où l’équipe gère tous les contenus.',
     summary: 'Next.js et Payload CMS, bilingue anglais / arabe avec RTL, catalogue filtrable, panier et demandes d’inscription sans paiement en ligne.',
     description:
       'Étude de cas Artimezia : plateforme Next.js 16 et Payload CMS pour une école d’art à Casablanca, bilingue anglais / arabe, catalogue filtrable, demandes d’inscription et back-office.',
@@ -194,7 +194,7 @@ export const projects: Project[] = [
     tldr: {
       besoin: 'Présenter les formations et les événements d’une école d’art en anglais et en arabe, et recueillir des demandes d’inscription que l’équipe finalise par contact direct.',
       approche: 'Next.js et Payload CMS dans un même projet : contenus bilingues avec mise en page de droite à gauche pour l’arabe, panier conservé dans le navigateur, demandes enregistrées côté serveur.',
-      livre: 'Un site en ligne sur artimezia.com, un back-office où l’équipe gère formations, événements, promotions et demandes, et des e-mails envoyés automatiquement.',
+      livre: 'Un site en ligne sur artimezia.com et un back-office où l’équipe gère formations, événements, promotions et demandes.',
     },
     context: [
       'Artimezia est une école d’art basée à Casablanca. Elle propose des formations en dessin, peinture, anatomie ou character design, mais aussi des formations business pour artistes, en ligne, en présentiel ou en cours particulier.',
@@ -206,18 +206,18 @@ export const projects: Project[] = [
       'Enfin, l’équipe devait gérer elle-même tous les contenus, dans les deux langues.',
     ],
     contribution: [
-      'Rédaction du cahier des charges, puis développement complet du site, seul.',
+      'Rédaction du cahier des charges initial, puis conception et développement du site, sans autre développeur.',
       'Modèle de contenu Payload CMS : formations, catégories, événements, articles, formateurs, témoignages, pages légales, demandes d’inscription et newsletter.',
       'Site bilingue anglais / arabe avec mise en page de droite à gauche, contenus traduits champ par champ dans le CMS.',
       'Catalogue filtrable et triable, panier par formation et par format, demandes d’inscription enregistrées côté serveur avec un numéro de demande.',
-      'E-mails automatiques à l’équipe et au client, promotions temporaires pilotées depuis le back-office, bouton WhatsApp dont le message s’adapte à la page.',
+      'Notification e-mail à l’équipe pour chaque demande, promotions temporaires pilotées depuis le back-office, bouton WhatsApp dont le message s’adapte à la page.',
       'SEO technique et chaîne de déploiement GitHub Actions vers Hostinger.',
     ],
     solutions: [
-      { title: 'Construire en dehors de l’hébergeur', text: 'La machine de build de l’hébergement manquait de mémoire. Le build complet se fait donc sur GitHub Actions, et seule la version compilée est publiée sur une branche de déploiement que Hostinger récupère.' },
+      { title: 'Construire en dehors de l’hébergeur', text: 'La machine de build de l’hébergement manquait de mémoire. Le build complet se fait donc sur GitHub Actions, puis le projet déjà compilé est publié sur une branche de déploiement que Hostinger récupère.' },
       { title: 'Des médias qui survivent aux déploiements', text: 'L’hébergeur ne conserve pas les fichiers locaux d’un déploiement à l’autre : en production, les images sont stockées sur un service de stockage objet compatible S3.' },
-      { title: 'Une demande jamais perdue', text: 'La demande est d’abord enregistrée en base, puis les e-mails partent. Si l’envoi échoue, l’erreur est journalisée sans faire échouer la demande, ce qui évite les doublons.' },
-      { title: 'Des demandes créées uniquement côté serveur', text: 'L’API publique ne permet pas de créer une demande : seul le serveur le fait, avec un instantané des titres et des prix au moment de la demande.' },
+      { title: 'Une demande jamais perdue', text: 'La demande est d’abord enregistrée en base, puis l’e-mail de notification part. Si l’envoi échoue, l’erreur est journalisée sans faire échouer la demande, ce qui évite les doublons.' },
+      { title: 'Des demandes créées uniquement côté serveur', text: 'L’API publique du CMS ne permet pas de créer une demande : seule une action serveur le fait, en enregistrant les titres et les prix du panier au moment de la demande.' },
       { title: 'Rapide et toujours à jour', text: 'Les lectures du CMS sont mises en cache, et le cache est purgé à chaque modification dans le back-office.' },
     ],
     features: [
@@ -226,10 +226,10 @@ export const projects: Project[] = [
       'Tri par popularité, note ou prix',
       'Panier par formation et par format',
       'Demandes d’inscription avec numéro de demande',
-      'E-mails à l’équipe et au client',
+      'Notification e-mail à l’équipe',
       'Promotions avec compte à rebours',
       'Événements et ateliers',
-      'Journal (blog) et newsletter',
+      'Journal (blog) et inscription à la newsletter',
       'Bouton WhatsApp contextuel',
       'SEO : hreflang, sitemap, données structurées',
       'Back-office avec aperçu en direct',
@@ -249,7 +249,7 @@ export const projects: Project[] = [
     ],
     tint: '#e9ddd9',
     notes: [
-      'Les chiffres affichés sur le site de l’école (étudiants, communauté, notes) sont ceux du client, pas des résultats du projet.',
+      'Les chiffres affichés sur le site de l’école (étudiants, communauté, notes) ne sont pas des résultats du projet.',
       'Pas de paiement en ligne : c’est un choix du client, l’équipe finalise chaque inscription par contact direct.',
     ],
   },
