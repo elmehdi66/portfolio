@@ -7,7 +7,7 @@ Le site précédent était un HTML unique avec Tailwind en CDN. La refonte deman
 Chaque fonctionnalité, technologie et contexte cité a été vérifié dans le code source local, sur le site en ligne ou dans les devis/factures (audit d'octobre 2026, notes dans `_research/`, non versionné). Pas de compteurs (« 30+ projets », « 100 % satisfaction ») ni de résultats chiffrés. Les limites sont écrites dans le bloc « Précisions » de chaque étude de cas (template adapté, préproduction, contenus tiers).
 
 ## Études de cas retenues
-MLI, ProSalon, Atlas Lagoon, Masoku (ex-UGC.AI, client Sowenzia). Les projets réalisés en agence sont cités en « Autres références » avec la mention « En agence ». Le nom de l'agence n'est pas affiché (choix déjà fait sur l'ancien site).
+MLI, ProSalon, Artimezia, Masoku (ex-UGC.AI, client Sowenzia). Atlas Lagoon (préproduction) est passé en « Autres références » avec le lien atlas-lagoon.vercel.app. Les projets réalisés en agence sont cités en « Autres références » avec la mention « En agence ». Le nom de l'agence n'est pas affiché (choix déjà fait sur l'ancien site).
 
 ## Masoku : un schéma plutôt que des captures en grand
 La page publique de Masoku est un brouillon (lorem ipsum, badge « 10,000+ creators » de template) et l'interface de départ reprend une application de référence. Le visuel principal est un schéma d'architecture (`scripts/diagrams.mjs`) qui montre le travail réellement attribuable : crédits, paiements, déploiement, pipeline IA.
@@ -26,3 +26,6 @@ Bricolage Grotesque (titres), Instrument Sans (texte), JetBrains Mono (repères)
 
 ## Anglais : stratégie, pas encore de pages
 Le site est en français (cible principale : Maroc). Les contenus sont centralisés dans `src/data/` pour faciliter une version `/en/` : dupliquer les données en anglais, ajouter les routes `/en/…` et les balises `hreflang` dans `Layout.astro`. À faire quand des prospects anglophones arrivent régulièrement.
+
+## Marque : Gazry Dev
+Le site met en avant la marque « Gazry Dev ». Le nom de famille n'apparaît pas ; quand il faut parler de la personne, seul le prénom « El Mehdi » est utilisé (`site.person`). Seule l'URL du profil LinkedIn contient encore le nom complet (non modifiable).

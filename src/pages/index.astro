@@ -8,14 +8,14 @@ import ReferenceList from '../components/ReferenceList.astro';
 import Steps from '../components/Steps.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Icon from '../components/Icon.astro';
-import portrait from '../assets/img/elmehdi-ghazri.jpg';
+import portrait from '../assets/img/el-mehdi.jpg';
 import { projects, references } from '../data/projects';
 import { services } from '../data/services';
 import { site, whatsappUrl } from '../data/site';
 import { businessSchema, personSchema, websiteSchema } from '../data/schema';
 ---
 <Layout
-  title="Elmehdi Ghazri — Développeur web full-stack freelance à Casablanca"
+  title="Gazry Dev — Développeur web full-stack freelance à Casablanca"
   description="Sites sur mesure, e-commerce B2B, applications web et SaaS avec IA : je conçois et développe vos projets web de l’idée à la mise en ligne. React, Next.js, Laravel, WordPress. Devis gratuit."
   path="/"
   schema={[websiteSchema(), personSchema(), businessSchema()]}
@@ -31,7 +31,7 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
     </div>
 
     <h1 id="hero-title" class="hero__title t-3xl">
-      <span class="sr-only">Elmehdi Ghazri, développeur web full-stack freelance à Casablanca : </span>
+      <span class="sr-only">Gazry Dev, développeur web full-stack freelance à Casablanca : </span>
       <span class="rise"><span style="--i:0">Sites & applications web</span></span>
       <span class="rise"><span style="--i:1"><em>sur mesure,</em> de l’idée</span></span>
       <span class="rise"><span style="--i:2">à la mise en ligne.</span></span>
@@ -39,7 +39,7 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
 
     <div class="hero__foot">
       <p class="lede fade-in" style="--delay:0.55s">
-        Je suis <strong>Elmehdi Ghazri</strong>, développeur full-stack freelance à Casablanca. J’accompagne PME, startups, agences et promoteurs immobiliers, au Maroc et à l’international : sites institutionnels, e-commerce B2B, plateformes immobilières et SaaS intégrant l’IA.
+        <strong>Gazry Dev</strong>, c’est le développement web sur mesure d’El Mehdi, développeur full-stack freelance à Casablanca. J’accompagne PME, startups, agences et promoteurs immobiliers, au Maroc et à l’international : sites institutionnels, e-commerce B2B, plateformes immobilières et SaaS intégrant l’IA.
       </p>
       <div class="hero__actions fade-in" style="--delay:0.7s">
         <div class="btn-row">
@@ -102,10 +102,10 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
     <SectionHead index="04" label="À propos" id="about-title" title="Un seul interlocuteur, du premier échange à la production." />
     <div class="about">
       <div class="about__who" data-reveal>
-        <Picture src={portrait} alt="Portrait d’Elmehdi Ghazri" widths={[96, 192]} sizes="96px" formats={['avif', 'webp']} fallbackFormat="jpg" class="about__img" />
+        <Picture src={portrait} alt="Portrait d’El Mehdi, développeur derrière Gazry Dev" widths={[96, 192]} sizes="96px" formats={['avif', 'webp']} fallbackFormat="jpg" class="about__img" />
         <div>
-          <p class="about__name">Elmehdi Ghazri</p>
-          <p class="mono about__role">Développeur web full-stack · Casablanca</p>
+          <p class="about__name">El Mehdi</p>
+          <p class="mono about__role">Gazry Dev · full-stack · Casablanca</p>
         </div>
       </div>
       <div class="about__text prose" data-reveal style="--d:1">

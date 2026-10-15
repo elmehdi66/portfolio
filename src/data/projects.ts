@@ -14,13 +14,14 @@ import psHome from '../assets/projects/prosalon/home-fr.webp';
 import psProd from '../assets/projects/prosalon/product-fr.webp';
 import psSec from '../assets/projects/prosalon/product-sections-fr.webp';
 
-import alHome from '../assets/projects/atlas-lagoon/home.webp';
-import alHomeM from '../assets/projects/atlas-lagoon/home-mobile.webp';
-import alMaq from '../assets/projects/atlas-lagoon/maquette.webp';
-import alApp from '../assets/projects/atlas-lagoon/appartements.webp';
-import alAppM from '../assets/projects/atlas-lagoon/appartements-mobile.webp';
-import alFiche from '../assets/projects/atlas-lagoon/fiche.webp';
-import alFicheM from '../assets/projects/atlas-lagoon/fiche-mobile.webp';
+
+import amHome from '../assets/projects/artimezia/home.webp';
+import amHomeM from '../assets/projects/artimezia/home-mobile.webp';
+import amCourses from '../assets/projects/artimezia/courses.webp';
+import amCourse from '../assets/projects/artimezia/course-detail.webp';
+import amCourseM from '../assets/projects/artimezia/course-mobile.webp';
+import amHomeAr from '../assets/projects/artimezia/home-ar.webp';
+import amHomeArM from '../assets/projects/artimezia/home-ar-mobile.webp';
 
 import mkArch from '../assets/projects/masoku/architecture.webp';
 import mkPlans from '../assets/projects/masoku/plans.webp';
@@ -174,79 +175,82 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'atlas-lagoon',
-    name: 'Atlas Lagoon',
-    headline: 'Un site immobilier haut de gamme qui relie une maquette 3D à la réservation en ligne d’un appartement.',
-    summary: 'Next.js et Payload CMS : catalogue d’appartements, pont avec la maquette 3D, réservation avec avance et code conseiller.',
+    slug: 'artimezia',
+    name: 'Artimezia',
+    headline: 'Une plateforme bilingue anglais / arabe pour une école d’art : catalogue de formations, demandes d’inscription et back-office complet.',
+    summary: 'Next.js et Payload CMS, bilingue anglais / arabe avec RTL, catalogue filtrable, panier et demandes d’inscription sans paiement en ligne.',
     description:
-      'Étude de cas Atlas Lagoon : site immobilier premium Next.js et Payload CMS, catalogue d’appartements filtrable, maquette 3D et visites 360°, réservation en ligne avec avance.',
-    kind: 'Immobilier & réservation',
-    sector: 'Promotion immobilière',
-    client: 'Programme d’appartements haut de gamme',
-    location: 'Maroc',
+      'Étude de cas Artimezia : plateforme Next.js 16 et Payload CMS pour une école d’art à Casablanca, bilingue anglais / arabe, catalogue filtrable, demandes d’inscription et back-office.',
+    kind: 'Plateforme de formation',
+    sector: 'Éducation artistique',
+    client: 'Artimezia, école d’art',
+    location: 'Casablanca',
     year: '2026',
-    role: 'Direction artistique & développement full-stack',
-    engagement: 'Mission freelance',
-    status: 'En préproduction',
-    url: 'https://atlas-lagoon.vercel.app/',
-    urlLabel: 'Voir la préproduction',
+    role: 'Cahier des charges, développement full-stack & déploiement',
+    engagement: 'Client direct (freelance)',
+    status: 'En ligne',
+    url: 'https://artimezia.com/',
+    urlLabel: 'Voir artimezia.com',
     tldr: {
-      besoin: 'Présenter un programme d’appartements haut de gamme et permettre de réserver en ligne, alors que la maquette 3D existante ne propose pas de réservation.',
-      approche: 'Un site Next.js au design sur mesure, un back-office Payload pour l’équipe commerciale, et un pont entre la maquette 3D et le parcours de réservation.',
-      livre: 'Un site prêt pour le lancement : catalogue filtrable, fiches appartements, visites 360° en plein écran, réservation avec paiement d’avance et codes conseiller.',
+      besoin: 'Présenter les formations et les événements d’une école d’art en anglais et en arabe, et recueillir des demandes d’inscription que l’équipe finalise par contact direct.',
+      approche: 'Next.js et Payload CMS dans un même projet : contenus bilingues avec mise en page de droite à gauche pour l’arabe, panier conservé dans le navigateur, demandes enregistrées côté serveur.',
+      livre: 'Un site en ligne sur artimezia.com, un back-office où l’équipe gère formations, événements, promotions et demandes, et des e-mails envoyés automatiquement.',
     },
     context: [
-      'Atlas Lagoon est un programme d’appartements neufs haut de gamme, présenté autour d’un lagon privé. Une maquette 3D orbitale et des visites virtuelles 360° existaient déjà, produites par un prestataire spécialisé.',
-      'Il manquait un site capable de présenter le programme, de détailler chaque appartement et de transformer l’intérêt des visiteurs en réservations.',
+      'Artimezia est une école d’art basée à Casablanca. Elle propose des formations en dessin, peinture, anatomie ou character design, mais aussi des formations business pour artistes, en ligne, en présentiel ou en cours particulier.',
+      'L’école organise aussi des ateliers et des événements, et s’adresse à un public anglophone et arabophone.',
     ],
     problem: [
-      'La maquette 3D permet d’explorer le domaine, mais elle ne propose pas de réservation et refuse d’être intégrée dans une autre page (iframe bloquée).',
-      'Le parcours de réservation devait gérer le paiement d’une avance, avec un recours via un conseiller quand l’avance proposée est inférieure au minimum.',
+      'Le catalogue mélange plusieurs formats et niveaux de prix : il devait rester simple à explorer, avec des filtres et un tri clairs.',
+      'L’école ne voulait pas de paiement en ligne : l’inscription se finalise par contact direct. Il fallait donc un parcours de demande fiable, et un outil pour suivre chaque demande.',
+      'Enfin, l’équipe devait gérer elle-même tous les contenus, dans les deux langues.',
     ],
     contribution: [
-      'Direction artistique et design system du site (« Le lagon et la pierre ») : typographies, palette, une seule courbe d’animation.',
-      'Développement du site Next.js 16 et du back-office Payload CMS sur PostgreSQL : appartements, résidences, médias, coordonnées, demandes de conseiller et réservations.',
-      'Catalogue filtrable (résidence, typologie, niveau, extérieur, disponibilité) et fiches appartements détaillées.',
-      'Parcours de réservation en quatre étapes, codes de paiement conseiller et abstraction de paiement (mode démonstration, passerelle marocaine CMI préparée).',
-      'Intégration des visites 360° en plein écran et pont avec la maquette 3D.',
-      'SEO technique prêt pour la mise en ligne et optimisation mesurée de la fluidité du défilement.',
+      'Rédaction du cahier des charges, puis développement complet du site, seul.',
+      'Modèle de contenu Payload CMS : formations, catégories, événements, articles, formateurs, témoignages, pages légales, demandes d’inscription et newsletter.',
+      'Site bilingue anglais / arabe avec mise en page de droite à gauche, contenus traduits champ par champ dans le CMS.',
+      'Catalogue filtrable et triable, panier par formation et par format, demandes d’inscription enregistrées côté serveur avec un numéro de demande.',
+      'E-mails automatiques à l’équipe et au client, promotions temporaires pilotées depuis le back-office, bouton WhatsApp dont le message s’adapte à la page.',
+      'SEO technique et chaîne de déploiement GitHub Actions vers Hostinger.',
     ],
     solutions: [
-      { title: 'Contourner une maquette impossible à intégrer', text: 'La maquette s’ouvre dans un nouvel onglet. Le visiteur y choisit son appartement, puis saisit sa référence sur le site, qui ouvre directement la réservation. Un lien profond est déjà prévu si le prestataire 3D ajoute un bouton « Réserver ».' },
-      { title: 'Ne jamais faire confiance au navigateur pour le prix', text: 'Le navigateur n’envoie que la référence, l’avance et l’identité. Prix, disponibilité et minimum d’avance sont relus en base au moment de réserver, et les doubles réservations sont bloquées.' },
-      { title: 'Une avance trop basse devient un contact qualifié', text: 'Plutôt que de bloquer le client, une demande de rappel est créée. Le conseiller génère un code de paiement temporaire, à usage unique et lié à l’appartement, qui applique le minimum validé.' },
-      { title: 'Changer de domaine sans toucher au code', text: 'URL canoniques, sitemap, Open Graph et URL de retour de paiement dérivent d’une seule variable. L’indexation ne s’ouvre qu’au lancement définitif.' },
-      { title: 'La performance mesurée, pas supposée', text: 'Le défilement a été mesuré dans un navigateur automatisé, puis les effets coûteux (parallaxe, flous, ombres animées) ont été retirés ou remplacés.' },
+      { title: 'Construire en dehors de l’hébergeur', text: 'La machine de build de l’hébergement manquait de mémoire. Le build complet se fait donc sur GitHub Actions, et seule la version compilée est publiée sur une branche de déploiement que Hostinger récupère.' },
+      { title: 'Des médias qui survivent aux déploiements', text: 'L’hébergeur ne conserve pas les fichiers locaux d’un déploiement à l’autre : en production, les images sont stockées sur un service de stockage objet compatible S3.' },
+      { title: 'Une demande jamais perdue', text: 'La demande est d’abord enregistrée en base, puis les e-mails partent. Si l’envoi échoue, l’erreur est journalisée sans faire échouer la demande, ce qui évite les doublons.' },
+      { title: 'Des demandes créées uniquement côté serveur', text: 'L’API publique ne permet pas de créer une demande : seul le serveur le fait, avec un instantané des titres et des prix au moment de la demande.' },
+      { title: 'Rapide et toujours à jour', text: 'Les lectures du CMS sont mises en cache, et le cache est purgé à chaque modification dans le back-office.' },
     ],
     features: [
-      'Catalogue filtrable avec statut de disponibilité',
-      'Fiches : plan, rendus, surfaces, avance minimum',
-      'Pont maquette 3D → réservation',
-      'Visites virtuelles 360° en plein écran',
-      'Réservation en ligne en quatre étapes',
-      'Codes de paiement conseiller à usage unique',
-      'Back-office aux couleurs du projet',
-      'Barre d’actions fixe sur mobile',
-      'Animations natives, sans librairie tierce',
-      'SEO et données structurées prêts pour le lancement',
+      'Site bilingue anglais / arabe (RTL)',
+      'Catalogue filtrable : format, catégorie, thème, note, prix',
+      'Tri par popularité, note ou prix',
+      'Panier par formation et par format',
+      'Demandes d’inscription avec numéro de demande',
+      'E-mails à l’équipe et au client',
+      'Promotions avec compte à rebours',
+      'Événements et ateliers',
+      'Journal (blog) et newsletter',
+      'Bouton WhatsApp contextuel',
+      'SEO : hreflang, sitemap, données structurées',
+      'Back-office avec aperçu en direct',
     ],
-    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Payload CMS 3', 'PostgreSQL (Neon)', 'Tailwind CSS', 'Vercel'],
-    cover: { src: alHome, alt: 'Page d’accueil du site Atlas Lagoon' },
-    mobile: { src: alHomeM, alt: 'Accueil Atlas Lagoon sur mobile avec la barre d’actions' },
+    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Payload CMS 3', 'PostgreSQL', 'Tailwind CSS', 'next-intl', 'Resend', 'GitHub Actions', 'Hostinger'],
+    cover: { src: amHome, alt: 'Page d’accueil du site Artimezia' },
+    mobile: { src: amHomeM, alt: 'Accueil Artimezia sur mobile' },
     gallery: [
-      { src: alMaq, alt: 'Page maquette 3D d’Atlas Lagoon avec le champ de référence', caption: 'Maquette 3D — le visiteur saisit la référence choisie pour lancer la réservation' },
-      { src: alApp, alt: 'Catalogue des appartements Atlas Lagoon avec filtres', caption: 'Catalogue des appartements (données de démonstration)' },
-      { src: alFiche, alt: 'Fiche appartement Atlas Lagoon', caption: 'Fiche appartement — plan type, rendus et caractéristiques' },
+      { src: amCourses, alt: 'Catalogue des formations Artimezia avec filtres et tri', caption: 'Catalogue — filtres par prix, format, catégorie et thème, tri' },
+      { src: amCourse, alt: 'Fiche formation Artimezia avec choix du format et prix en dirhams', caption: 'Fiche formation — choix du format (en ligne, présentiel, individuel) et ajout au panier' },
+      { src: amHomeAr, alt: 'Page d’accueil Artimezia en arabe, mise en page de droite à gauche', caption: 'Version arabe — mise en page de droite à gauche' },
     ],
     mobiles: [
-      { src: alHomeM, alt: 'Accueil Atlas Lagoon sur mobile', caption: 'Accueil' },
-      { src: alAppM, alt: 'Catalogue Atlas Lagoon sur mobile', caption: 'Catalogue' },
-      { src: alFicheM, alt: 'Fiche appartement Atlas Lagoon sur mobile', caption: 'Fiche appartement' },
+      { src: amHomeM, alt: 'Accueil Artimezia sur mobile', caption: 'Accueil' },
+      { src: amCourseM, alt: 'Fiche formation Artimezia sur mobile', caption: 'Fiche formation' },
+      { src: amHomeArM, alt: 'Accueil Artimezia en arabe sur mobile', caption: 'Version arabe' },
     ],
-    tint: '#d9e0e2',
+    tint: '#e9ddd9',
     notes: [
-      'Site en préproduction : les appartements et prix affichés sont des données de démonstration.',
-      'La maquette 3D, les visites 360° et les rendus sont des contenus fournis par des tiers ; mon travail porte sur le site, le back-office et le parcours de réservation.',
+      'Les chiffres affichés sur le site de l’école (étudiants, communauté, notes) sont ceux du client, pas des résultats du projet.',
+      'Pas de paiement en ligne : c’est un choix du client, l’équipe finalise chaque inscription par contact direct.',
     ],
   },
   {
@@ -325,6 +329,14 @@ export const references: Reference[] = [
     description: 'Studio de rendu 3D à Casablanca : effet plan → rendu, comparateur, maquette 3D interactive en Three.js, animations GSAP et défilement fluide, dans un site statique optimisé.',
   },
   {
+    name: 'Atlas Lagoon',
+    kind: 'Immobilier & réservation · Next.js',
+    context: 'Freelance',
+    year: '2026',
+    url: 'https://atlas-lagoon.vercel.app/',
+    description: 'Programme d’appartements haut de gamme : catalogue filtrable, pont entre une maquette 3D et la réservation en ligne avec paiement d’avance, back-office Payload. En préproduction.',
+  },
+  {
     name: 'BAG — Bugshan Automotive Group',
     kind: 'Site corporate · Laravel',
     context: 'En agence',
@@ -378,13 +390,6 @@ export const references: Reference[] = [
     context: 'En agence',
     year: '2024 — 2025',
     description: 'Groupe de santé : back-office Filament, pages établissements et spécialités composées par blocs, blog, candidatures et version arabe.',
-  },
-  {
-    name: 'Artimezia',
-    kind: 'Plateforme de formations · Next.js',
-    context: 'Freelance',
-    year: '2026',
-    description: 'Formations artistiques : Next.js et Payload CMS, bilingue anglais / arabe, catalogue filtrable et demandes d’inscription. Mise en ligne en préparation.',
   },
 ];
 

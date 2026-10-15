@@ -3,7 +3,7 @@
   "type": "module",
   "version": "2.0.0",
   "private": true,
-  "description": "Portfolio d'Elmehdi Ghazri — développeur web full-stack freelance à Casablanca (gazry.dev)",
+  "description": "Gazry Dev — développeur web full-stack freelance à Casablanca (gazry.dev)",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

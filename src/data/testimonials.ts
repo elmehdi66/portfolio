@@ -1,9 +1,9 @@
-// Avis repris tels quels du site précédent (fournis par Elmehdi).
+// Avis repris tels quels du site précédent (fournis par El Mehdi).
 // Idéalement : ajouter nom complet, entreprise et lien LinkedIn avec l'accord des auteurs.
 export const testimonials = [
   {
     quote:
-      'Elmehdi est quelqu’un de sérieux, ça se sent dès le départ. Il pose les bonnes questions, ne part pas dans tous les sens, et le rendu était exactement ce qu’on voulait. Les délais ont été tenus, c’est déjà pas rien. Je retravaillerai avec lui.',
+      'El Mehdi est quelqu’un de sérieux, ça se sent dès le départ. Il pose les bonnes questions, ne part pas dans tous les sens, et le rendu était exactement ce qu’on voulait. Les délais ont été tenus, c’est déjà pas rien. Je retravaillerai avec lui.',
     name: 'Ayoub',
     role: 'Directeur transformation digitale',
   },

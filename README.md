@@ -1,4 +1,4 @@
-# gazry.dev — portfolio d'Elmehdi Ghazri
+# gazry.dev — site de Gazry Dev (El Mehdi)
 
 Site statique généré avec [Astro](https://astro.build), déployé sur l'hébergement Hostinger (Apache) de `gazry.dev`.
 

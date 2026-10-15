@@ -5,7 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Faq from '../components/Faq.astro';
 import Icon from '../components/Icon.astro';
-import portrait from '../assets/img/elmehdi-ghazri.jpg';
+import portrait from '../assets/img/el-mehdi.jpg';
 import { site, whatsappUrl } from '../data/site';
 import { faq } from '../data/services';
 import { breadcrumbSchema, businessSchema } from '../data/schema';
@@ -15,10 +15,10 @@ const next = [
   { t: 'On en parle', x: 'Par téléphone, en visio, ou en rendez-vous si vous êtes à Casablanca.' },
   { t: 'Vous recevez un devis', x: 'Détaillé et gratuit : périmètre, choix techniques, planning et budget.' },
 ];
-const contactPage = { '@type': 'ContactPage', name: 'Contact — Elmehdi Ghazri', url: `${site.url}/contact/` };
+const contactPage = { '@type': 'ContactPage', name: 'Contact — Gazry Dev', url: `${site.url}/contact/` };
 ---
 <Layout
-  title="Contact & devis gratuit — Elmehdi Ghazri, développeur web à Casablanca"
+  title="Contact & devis gratuit — Gazry Dev, développeur web à Casablanca"
   description="Décrivez votre projet de site, d’e-commerce ou d’application web : réponse sous 24 h ouvrées et devis gratuit en dirhams. Formulaire, WhatsApp, e-mail ou téléphone."
   path="/contact/"
   hideMobileBar
@@ -48,8 +48,8 @@ const contactPage = { '@type': 'ContactPage', name: 'Contact — Elmehdi Ghazri'
       <div class="who">
         <Picture src={portrait} alt="" widths={[64, 128]} sizes="64px" formats={['avif', 'webp']} fallbackFormat="jpg" class="who__img" />
         <div>
-          <p class="who__name">Elmehdi Ghazri</p>
-          <p class="mono who__role">Votre interlocuteur unique</p>
+          <p class="who__name">El Mehdi</p>
+          <p class="mono who__role">Gazry Dev · votre interlocuteur unique</p>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ const contactPage = { '@type': 'ContactPage', name: 'Contact — Elmehdi Ghazri'
         <li>
           <a class="direct__row" href={site.linkedin} target="_blank" rel="noopener">
             <span class="direct__ic"><Icon name="linkedin" size={20} /></span>
-            <span><span class="direct__t">LinkedIn</span><span class="direct__v">elmehdi-ghazri</span></span>
+            <span><span class="direct__t">LinkedIn</span><span class="direct__v">Voir le profil</span></span>
             <Icon name="external" size={16} class="direct__go" />
           </a>
         </li>

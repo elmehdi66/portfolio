@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHead from '../components/SectionHead.astro';
 import Icon from '../components/Icon.astro';
-import portrait from '../assets/img/elmehdi-ghazri.jpg';
+import portrait from '../assets/img/el-mehdi.jpg';
 import { site } from '../data/site';
 import { skills } from '../data/skills';
 import { breadcrumbSchema, personSchema, PERSON_ID } from '../data/schema';
@@ -45,14 +45,14 @@ const principles = [
 
 const profilePage = {
   '@type': 'ProfilePage',
-  name: 'À propos d’Elmehdi Ghazri',
+  name: 'À propos de Gazry Dev',
   url: `${site.url}/a-propos/`,
   mainEntity: { '@id': PERSON_ID },
 };
 ---
 <Layout
-  title="À propos — Elmehdi Ghazri, développeur web full-stack à Casablanca"
-  description="Parcours, compétences et méthode de travail d’Elmehdi Ghazri, développeur web full-stack freelance basé à Casablanca : React, Next.js, Laravel, WordPress, intégrations API et IA."
+  title="À propos de Gazry Dev — développeur web full-stack à Casablanca"
+  description="Gazry Dev, c’est El Mehdi : parcours, compétences et méthode de travail d’un développeur web full-stack freelance basé à Casablanca : React, Next.js, Laravel, WordPress, intégrations API et IA."
   path="/a-propos/"
   ogType="profile"
   schema={[personSchema(), profilePage, breadcrumbSchema([{ name: 'À propos', path: '/a-propos/' }])]}
@@ -66,8 +66,8 @@ const profilePage = {
     </h1>
     <div class="page-hero__foot">
       <div class="intro fade-in">
-        <Picture src={portrait} alt="Portrait d’Elmehdi Ghazri" widths={[110, 220]} sizes="110px" formats={['avif', 'webp']} fallbackFormat="jpg" class="intro__img" loading="eager" />
-        <p class="lede">Je m’appelle Elmehdi Ghazri. Je suis développeur web full-stack, basé à Casablanca, et je conçois des sites et des applications web pour des entreprises, des startups et des agences depuis {site.startYear}.</p>
+        <Picture src={portrait} alt="Portrait d’El Mehdi, développeur derrière Gazry Dev" widths={[110, 220]} sizes="110px" formats={['avif', 'webp']} fallbackFormat="jpg" class="intro__img" loading="eager" />
+        <p class="lede">Gazry Dev, c’est moi, El Mehdi&nbsp;: développeur web full-stack basé à Casablanca. Sous ce nom, je conçois des sites et des applications web pour des entreprises, des startups et des agences depuis {site.startYear}.</p>
       </div>
       <div class="facts fade-in" style="--delay:0.65s">
         <dl>

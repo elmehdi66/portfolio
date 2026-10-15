@@ -31,7 +31,7 @@ h1 em{font-style:normal;color:#b5401f}
 .bot b{font-family:D;font-weight:600;font-size:30px;letter-spacing:-.02em;color:#141311}
 .rule{position:absolute;left:72px;right:72px;top:132px;border-top:1px solid rgba(20,19,17,.16)}
 </style></head><body><div class="c">
-<div class="top"><span><span class="mark">eg</span>Elmehdi Ghazri</span><span>gazry.dev</span></div><div class="rule"></div>
+<div class="top"><span><span class="mark">gd</span>Gazry Dev</span><span>gazry.dev</span></div><div class="rule"></div>
 <h1>Sites &amp; applications<br>web <em>sur mesure</em>,<br>de l’idée à la mise en ligne.</h1>
 <div class="bot"><span><b>Développeur full-stack freelance</b><br>Casablanca, Maroc</span><span style="font-family:M;font-size:16px;text-transform:uppercase;color:#5f5a52">React · Next.js · Laravel · WordPress</span></div>
 </div></body></html>`;
@@ -51,14 +51,14 @@ h1{font-family:D;font-weight:600;font-size:${p.name.length > 12 ? 70 : 88}px;lin
 .fr img{display:block;width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top left}
 </style></head><body><div class="c">
 <div class="l"><div><p class="k">${p.kind}</p><h1>${p.name}</h1><p class="h">${p.headline}</p></div>
-<p class="f"><span class="mark">eg</span>Étude de cas · gazry.dev</p></div>
+<p class="f"><span class="mark">gd</span>Étude de cas · Gazry Dev</p></div>
 <div class="r"><div class="fr"><div class="bar"><i></i><i></i><i></i></div><img src="${img}"></div></div>
 </div></body></html>`;
 
 const iconHtml = (size) => `<!doctype html><html><head><style>${FONTS}
 body{background:transparent}
 .i{width:${size}px;height:${size}px;border-radius:${Math.round(size * 0.24)}px;background:#141311;color:#f4f1ea;display:grid;place-items:center;font-family:D;font-weight:650;font-size:${Math.round(size * 0.5)}px;letter-spacing:-.05em;line-height:1;padding-bottom:${Math.round(size * 0.06)}px}
-</style></head><body><div class="i">eg</div></body></html>`;
+</style></head><body><div class="i">gd</div></body></html>`;
 
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });

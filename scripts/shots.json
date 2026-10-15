@@ -1,23 +1,96 @@
 [
-  { "in": "_research/shots/mli/home-desktop.png", "out": "mli/home.webp", "width": 2400 },
-  { "in": "_research/shots/mli/home-mobile.png", "out": "mli/home-mobile.webp", "width": 780 },
-  { "in": "_research/shots/mli/formations-desktop.png", "out": "mli/formations.webp", "width": 2400 },
-  { "in": "_research/shots/mli/formations-mobile.png", "out": "mli/formations-mobile.webp", "width": 780 },
-  { "in": "_research/shots/mli/catalogue-2026-desktop.png", "out": "mli/catalogue.webp", "width": 2400 },
-  { "in": "_research/shots/mli/program-builder-desktop.png", "out": "mli/program-builder.webp", "width": 2400 },
-  { "in": "_research/shots/mli/home-full.png", "out": "mli/home-section.webp", "width": 2400, "top": 1500, "crop": 1500 },
-
-  { "in": "_research/shots/atlas-lagoon/home-desktop.png", "out": "atlas-lagoon/home.webp", "width": 2400 },
-  { "in": "_research/shots/atlas-lagoon/home-mobile.png", "out": "atlas-lagoon/home-mobile.webp", "width": 780 },
-  { "in": "_research/shots/atlas-lagoon/maquette-3d-desktop.png", "out": "atlas-lagoon/maquette.webp", "width": 2400 },
-  { "in": "_research/shots/atlas-lagoon/maquette-3d-mobile.png", "out": "atlas-lagoon/maquette-mobile.webp", "width": 780 },
-  { "in": "_research/shots/atlas-lagoon/appartements-desktop.png", "out": "atlas-lagoon/appartements.webp", "width": 2400 },
-  { "in": "_research/shots/atlas-lagoon/appartements-mobile.png", "out": "atlas-lagoon/appartements-mobile.webp", "width": 780 },
-  { "in": "_research/shots/atlas-lagoon/fiche-appartement-desktop.png", "out": "atlas-lagoon/fiche.webp", "width": 2400 },
-  { "in": "_research/shots/atlas-lagoon/fiche-appartement-mobile.png", "out": "atlas-lagoon/fiche-mobile.webp", "width": 780 },
-
-  { "in": "_research/shots/masoku/ugcai-generate-desktop.png", "out": "masoku/generate.webp", "width": 2400 },
-  { "in": "_research/shots/masoku/ugcai-generate-mobile.png", "out": "masoku/generate-mobile.webp", "width": 780 },
-  { "in": "_research/shots/masoku/ugcai-plans-desktop.png", "out": "masoku/plans.webp", "width": 2400 },
-  { "in": "_research/shots/masoku/ugcai-plans-mobile.png", "out": "masoku/plans-mobile.webp", "width": 780 }
+  {
+    "in": "_research/shots/mli/home-desktop.png",
+    "out": "mli/home.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/mli/home-mobile.png",
+    "out": "mli/home-mobile.webp",
+    "width": 780
+  },
+  {
+    "in": "_research/shots/mli/formations-desktop.png",
+    "out": "mli/formations.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/mli/formations-mobile.png",
+    "out": "mli/formations-mobile.webp",
+    "width": 780
+  },
+  {
+    "in": "_research/shots/mli/catalogue-2026-desktop.png",
+    "out": "mli/catalogue.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/mli/program-builder-desktop.png",
+    "out": "mli/program-builder.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/mli/home-full.png",
+    "out": "mli/home-section.webp",
+    "width": 2400,
+    "top": 1500,
+    "crop": 1500
+  },
+  {
+    "in": "_research/shots/masoku/ugcai-generate-desktop.png",
+    "out": "masoku/generate.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/masoku/ugcai-generate-mobile.png",
+    "out": "masoku/generate-mobile.webp",
+    "width": 780
+  },
+  {
+    "in": "_research/shots/masoku/ugcai-plans-desktop.png",
+    "out": "masoku/plans.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/masoku/ugcai-plans-mobile.png",
+    "out": "masoku/plans-mobile.webp",
+    "width": 780
+  },
+  {
+    "in": "_research/shots/artimezia/home-desktop.png",
+    "out": "artimezia/home.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/artimezia/home-mobile.png",
+    "out": "artimezia/home-mobile.webp",
+    "width": 780
+  },
+  {
+    "in": "_research/shots/artimezia/courses-desktop.png",
+    "out": "artimezia/courses.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/artimezia/course-full.png",
+    "out": "artimezia/course-detail.webp",
+    "width": 2400,
+    "top": 900,
+    "crop": 1500
+  },
+  {
+    "in": "_research/shots/artimezia/course-mobile.png",
+    "out": "artimezia/course-mobile.webp",
+    "width": 780
+  },
+  {
+    "in": "_research/shots/artimezia/home-ar-desktop.png",
+    "out": "artimezia/home-ar.webp",
+    "width": 2400
+  },
+  {
+    "in": "_research/shots/artimezia/home-ar-mobile.png",
+    "out": "artimezia/home-ar-mobile.webp",
+    "width": 780
+  }
 ]

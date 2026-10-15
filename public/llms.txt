@@ -1,6 +1,6 @@
-# gazry.dev — Elmehdi Ghazri, développeur web full-stack freelance (Casablanca, Maroc)
+# gazry.dev — Gazry Dev, développement web full-stack freelance (Casablanca, Maroc)
 
-> Portfolio d'Elmehdi Ghazri : sites sur mesure, e-commerce B2B, applications web et SaaS, intégrations API et IA. React, Next.js, Laravel, WordPress. Contact : contact@gazry.dev — WhatsApp +212 621 810 047.
+> Gazry Dev est le nom sous lequel El Mehdi, développeur web full-stack freelance basé à Casablanca, conçoit des sites sur mesure, des boutiques e-commerce B2B, des applications web et SaaS, et des intégrations API et IA. React, Next.js, Laravel, WordPress. Contact : contact@gazry.dev — WhatsApp +212 621 810 047.
 
 ## Pages principales
 
@@ -15,7 +15,7 @@
 
 - [MLI — Moroccan Leadership Institute](https://gazry.dev/realisations/mli/) : site institutionnel Next.js + Payload CMS, bilingue, Program Builder avec assistant IA.
 - [ProSalon](https://gazry.dev/realisations/prosalon/) : e-commerce B2B WooCommerce, plugins PHP sur mesure, intégration transporteur Cathedis.
-- [Atlas Lagoon](https://gazry.dev/realisations/atlas-lagoon/) : site immobilier, catalogue d'appartements, pont maquette 3D → réservation en ligne.
+- [Artimezia](https://gazry.dev/realisations/artimezia/) : école d'art, Next.js + Payload CMS, bilingue anglais / arabe, catalogue et demandes d'inscription.
 - [Masoku](https://gazry.dev/realisations/masoku/) : SaaS d'IA générative, crédits et paiements (Clerk Billing, Stripe).
 
 ## Plan du site

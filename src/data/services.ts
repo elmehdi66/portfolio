@@ -25,7 +25,7 @@ export const services: Service[] = [
       'Mise en ligne, nom de domaine et hébergement',
     ],
     stack: ['Next.js', 'React', 'WordPress', 'PHP'],
-    related: ['mli', 'atlas-lagoon'],
+    related: ['mli', 'artimezia'],
   },
   {
     id: 'applications-saas',

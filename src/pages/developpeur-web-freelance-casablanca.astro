@@ -24,10 +24,10 @@ const localFaq = [
 ];
 
 const casaRefs = references.filter((r) => /Lincoln|Pigeon|HP Immo|Blanca/.test(r.name));
-const mli = projects.find((p) => p.slug === 'mli');
+const casaCases = projects.filter((p) => ['mli', 'artimezia'].includes(p.slug));
 ---
 <Layout
-  title="Développeur web freelance à Casablanca | Elmehdi Ghazri"
+  title="Développeur web freelance à Casablanca | Gazry Dev"
   description="Développeur web freelance à Casablanca : sites vitrines, e-commerce, applications Laravel et Next.js pour entreprises et indépendants. Rendez-vous possible, devis gratuit en dirhams."
   path="/developpeur-web-freelance-casablanca/"
   schema={[businessSchema(), breadcrumbSchema([{ name: 'Développeur web freelance à Casablanca', path: '/developpeur-web-freelance-casablanca/' }]), faqSchema(localFaq)]}
@@ -46,7 +46,7 @@ const mli = projects.find((p) => p.slug === 'mli');
       <p class="lede fade-in">Je conçois et développe des sites web, des boutiques en ligne et des applications métier pour les entreprises et les indépendants de Casablanca. Du premier rendez-vous jusqu’à la mise en ligne, avec un seul interlocuteur.</p>
       <div class="fade-in casa-cta" style="--delay:0.65s">
         <a class="btn" href="/contact/">Demander un devis gratuit <Icon name="arrow" class="arrow" /></a>
-        <a class="btn btn--ghost btn--wa" href={whatsappUrl('Bonjour Elmehdi, je suis à Casablanca et j’ai un projet de site web.')} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+        <a class="btn btn--ghost btn--wa" href={whatsappUrl('Bonjour El Mehdi, je suis à Casablanca et j’ai un projet de site web.')} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
       </div>
     </div>
   </section>
@@ -81,14 +81,16 @@ const mli = projects.find((p) => p.slug === 'mli');
 
   <section class="wrap section section--flush-top" aria-labelledby="casa-refs">
     <SectionHead index="03" label="Références" id="casa-refs" title="Quelques projets pour des structures casablancaises." />
-    {mli && (
-      <a class="casa-feat" href={`/realisations/${mli.slug}/`} data-reveal>
-        <span class="label">Étude de cas</span>
-        <span class="casa-feat__n">{mli.client}</span>
-        <span class="casa-feat__x">{mli.summary}</span>
-        <span class="arrow-link">Lire l’étude de cas <Icon name="arrow" /></span>
-      </a>
-    )}
+    <div class="casa-feats">
+      {casaCases.map((p) => (
+        <a class="casa-feat" href={`/realisations/${p.slug}/`} data-reveal>
+          <span class="label">Étude de cas</span>
+          <span class="casa-feat__n">{p.client}</span>
+          <span class="casa-feat__x">{p.summary}</span>
+          <span class="arrow-link">Lire l’étude de cas <Icon name="arrow" /></span>
+        </a>
+      ))}
+    </div>
     <div class="casa-list"><ReferenceList items={casaRefs} /></div>
   </section>
 
@@ -118,7 +120,9 @@ const mli = projects.find((p) => p.slug === 'mli');
   .casa-svc a:hover :global(svg) { transform: translateX(5px); color: var(--clay); }
   @media (min-width: 900px) { .casa-svc a { grid-template-columns: 5fr 6fr auto; } .casa-svc__x { grid-column: 2; } .casa-svc a :global(svg) { grid-column: 3; } }
 
-  .casa-feat { margin-top: clamp(2rem, 4vw, 3rem); display: grid; gap: 0.6rem; padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: var(--paper-2); }
+  .casa-feats { margin-top: clamp(2rem, 4vw, 3rem); display: grid; gap: var(--gutter); }
+  @media (min-width: 900px) { .casa-feats { grid-template-columns: 1fr 1fr; } }
+  .casa-feat { display: grid; gap: 0.6rem; padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: var(--paper-2); }
   .casa-feat__n { font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.04em; line-height: 1; }
   .casa-feat__x { color: var(--ink-2); max-width: 40rem; }
   .casa-list { margin-top: 2rem; }

@@ -2,8 +2,10 @@
 
 export const site = {
   url: 'https://gazry.dev',
-  name: 'Elmehdi Ghazri',
-  shortName: 'Gazry',
+  name: 'Gazry Dev',
+  shortName: 'Gazry Dev',
+  // Prénom affiché quand il faut parler de la personne derrière Gazry Dev
+  person: 'El Mehdi',
   role: 'Développeur web full-stack freelance',
   city: 'Casablanca',
   country: 'Maroc',
@@ -17,12 +19,12 @@ export const site = {
   phoneDisplay: '+212 621 810 047',
   phone: '+212621810047',
   whatsapp: '212621810047',
-  whatsappText: 'Bonjour Elmehdi, je vous contacte depuis gazry.dev au sujet d’un projet web.',
+  whatsappText: 'Bonjour El Mehdi, je vous contacte depuis gazry.dev au sujet d’un projet web.',
   linkedin: 'https://www.linkedin.com/in/elmehdi-ghazri/',
   experienceYears: 4,
   startYear: 2022,
   defaultDescription:
-    'Développeur web full-stack freelance à Casablanca. Sites sur mesure, e-commerce, applications web et SaaS, intégrations API et IA — React, Next.js, Laravel, WordPress. Devis gratuit.',
+    'Gazry Dev, développement web full-stack freelance à Casablanca. Sites sur mesure, e-commerce, applications web et SaaS, intégrations API et IA — React, Next.js, Laravel, WordPress. Devis gratuit.',
 } as const;
 
 export const whatsappUrl = (text: string = site.whatsappText) =>
