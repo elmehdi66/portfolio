@@ -21,6 +21,12 @@ export const site = {
   whatsapp: '212621810047',
   whatsappText: 'Bonjour El Mehdi, je vous contacte depuis gazry.dev au sujet d’un projet web.',
   linkedin: 'https://www.linkedin.com/in/elmehdi-ghazri/',
+  // Fiche Google Business Profile. Note et nombre d’avis à mettre à jour à la main (relevé du 21/10/2026).
+  google: {
+    url: 'https://www.google.com/maps?cid=17014200189342410132',
+    rating: '5,0',
+    reviews: 8,
+  },
   experienceYears: 4,
   startYear: 2022,
   defaultDescription:

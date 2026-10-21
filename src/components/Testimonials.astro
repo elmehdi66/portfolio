@@ -1,19 +1,25 @@
 ---
+import Icon from './Icon.astro';
 import { testimonials } from '../data/testimonials';
+import { site } from '../data/site';
 ---
 <div class="tm">
   {testimonials.map((t, i) => (
     <figure class:list={['tm__item', { 'tm__item--lead': i === 0 }]} data-reveal style={`--d:${i}`}>
-      <blockquote>
+      <blockquote cite={site.google.url}>
         <p>« {t.quote} »</p>
       </blockquote>
       <figcaption>
         <span class="tm__name">{t.name}</span>
-        <span class="tm__role mono">{t.role}</span>
+        <span class="tm__role mono">{t.role ? `${t.role} · ` : ''}Avis Google</span>
       </figcaption>
     </figure>
   ))}
 </div>
+<p class="tm__all" data-reveal>
+  <span class="tm__score"><span class="tm__stars" aria-hidden="true">★★★★★</span> <span class="mono">{site.google.rating} / 5 · {site.google.reviews} avis</span></span>
+  <a class="arrow-link" href={site.google.url} target="_blank" rel="noopener">Lire les avis sur Google <Icon name="external" size={16} /></a>
+</p>
 
 <style>
   .tm { display: grid; gap: 2.5rem; }
@@ -23,6 +29,9 @@ import { testimonials } from '../data/testimonials';
   figcaption { display: grid; gap: 0.2rem; }
   .tm__name { font-weight: 600; }
   .tm__role { color: var(--ink-3); }
+  .tm__all { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; margin-top: 2.5rem; }
+  .tm__score { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink-2); }
+  .tm__stars { color: var(--clay); letter-spacing: 0.1em; }
   @media (min-width: 980px) {
     .tm { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 3rem; }
     .tm__item--lead { grid-column: 1 / span 7; grid-row: span 2; }

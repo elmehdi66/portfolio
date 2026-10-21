@@ -53,7 +53,8 @@ export const businessSchema = () => ({
   ],
   availableLanguage: ['fr', 'ar', 'en'],
   priceRange: 'À partir de 3 500 DH',
-  sameAs: [site.linkedin],
+  hasMap: site.google.url,
+  sameAs: [site.linkedin, site.google.url],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Services de développement web',
