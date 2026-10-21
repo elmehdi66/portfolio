@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "shots": "node scripts/import-shots.mjs scripts/shots.json",
-    "og": "node scripts/og.mjs"
+    "og": "node scripts/og.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^5.0.2",

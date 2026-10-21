@@ -24,6 +24,7 @@ node scripts/diagrams.mjs   # régénère le schéma d'architecture Masoku
 4. Téléverser **le contenu** de `dist/` dans `public_html` (y compris `.htaccess`).
 5. Vérifier : `https://gazry.dev/`, `/realisations/mli/`, `/contact/` (envoi d'un message test), `https://gazry.dev/developpeur-web-freelance-casablanca.html` (doit rediriger en 301).
 6. Google Search Console : soumettre `https://gazry.dev/sitemap.xml`.
+7. Bing (utilisé par ChatGPT et Copilot) : `npm run indexnow` pour signaler toutes les URL, et une fois pour toutes, importer le site depuis Search Console dans Bing Webmaster Tools.
 
 ## Modifier le contenu
 

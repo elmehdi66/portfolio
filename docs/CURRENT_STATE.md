@@ -19,7 +19,8 @@ Astro 7 statique → `dist/` à téléverser dans `public_html` (Hostinger). CSS
 3. Témoignages : repris de l'ancien site (prénoms seulement) — idéalement ajouter nom, entreprise, lien.
 4. Vérifier que l'adresse contact@gazry.dev reçoit bien les e-mails.
 5. Quand ProSalon / Masoku seront lancés : mettre à jour statut, liens et captures (`src/data/projects.ts`).
-6. Optionnel : version anglaise `/en/` (voir DECISIONS.md), pages services dédiées si le contenu grandit.
+6. Visibilité IA (constat du 21/10/2026) : 0 page indexée par Bing, alors que la recherche de ChatGPT s'appuie surtout sur Bing ; le CDN Hostinger renvoie 429 à GPTBot. À faire : Bing Webmaster Tools (import depuis Search Console) + `npm run indexnow` après chaque mise en ligne, débloquer GPTBot (hPanel / support Hostinger), fiches Google Business Profile + Bing Places, profils Malt / LinkedIn « Gazry Dev », lien « Réalisé par Gazry Dev » sur les sites clients.
+7. Optionnel : version anglaise `/en/` (voir DECISIONS.md), pages services dédiées si le contenu grandit.
 
 ## Commandes
-`npm run build`, `npm run preview`, `npm run og` (PowerShell), `node scripts/diagrams.mjs`.
+`npm run build`, `npm run preview`, `npm run indexnow` (après mise en ligne), `npm run og` (PowerShell), `node scripts/diagrams.mjs`.
