@@ -1,9 +1,14 @@
 ---
+import { Picture } from 'astro:assets';
 import Icon from './Icon.astro';
 import type { Reference } from '../data/types';
 
 interface Props { items: Reference[]; showDescription?: boolean }
 const { items, showDescription = true } = Astro.props;
+const initials = (name: string) => {
+  const words = name.replace(/[—–-].*$/, '').trim().split(/\s+/);
+  return (words.length === 1 ? words[0].slice(0, 3) : words.slice(0, 2).map((w) => w[0]).join('')).toUpperCase();
+};
 ---
 <ul class="rl" role="list">
   {items.map((r) => {
@@ -11,6 +16,13 @@ const { items, showDescription = true } = Astro.props;
     return (
       <li data-reveal>
         <Tag class="rl__row" {...(r.url ? { href: r.url, target: '_blank', rel: 'noopener' } : {})}>
+          <span class="rl__thumb" aria-hidden="true">
+            {r.shot ? (
+              <Picture src={r.shot} alt="" widths={[200, 320, 480]} sizes="(min-width: 900px) 160px, 96px" formats={['avif', 'webp']} fallbackFormat="jpg" quality={70} loading="lazy" />
+            ) : (
+              <span class="rl__ph">{initials(r.name)}</span>
+            )}
+          </span>
           <span class="rl__name">{r.name}</span>
           <span class="rl__kind">{r.kind}</span>
           <span class="rl__ctx mono">{r.context}{r.year ? ` · ${r.year}` : ''}</span>
@@ -27,21 +39,28 @@ const { items, showDescription = true } = Astro.props;
   .rl { border-top: 1px solid var(--line); }
   .rl li { border-bottom: 1px solid var(--line); }
   .rl__row {
-    display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; padding: 1.25rem 0; align-items: baseline;
+    display: grid; grid-template-columns: 96px 1fr auto; gap: 0.3rem 1rem; padding: 1rem 0; align-items: center;
     transition: padding 0.4s var(--ease-out), background-color 0.3s;
   }
-  .rl__name { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.025em; line-height: 1.1; }
-  .rl__kind { grid-column: 1; color: var(--ink-2); font-weight: 500; }
-  .rl__ctx { grid-column: 1; color: var(--ink-3); }
-  .rl__go { grid-column: 2; grid-row: 1; color: var(--ink-3); transition: transform 0.4s var(--ease-out), color 0.2s; }
-  .rl__desc { grid-column: 1 / -1; color: var(--ink-3); font-size: 0.9375rem; max-width: 46rem; }
+  .rl__thumb { grid-row: 1 / span 3; align-self: start; display: block; aspect-ratio: 16 / 10; border-radius: 6px; overflow: hidden; background: var(--paper-2); border: 1px solid var(--line); }
+  .rl__thumb :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.6s var(--ease-out); }
+  a.rl__row:hover .rl__thumb :global(img) { transform: scale(1.05); }
+  .rl__ph { display: grid; place-items: center; width: 100%; height: 100%; font-family: var(--f-display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.03em; color: var(--ink-3); }
+  .rl__name { grid-column: 2; font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.025em; line-height: 1.1; }
+  .rl__kind { grid-column: 2; color: var(--ink-2); font-weight: 500; }
+  .rl__ctx { grid-column: 2; color: var(--ink-3); }
+  .rl__go { grid-column: 3; grid-row: 1; color: var(--ink-3); transition: transform 0.4s var(--ease-out), color 0.2s; }
+  .rl__desc { grid-column: 1 / -1; color: var(--ink-3); font-size: 0.9375rem; max-width: 46rem; margin-top: 0.5rem; }
   a.rl__row:hover .rl__go { color: var(--clay); transform: translate(3px, -3px); }
   a.rl__row:hover .rl__name { color: var(--clay-ink); }
   @media (min-width: 900px) {
-    .rl__row { grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 2.4fr) 2rem; column-gap: var(--gutter); }
-    .rl__kind, .rl__ctx { grid-column: auto; }
-    .rl__go { grid-column: 4; justify-self: end; }
-    .rl__desc { grid-column: 1 / span 3; }
+    .rl__row { grid-template-columns: 160px minmax(0, 4fr) minmax(0, 3fr) minmax(0, 2.4fr) 2rem; column-gap: var(--gutter); }
+    .rl__thumb { grid-row: 1 / span 2; }
+    .rl__name { grid-column: 2; grid-row: 1; }
+    .rl__kind { grid-column: 3; grid-row: 1; }
+    .rl__ctx { grid-column: 4; grid-row: 1; }
+    .rl__go { grid-column: 5; justify-self: end; }
+    .rl__desc { grid-column: 2 / span 3; grid-row: 2; margin-top: 0; }
     a.rl__row:hover { padding-left: 0.75rem; padding-right: 0.25rem; }
   }
 </style>

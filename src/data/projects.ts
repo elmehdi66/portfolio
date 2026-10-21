@@ -27,6 +27,16 @@ import mkArch from '../assets/projects/masoku/architecture.webp';
 import mkPlans from '../assets/projects/masoku/plans.webp';
 import mkGen from '../assets/projects/masoku/generate.webp';
 
+import refHp from '../assets/projects/refs/hp-immo.webp';
+import refPigeon from '../assets/projects/refs/pigeon.webp';
+import refRiad from '../assets/projects/refs/riad.webp';
+import refAtlas from '../assets/projects/refs/atlas-lagoon.webp';
+import refBagCap from '../assets/projects/refs/bag-capital.webp';
+import refBag from '../assets/projects/refs/bag.webp';
+import refLincoln from '../assets/projects/refs/lincoln.webp';
+import refRhs from '../assets/projects/refs/rhs-emploi.webp';
+import refBlanca from '../assets/projects/refs/blanca-tv.webp';
+
 export const projects: Project[] = [
   {
     slug: 'mli',
@@ -322,6 +332,7 @@ export const projects: Project[] = [
 export const references: Reference[] = [
   {
     name: 'HP Immo',
+    shot: refHp,
     kind: 'Site vitrine immersif · Three.js',
     context: 'Freelance',
     year: '2026',
@@ -330,6 +341,7 @@ export const references: Reference[] = [
   },
   {
     name: 'Pigeon Express Worldwide',
+    shot: refPigeon,
     kind: 'Site vitrine & espace client',
     context: 'Freelance',
     year: '2023 — 2024',
@@ -338,6 +350,7 @@ export const references: Reference[] = [
   },
   {
     name: 'Riad Le Khan Mogador',
+    shot: refRiad,
     kind: 'Site hôtelier · WordPress',
     context: 'Freelance',
     year: '2026',
@@ -346,6 +359,7 @@ export const references: Reference[] = [
   },
   {
     name: 'Atlas Lagoon',
+    shot: refAtlas,
     kind: 'Immobilier & réservation · Next.js',
     context: 'Freelance',
     year: '2026',
@@ -354,6 +368,7 @@ export const references: Reference[] = [
   },
   {
     name: 'BAG Capital',
+    shot: refBagCap,
     kind: 'Site vitrine · intégration',
     context: 'En agence',
     year: '2024',
@@ -362,6 +377,7 @@ export const references: Reference[] = [
   },
   {
     name: 'BAG — Bugshan Automotive Group',
+    shot: refBag,
     kind: 'Site corporate · Laravel',
     context: 'En agence',
     year: '2023',
@@ -370,6 +386,7 @@ export const references: Reference[] = [
   },
   {
     name: 'Lincoln Casablanca',
+    shot: refLincoln,
     kind: 'Site événementiel · animations',
     context: 'En agence',
     year: '2025',
@@ -378,6 +395,7 @@ export const references: Reference[] = [
   },
   {
     name: 'RHS Emploi',
+    shot: refRhs,
     kind: 'Site dynamique · Laravel',
     context: 'Freelance',
     year: '2023',
@@ -386,6 +404,7 @@ export const references: Reference[] = [
   },
   {
     name: 'Blanca TV',
+    shot: refBlanca,
     kind: 'Média en ligne · Laravel',
     context: 'Application web',
     year: '2024',

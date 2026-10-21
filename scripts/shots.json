@@ -92,5 +92,51 @@
     "in": "_research/shots/artimezia/home-ar-mobile.png",
     "out": "artimezia/home-ar-mobile.webp",
     "width": 780
+  },
+  {
+    "in": "_research/shots/hpimmo/home-desktop.png",
+    "out": "refs/hp-immo.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/pigeon/home-desktop.png",
+    "out": "refs/pigeon.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/riad/home-desktop.png",
+    "out": "refs/riad.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/atlas-lagoon/home-desktop.png",
+    "out": "refs/atlas-lagoon.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/bag-capital/home-desktop.png",
+    "out": "refs/bag-capital.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/bag/home-desktop.png",
+    "out": "refs/bag.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/lincoln/home-desktop.png",
+    "out": "refs/lincoln.webp",
+    "width": 1200
+  },
+  {
+    "in": "_research/shots/rhs-emploi/home-full.png",
+    "out": "refs/rhs-emploi.webp",
+    "width": 1200,
+    "crop": 750
+  },
+  {
+    "in": "_research/shots/blanca-tv/home-desktop.png",
+    "out": "refs/blanca-tv.webp",
+    "width": 1200
   }
 ]
