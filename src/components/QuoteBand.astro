@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+import { whatsappUrl } from '../data/site';
+
+interface Props { href?: string; compact?: boolean }
+const { href = '/contact/?pack=enterprise', compact = false } = Astro.props;
+---
+<div class:list={['qb', { 'qb--compact': compact }]} data-reveal>
+  <div class="qb__text">
+    <p class="qb__title">Un besoin plus spécifique&nbsp;?</p>
+    <p class="qb__lede">Chaque projet est différent. Je vous prépare un devis sur mesure selon vos besoins, les fonctionnalités et la complexité technique. Gratuit et sans engagement.</p>
+  </div>
+  <div class="qb__actions">
+    <a class="btn" href={href}>Demander un devis sur mesure <Icon name="arrow" class="arrow" /></a>
+    {!compact && (
+      <a class="btn btn--ghost btn--wa" href={whatsappUrl('Bonjour El Mehdi, j’aimerais un devis sur mesure pour un projet.')} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+    )}
+  </div>
+</div>
+
+<style>
+  .qb {
+    margin-top: 1rem; display: grid; gap: 1.5rem; align-items: center;
+    padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg);
+    border: 1px dashed var(--line-strong);
+  }
+  .qb__title { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.03em; line-height: 1.1; }
+  .qb__lede { margin-top: 0.6rem; color: var(--ink-2); max-width: 40rem; }
+  .qb__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  @media (min-width: 980px) {
+    .qb { grid-template-columns: 1fr auto; column-gap: var(--gutter); }
+    .qb__actions { justify-content: flex-end; }
+  }
+</style>

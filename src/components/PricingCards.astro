@@ -1,0 +1,86 @@
+---
+import Icon from './Icon.astro';
+import { packs, formatPrice } from '../data/pricing';
+
+interface Props {
+  /** full : liste complète des inclusions (page Tarifs) ; compact : 3 points clés */
+  variant?: 'full' | 'compact';
+  headingLevel?: 'h2' | 'h3';
+}
+const { variant = 'compact', headingLevel: H = 'h3' } = Astro.props;
+const full = variant === 'full';
+---
+<ul class:list={['pc', { 'pc--full': full }]} role="list">
+  {packs.map((p, i) => (
+    <li class:list={['pc__card', { 'pc__card--dark': p.dark }]} id={full ? p.id : undefined} data-reveal style={`--d:${i}`}>
+      <div class="pc__top">
+        <p class="pc__n mono">{p.n}</p>
+        <H class="pc__name">{p.name}</H>
+        <p class="pc__tag mono">{p.tagline}</p>
+      </div>
+      <p class="pc__price">
+        <span class="pc__from mono">À partir de</span>
+        <span class="pc__amount">{p.from ? formatPrice(p.from) : 'Sur devis'}</span>
+      </p>
+      <p class="pc__for">{p.forWho}</p>
+      <ul class="pc__list" role="list">
+        {(full ? p.includes : p.highlights).map((it) => (
+          <li><Icon name="check" size={15} />{it}</li>
+        ))}
+      </ul>
+      {full && p.footnote && <p class="pc__foot">{p.footnote}</p>}
+      <div class="pc__cta">
+        {full ? (
+          <a class:list={['btn btn--sm', p.dark ? 'btn--light' : 'btn--ghost']} href={`/contact/?pack=${p.id}`}>
+            Choisir ce pack <Icon name="arrow" class="arrow" size={16} />
+          </a>
+        ) : (
+          <a class="arrow-link pc__more" href={`/tarifs/#${p.id}`}>Détails du pack <span class="sr-only">{p.name}</span><Icon name="arrow" size={16} /></a>
+        )}
+      </div>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .pc { display: grid; gap: 1rem; }
+  @media (min-width: 720px) { .pc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1200px) { .pc { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  .pc__card {
+    display: flex; flex-direction: column; gap: 1.25rem; padding: clamp(1.4rem, 2.2vw, 2rem);
+    border-radius: var(--radius-lg); background: #fbfaf6; border: 1px solid var(--line);
+    scroll-margin-top: calc(var(--header-h) + 1.5rem);
+    transition: transform 0.5s var(--ease-out), border-color 0.3s, box-shadow 0.5s var(--ease-out);
+  }
+  .pc__card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 24px 50px -30px rgb(20 19 17 / 0.35); }
+  .pc__card--dark { background: var(--night); color: var(--on-night); border-color: var(--night); }
+  .pc__card--dark:hover { border-color: var(--night); }
+
+  .pc__top { display: grid; gap: 0.35rem; }
+  .pc__n { color: var(--clay); }
+  .pc__card--dark .pc__n { color: #e07a55; }
+  .pc__name { font-size: var(--t-lg); letter-spacing: -0.03em; text-transform: uppercase; }
+  .pc__tag { color: var(--ink-3); }
+  .pc__card--dark .pc__tag { color: var(--on-night-2); }
+
+  .pc__price { display: grid; gap: 0.2rem; padding-block: 1.1rem; border-block: 1px solid var(--line); }
+  .pc__card--dark .pc__price { border-color: var(--line-night); }
+  .pc__from { color: var(--ink-3); }
+  .pc__card--dark .pc__from { color: var(--on-night-2); }
+  .pc__amount { font-family: var(--f-display); font-weight: 600; font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem); letter-spacing: -0.04em; line-height: 1; white-space: nowrap; }
+
+  .pc__for { color: var(--ink-2); font-size: 0.9375rem; }
+  .pc__card--dark .pc__for { color: var(--on-night-2); }
+
+  .pc__list { display: grid; gap: 0.55rem; font-size: 0.9375rem; }
+  .pc__list li { display: grid; grid-template-columns: 1.1rem 1fr; gap: 0.55rem; align-items: start; }
+  .pc__list :global(svg) { margin-top: 0.3rem; color: var(--clay); }
+  .pc__card--dark .pc__list :global(svg) { color: #e07a55; }
+
+  .pc__foot { font-size: 0.875rem; color: var(--ink-3); }
+  .pc__card--dark .pc__foot { color: var(--on-night-2); }
+
+  .pc__cta { margin-top: auto; padding-top: 0.5rem; }
+  .pc__card--dark .pc__more { color: var(--on-night); }
+</style>

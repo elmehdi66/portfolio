@@ -29,3 +29,6 @@ Le site est en français (cible principale : Maroc). Les contenus sont centralis
 
 ## Marque : Gazry Dev
 Le site met en avant la marque « Gazry Dev ». Le nom de famille n'apparaît pas ; quand il faut parler de la personne, seul le prénom « El Mehdi » est utilisé (`site.person`). Seule l'URL du profil LinkedIn contient encore le nom complet (non modifiable).
+
+## Tarifs : packs « à partir de » + devis
+Page `/tarifs/` : 4 packs (Starter 3 500 DH, Business 7 000 DH, E-commerce 9 000 DH, Custom 15 000 DH), Enterprise sur devis, services complémentaires et FAQ. Prix de départ repris sur l'accueil (cartes compactes), la page Services (« dès X DH ») et la FAQ. Les boutons « Choisir ce pack » ouvrent `/contact/?pack=<id>`, qui présélectionne type de projet, budget et pack ; le pack choisi est ajouté à l'objet et au message EmailJS. Toutes les valeurs viennent de `src/data/pricing.ts`.

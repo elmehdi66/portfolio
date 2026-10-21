@@ -7,6 +7,7 @@
 - [Accueil](https://gazry.dev/) : proposition de valeur, sélection de projets, services, méthode, à propos.
 - [Réalisations](https://gazry.dev/realisations/) : études de cas et autres références (freelance et en agence).
 - [Services](https://gazry.dev/services/) : sites sur mesure, applications web & SaaS, e-commerce & WordPress, API / automatisations / IA, maintenance & optimisation. Méthode et FAQ.
+- [Tarifs](https://gazry.dev/tarifs/) : packs à partir de 3 500 DH (Starter), 7 000 DH (Business), 9 000 DH (E-commerce), 15 000 DH (Custom), Enterprise sur devis, services complémentaires (maintenance dès 500 DH/mois).
 - [À propos](https://gazry.dev/a-propos/) : parcours, compétences, façon de travailler.
 - [Contact](https://gazry.dev/contact/) : formulaire de demande de devis, WhatsApp, e-mail, téléphone.
 - [Développeur web freelance à Casablanca](https://gazry.dev/developpeur-web-freelance-casablanca/) : page locale.

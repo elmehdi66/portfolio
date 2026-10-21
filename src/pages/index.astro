@@ -11,6 +11,9 @@ import Icon from '../components/Icon.astro';
 import portrait from '../assets/img/el-mehdi.jpg';
 import { projects, references } from '../data/projects';
 import { services } from '../data/services';
+import { serviceFrom } from '../data/pricing';
+import PricingCards from '../components/PricingCards.astro';
+import QuoteBand from '../components/QuoteBand.astro';
 import { site, whatsappUrl } from '../data/site';
 import { businessSchema, personSchema, websiteSchema } from '../data/schema';
 ---
@@ -84,6 +87,7 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
             <span class="mono svc-row__n">0{i + 1}</span>
             <span class="svc-row__t">{s.title}</span>
             <span class="svc-row__x">{s.short}</span>
+            {serviceFrom[s.id] && <span class="svc-row__from mono">{serviceFrom[s.id]}</span>}
             <span class="svc-row__go" aria-hidden="true"><Icon name="arrow" size={22} /></span>
           </a>
         </li>
@@ -91,15 +95,21 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
     </ol>
   </section>
 
+  <section class="section wrap pricing-sec" aria-labelledby="pricing-title">
+    <SectionHead index="03" label="Tarifs" id="pricing-title" title="Des prix de départ clairs." lede="Quatre packs pour vous situer avant même de m’écrire, et un devis sur mesure pour les projets plus complexes." />
+    <div class="pricing-wrap"><PricingCards /><QuoteBand compact href="/contact/" /></div>
+    <p class="pricing-all"><a class="arrow-link" href="/tarifs/">Voir tous les tarifs et services complémentaires <Icon name="arrow" /></a></p>
+  </section>
+
   <section class="on-night section" aria-labelledby="method-title">
     <div class="wrap">
-      <SectionHead index="03" label="Méthode" id="method-title" title="Un déroulé simple, des étapes validées avec vous." lede="Pas d’effet tunnel : vous savez à chaque étape ce qui est fait et ce qui reste à faire." />
+      <SectionHead index="04" label="Méthode" id="method-title" title="Un déroulé simple, des étapes validées avec vous." lede="Pas d’effet tunnel : vous savez à chaque étape ce qui est fait et ce qui reste à faire." />
       <div class="steps-wrap"><Steps /></div>
     </div>
   </section>
 
   <section class="section wrap" aria-labelledby="about-title">
-    <SectionHead index="04" label="À propos" id="about-title" title="Un seul interlocuteur, du premier échange à la production." />
+    <SectionHead index="05" label="À propos" id="about-title" title="Un seul interlocuteur, du premier échange à la production." />
     <div class="about">
       <div class="about__who" data-reveal>
         <Picture src={portrait} alt="Portrait d’El Mehdi, développeur derrière Gazry Dev" widths={[96, 192]} sizes="96px" formats={['avif', 'webp']} fallbackFormat="jpg" class="about__img" />
@@ -163,6 +173,10 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
   .svc-row__n { color: var(--clay); }
   .svc-row__t { font-family: var(--f-display); font-weight: 600; font-size: var(--t-xl); letter-spacing: -0.035em; line-height: 1; }
   .svc-row__x { grid-column: 2; color: var(--ink-2); max-width: 32rem; }
+  .svc-row__from { grid-column: 2; color: var(--clay-ink); }
+  .pricing-sec { padding-top: 0; }
+  .pricing-wrap { margin-top: clamp(2rem, 4vw, 3.5rem); }
+  .pricing-all { margin-top: 1.5rem; }
   .svc-row__go { grid-column: 3; grid-row: 1; transition: transform 0.45s var(--ease-out), color 0.2s; }
   .svc-row:hover .svc-row__go { transform: translateX(6px); color: var(--clay); }
   .svc-row:hover .svc-row__t { color: var(--clay-ink); }
@@ -171,6 +185,7 @@ import { businessSchema, personSchema, websiteSchema } from '../data/schema';
     .svc-row__n { grid-column: 1 / span 1; }
     .svc-row__t { grid-column: 2 / span 6; }
     .svc-row__x { grid-column: 8 / span 4; }
+    .svc-row__from { grid-column: 8 / span 4; grid-row: 2; }
     .svc-row__go { grid-column: 12; justify-self: end; }
     .svc-row:hover { padding-left: 1rem; }
   }

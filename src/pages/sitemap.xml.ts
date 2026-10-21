@@ -6,6 +6,7 @@ const pages = [
   { path: '/realisations/', priority: '0.9' },
   ...projects.map((p) => ({ path: `/realisations/${p.slug}/`, priority: '0.8' })),
   { path: '/services/', priority: '0.9' },
+  { path: '/tarifs/', priority: '0.9' },
   { path: '/a-propos/', priority: '0.7' },
   { path: '/contact/', priority: '0.8' },
   { path: '/developpeur-web-freelance-casablanca/', priority: '0.8' },

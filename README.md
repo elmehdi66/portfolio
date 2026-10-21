@@ -31,6 +31,7 @@ node scripts/diagrams.mjs   # régénère le schéma d'architecture Masoku
 |---|---|
 | Coordonnées, disponibilité, suivi (GA4/Ads/GTM), EmailJS | `src/data/site.ts` |
 | Services, méthode, FAQ | `src/data/services.ts` |
+| Tarifs (packs, Enterprise, services complémentaires, FAQ tarifs) | `src/data/pricing.ts` |
 | Études de cas et références | `src/data/projects.ts` (+ images dans `src/assets/projects/<slug>/`) |
 | Compétences | `src/data/skills.ts` |
 | Témoignages | `src/data/testimonials.ts` |

@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import PricingCards from '../components/PricingCards.astro';
+import QuoteBand from '../components/QuoteBand.astro';
+import Faq from '../components/Faq.astro';
+import Icon from '../components/Icon.astro';
+import { packs, enterprise, extras, pricingFaq, formatPrice } from '../data/pricing';
+import { site } from '../data/site';
+import { abs, breadcrumbSchema, BUSINESS_ID, faqSchema } from '../data/schema';
+
+const catalog = {
+  '@type': 'OfferCatalog',
+  '@id': `${site.url}/tarifs/#catalogue`,
+  name: 'Tarifs Gazry Dev',
+  url: abs('/tarifs/'),
+  itemListElement: [
+    ...packs.map((p) => ({
+      '@type': 'Offer',
+      name: `${p.name} — ${p.tagline}`,
+      description: p.forWho,
+      url: abs(`/tarifs/#${p.id}`),
+      priceCurrency: 'MAD',
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: p.from, priceCurrency: 'MAD' },
+      seller: { '@id': BUSINESS_ID },
+    })),
+    { '@type': 'Offer', name: `${enterprise.name} — ${enterprise.tagline}`, description: enterprise.forWho, url: abs('/tarifs/#enterprise'), seller: { '@id': BUSINESS_ID } },
+  ],
+};
+const contactFor = (projectType: string) =>
+  `/contact/?type=${encodeURIComponent(projectType)}`;
+---
+<Layout
+  title="Tarifs : sites, e-commerce et applications web | Gazry Dev, Casablanca"
+  description={`Packs à partir de ${formatPrice(3500)} : site vitrine, site professionnel, e-commerce, application web sur mesure. Maintenance, audits et intégrations API. Devis gratuit.`}
+  path="/tarifs/"
+  schema={[catalog, breadcrumbSchema([{ name: 'Tarifs', path: '/tarifs/' }]), faqSchema(pricingFaq)]}
+>
+  <section class="wrap page-hero">
+    <Breadcrumbs items={[{ name: 'Tarifs' }]} />
+    <p class="label page-hero__label"><span class="idx">●</span> Tarifs</p>
+    <h1 class="t-3xl balance">
+      <span class="rise"><span style="--i:0">Des prix clairs,</span></span>
+      <span class="rise"><span style="--i:1">un devis précis.</span></span>
+    </h1>
+    <div class="page-hero__foot">
+      <p class="lede fade-in">Quatre packs avec un prix de départ, pour vous situer avant même de m’écrire. Chaque projet est ensuite chiffré sur mesure, gratuitement, avant de commencer.</p>
+      <ul class="tf-facts fade-in" role="list" style="--delay:0.65s">
+        <li><Icon name="check" size={16} /> Devis détaillé et gratuit</li>
+        <li><Icon name="check" size={16} /> Prix en dirhams</li>
+        <li><Icon name="check" size={16} /> Un seul interlocuteur, du cadrage à la mise en ligne</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-label="Packs">
+    <PricingCards variant="full" headingLevel="h2" />
+    <QuoteBand />
+  </section>
+
+  <section class="on-night section" id="enterprise" aria-labelledby="enterprise-t">
+    <div class="wrap">
+      <div class="ent">
+        <div class="ent__head">
+          <p class="label"><span class="idx">{enterprise.n}</span> {enterprise.name}</p>
+          <h2 id="enterprise-t" class="t-xl balance">{enterprise.tagline}, sur devis.</h2>
+          <p class="lede">{enterprise.forWho}</p>
+          <a class="btn btn--light ent__cta" href="/contact/?pack=enterprise">Parler de votre plateforme <Icon name="arrow" class="arrow" /></a>
+        </div>
+        <ul class="ent__list" role="list">
+          {enterprise.includes.map((it) => <li><Icon name="check" size={15} />{it}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" aria-labelledby="extras">
+    <SectionHead index="+" label="Services complémentaires" id="extras" title="Maintenance, audits et interventions." lede="Pour un site déjà en ligne, ou en complément d’un pack. Tarifs indicatifs." />
+    <div class="ex">
+      <table class="ex__table">
+        <caption class="sr-only">Services complémentaires et tarifs indicatifs</caption>
+        <thead>
+          <tr><th scope="col">Service</th><th scope="col">Tarif indicatif</th><th scope="col"><span class="sr-only">Action</span></th></tr>
+        </thead>
+        <tbody>
+          {extras.map((x) => (
+            <tr>
+              <th scope="row">{x.service}</th>
+              <td class="ex__price">{x.price}</td>
+              <td class="ex__go"><a class="arrow-link" href={contactFor(x.projectType)}>Demander <span class="sr-only">: {x.service}</span><Icon name="arrow" size={16} /></a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap section section--flush-top" aria-labelledby="tf-faq">
+    <SectionHead index="?" label="Questions sur les tarifs" id="tf-faq" title="Ce qu’il faut savoir avant de demander un devis." />
+    <div class="faq-wrap"><Faq items={pricingFaq} /></div>
+  </section>
+</Layout>
+
+<style>
+  .section--flush-top { padding-top: 0; }
+  .tf-facts { display: grid; gap: 0.6rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+  .tf-facts li { display: flex; gap: 0.6rem; align-items: center; font-weight: 500; }
+  .tf-facts :global(svg) { color: var(--clay); flex: none; }
+
+  .ent { display: grid; gap: 2.5rem; }
+  .ent__head { display: grid; gap: 1.25rem; align-content: start; }
+  .ent__cta { justify-self: start; margin-top: 0.5rem; }
+  .ent__list { display: grid; gap: 0; border-top: 1px solid var(--line-night); }
+  .ent__list li { display: grid; grid-template-columns: 1.1rem 1fr; gap: 0.6rem; padding: 0.85rem 0; border-bottom: 1px solid var(--line-night); }
+  .ent__list :global(svg) { margin-top: 0.3rem; color: #e07a55; }
+  @media (min-width: 760px) { .ent__list { grid-template-columns: 1fr 1fr; column-gap: var(--gutter); } }
+  @media (min-width: 1100px) { .ent { grid-template-columns: 5fr 7fr; column-gap: var(--gutter); } }
+
+  .ex { margin-top: clamp(2rem, 4vw, 3rem); }
+  .ex__table { width: 100%; border-collapse: collapse; }
+  .ex__table thead th { text-align: left; font-family: var(--f-mono); font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink-3); font-weight: 500; padding: 0 0 0.75rem; border-bottom: 1px solid var(--ink); }
+  .ex__table tbody th, .ex__table td { padding: 1.05rem 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: baseline; }
+  .ex__table tbody th { font-weight: 600; padding-right: 1rem; }
+  .ex__price { font-family: var(--f-display); font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; padding-right: 1rem; }
+  .ex__go { text-align: right !important; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .ex__table thead { display: none; }
+    .ex__table tr { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .ex__table tbody th, .ex__table td { padding: 0; border: 0; }
+    .ex__price { grid-column: 1; }
+    .ex__go { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  }
+  @media (min-width: 980px) { .ex, .faq-wrap { margin-left: calc(25% + var(--gutter) * 0.75); } }
+  .faq-wrap { margin-top: clamp(2rem, 4vw, 3rem); }
+</style>

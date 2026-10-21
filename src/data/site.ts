@@ -48,6 +48,7 @@ export const emailjs = {
 export const nav = [
   { href: '/realisations/', label: 'Réalisations' },
   { href: '/services/', label: 'Services' },
+  { href: '/tarifs/', label: 'Tarifs' },
   { href: '/a-propos/', label: 'À propos' },
   { href: '/contact/', label: 'Contact' },
 ] as const;

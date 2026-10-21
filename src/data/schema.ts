@@ -52,7 +52,7 @@ export const businessSchema = () => ({
     { '@type': 'Country', name: 'Maroc' },
   ],
   availableLanguage: ['fr', 'ar', 'en'],
-  priceRange: 'Sur devis',
+  priceRange: 'À partir de 3 500 DH',
   sameAs: [site.linkedin],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

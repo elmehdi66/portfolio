@@ -6,6 +6,9 @@ import Steps from '../../components/Steps.astro';
 import Faq from '../../components/Faq.astro';
 import Icon from '../../components/Icon.astro';
 import { services, faq } from '../../data/services';
+import { serviceFrom } from '../../data/pricing';
+import PricingCards from '../../components/PricingCards.astro';
+import QuoteBand from '../../components/QuoteBand.astro';
 import { projects } from '../../data/projects';
 import { businessSchema, breadcrumbSchema, faqSchema, personSchema } from '../../data/schema';
 
@@ -52,6 +55,7 @@ const noFit = [
           <p class="mono svc__n" data-reveal>0{i + 1}</p>
           <h2 id={`${s.id}-t`} class="t-xl balance" data-reveal style="--d:1">{s.title}</h2>
           <p class="svc__for" data-reveal style="--d:2"><span class="label">Pour qui</span>{s.forWho}</p>
+          {serviceFrom[s.id] && <p class="svc__from" data-reveal style="--d:3"><span class="label">Tarif</span><a href="/tarifs/" class="svc__price">{serviceFrom[s.id]}</a></p>}
         </div>
         <div class="svc__body">
           <p class="svc__pitch pretty" data-reveal>{s.pitch}</p>
@@ -83,15 +87,21 @@ const noFit = [
     ))}
   </div>
 
+  <section class="wrap section section--flush-top" aria-labelledby="tarifs">
+    <SectionHead index="06" label="Tarifs" id="tarifs" title="Des packs pour démarrer, un devis pour le reste." lede="Les prix de départ de chaque type de projet. Le détail de chaque pack et des services complémentaires est sur la page Tarifs." />
+    <div class="pricing-wrap"><PricingCards /><QuoteBand compact href="/contact/" /></div>
+    <p class="pricing-all"><a class="arrow-link" href="/tarifs/">Voir tous les tarifs <Icon name="arrow" /></a></p>
+  </section>
+
   <section class="on-night section" aria-labelledby="methode">
     <div class="wrap">
-      <SectionHead index="06" label="Méthode" id="methode" title="Un déroulé simple, sans zone d’ombre." lede="Vous savez à chaque étape ce qui est fait, ce qui reste à faire et ce que j’attends de vous." />
+      <SectionHead index="07" label="Méthode" id="methode" title="Un déroulé simple, sans zone d’ombre." lede="Vous savez à chaque étape ce qui est fait, ce qui reste à faire et ce que j’attends de vous." />
       <div class="steps-wrap"><Steps /></div>
     </div>
   </section>
 
   <section class="wrap section" aria-labelledby="match">
-    <SectionHead index="07" label="Avant de me contacter" id="match" title="Sommes-nous faits pour travailler ensemble ?" />
+    <SectionHead index="08" label="Avant de me contacter" id="match" title="Sommes-nous faits pour travailler ensemble ?" />
     <div class="match">
       <div class="match__col" data-reveal>
         <p class="match__t">Un bon match si…</p>
@@ -105,7 +115,7 @@ const noFit = [
   </section>
 
   <section class="wrap section section--flush-top" aria-labelledby="faq">
-    <SectionHead index="08" label="Questions fréquentes" id="faq" title="Les questions qu’on me pose souvent." />
+    <SectionHead index="09" label="Questions fréquentes" id="faq" title="Les questions qu’on me pose souvent." />
     <div class="faq-wrap"><Faq items={faq} /></div>
   </section>
 </Layout>
@@ -119,6 +129,11 @@ const noFit = [
   .svc-list { padding-bottom: var(--section); }
   .svc { display: grid; gap: 2rem; padding-block: clamp(3rem, 6vw, 5.5rem); border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header-h) + 1rem); }
   .svc__n { color: var(--clay); margin-bottom: 1rem; }
+  .svc__from { margin-top: 1.25rem; display: grid; gap: 0.35rem; }
+  .svc__price { font-family: var(--f-display); font-weight: 600; font-size: var(--t-lg); letter-spacing: -0.03em; color: var(--clay-ink); }
+  .svc__price:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  .pricing-wrap { margin-top: clamp(2rem, 4vw, 3.5rem); }
+  .pricing-all { margin-top: 1.5rem; }
   .svc__for { margin-top: 1.5rem; display: grid; gap: 0.35rem; color: var(--ink-2); max-width: 22rem; }
   .svc__pitch { font-size: var(--t-md); line-height: 1.55; color: var(--ink); max-width: 44rem; }
   .svc__cols { margin-top: 2.25rem; display: grid; gap: 2rem; }

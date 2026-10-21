@@ -84,7 +84,7 @@ document.addEventListener('keydown', (e) => {
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 });
-window.matchMedia('(min-width: 980px)').addEventListener('change', (m) => { if (m.matches) closeMenu(false); });
+window.matchMedia('(min-width: 1080px)').addEventListener('change', (m) => { if (m.matches) closeMenu(false); });
 
 /* ---------- Heure locale (Casablanca) ---------- */
 const clocks = document.querySelectorAll<HTMLElement>('[data-clock]');

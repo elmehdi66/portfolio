@@ -79,8 +79,9 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
     transition: background-color 0.3s;
   }
   .brand:hover .brand__mark { background: var(--clay); }
-  .brand__role { color: var(--ink-3); font-size: 0.6875rem; padding-left: 0.7rem; border-left: 1px solid var(--line-strong); }
+  .brand__role { display: none !important; color: var(--ink-3); font-size: 0.6875rem; padding-left: 0.7rem; border-left: 1px solid var(--line-strong); }
 
+  @media (min-width: 1240px) { .brand__role { display: inline !important; } }
   .hdr__nav { display: none; }
   .hdr__nav ul { display: flex; gap: clamp(1rem, 2.2vw, 2.25rem); }
   .hdr__link { position: relative; display: inline-flex; align-items: flex-start; gap: 0.3rem; font-weight: 500; font-size: 0.975rem; padding-block: 0.4rem; }
@@ -97,7 +98,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
   .hdr__burger { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0 0.25rem; }
   .hdr__burger .mono { font-size: 0.75rem; }
 
-  @media (min-width: 980px) {
+  @media (min-width: 1080px) {
     .hdr__nav { display: block; }
     .hdr__cta { display: inline-flex; }
     .hdr__burger { display: none; }

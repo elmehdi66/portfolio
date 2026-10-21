@@ -42,7 +42,7 @@ export const services: Service[] = [
       'Déploiement et suivi en production',
     ],
     stack: ['React', 'Next.js', 'Laravel', 'Node.js', 'MySQL', 'PostgreSQL'],
-    related: ['sowenzia'],
+    related: ['masoku'],
   },
   {
     id: 'e-commerce-wordpress',
@@ -76,7 +76,7 @@ export const services: Service[] = [
       'Scripts et tâches automatisées',
     ],
     stack: ['REST', 'Node.js', 'Laravel', 'Gemini API'],
-    related: ['sowenzia', 'prosalon'],
+    related: ['masoku', 'prosalon'],
   },
   {
     id: 'maintenance-optimisation',
@@ -127,7 +127,7 @@ export const steps = [
 export const faq = [
   {
     q: 'Combien coûte un site ou une application web ?',
-    a: 'Le budget dépend du périmètre : un site vitrine, une boutique en ligne et une application métier n’impliquent pas le même travail. Après un premier échange, je vous envoie un devis détaillé et gratuit, en dirhams.',
+    a: 'Les sites vitrines démarrent à 3 500 DH, les sites professionnels à 7 000 DH, les boutiques en ligne à 9 000 DH et les applications web sur mesure à 15 000 DH. Le prix final dépend du périmètre : après un premier échange, je vous envoie un devis détaillé et gratuit, en dirhams. Le détail des packs est sur la page Tarifs.',
   },
   {
     q: 'Quels sont les délais ?',

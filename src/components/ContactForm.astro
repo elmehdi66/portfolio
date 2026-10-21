@@ -1,9 +1,15 @@
 ---
 import Icon from './Icon.astro';
 import { emailjs, tracking } from '../data/site';
+import { packs, enterprise, formatPrice } from '../data/pricing';
 
 const types = ['Site vitrine / institutionnel', 'E-commerce', 'Application web / SaaS', 'API, automatisation ou IA', 'Maintenance / refonte', 'Autre'];
-const budgets = ['À définir ensemble', 'Moins de 15 000 MAD', '15 000 – 40 000 MAD', '40 000 – 100 000 MAD', 'Plus de 100 000 MAD'];
+const budgets = ['À définir ensemble', '3 500 – 7 000 DH', '7 000 – 15 000 DH', '15 000 – 40 000 DH', 'Plus de 40 000 DH'];
+// Présélection depuis /contact/?pack=<id> (boutons « Choisir ce pack » de la page Tarifs)
+const packMap = Object.fromEntries([
+  ...packs.map((p) => [p.id, { label: `${p.name} — à partir de ${formatPrice(p.from ?? 0)}`, type: p.projectType, budget: p.budget }]),
+  [enterprise.id, { label: `${enterprise.name} — sur devis`, type: enterprise.projectType, budget: enterprise.budget }],
+]);
 const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise'];
 ---
 <form
@@ -14,7 +20,13 @@ const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise']
   data-template={emailjs.templateId}
   data-key={emailjs.publicKey}
   data-conversion={tracking.adsContactConversion}
+  data-packs={JSON.stringify(packMap)}
 >
+  <div class="cf__pack" data-pack-note hidden>
+    <p><span class="label">Pack choisi</span> <strong data-pack-label></strong></p>
+    <button type="button" class="cf__pack-x mono" data-pack-clear>Retirer</button>
+  </div>
+  <input type="hidden" name="pack" value="" data-pack-input />
   <fieldset class="cf__group">
     <legend class="cf__legend">Votre projet</legend>
     <div class="cf__chips" role="radiogroup" aria-label="Type de projet">
@@ -122,6 +134,28 @@ const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise']
       el.addEventListener('input', () => { if (el.getAttribute('aria-invalid') === 'true') showError(el); });
     });
 
+    // Présélection : ?pack=<id> ou ?type=<type de projet>
+    const packs = JSON.parse(form.dataset.packs || '{}') as Record<string, { label: string; type: string; budget: string }>;
+    const params0 = new URLSearchParams(window.location.search);
+    const note = form.querySelector<HTMLElement>('[data-pack-note]')!;
+    const packInput = form.querySelector<HTMLInputElement>('[data-pack-input]')!;
+    const selectType = (type: string) => {
+      const radio = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="project_type"]')).find((r) => r.value === type);
+      if (radio) radio.checked = true;
+    };
+    const pack = packs[params0.get('pack') || ''];
+    if (pack) {
+      selectType(pack.type);
+      const budget = form.querySelector<HTMLSelectElement>('#cf-budget');
+      if (budget) budget.value = pack.budget;
+      packInput.value = pack.label;
+      note.querySelector<HTMLElement>('[data-pack-label]')!.textContent = pack.label;
+      note.hidden = false;
+    } else if (params0.get('type')) {
+      selectType(params0.get('type')!);
+    }
+    form.querySelector('[data-pack-clear]')?.addEventListener('click', () => { packInput.value = ''; note.hidden = true; });
+
     const setStatus = (kind: 'ok' | 'err' | 'info', html: string) => {
       status.hidden = false;
       status.dataset.kind = kind;
@@ -138,6 +172,7 @@ const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise']
       if (data.website) return; // pot de miel anti-spam
 
       const details = [
+        data.pack ? `Pack choisi : ${data.pack}` : '',
         `Type de projet : ${data.project_type}`,
         `Budget : ${data.budget}`,
         `Délai : ${data.timeline}`,
@@ -149,13 +184,14 @@ const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise']
         name: data.name,
         email: data.email,
         reply_to: data.email,
-        subject: `Nouveau projet — ${data.project_type}${data.company ? ` — ${data.company}` : ''}`,
+        subject: `Nouveau projet — ${data.pack || data.project_type}${data.company ? ` — ${data.company}` : ''}`,
         message: `${data.message}\n\n———\n${details}\n\nEnvoyé depuis gazry.dev`,
         project_type: data.project_type,
         budget: data.budget,
         timeline: data.timeline,
         company: data.company || '',
         phone: data.phone || '',
+        pack: data.pack || '',
       };
 
       submit.disabled = true;
@@ -167,8 +203,10 @@ const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise']
         await send(form.dataset.service!, form.dataset.template!, params, { publicKey: form.dataset.key! });
         const w = window as unknown as { gtag?: (...a: unknown[]) => void };
         w.gtag?.('event', 'conversion', { send_to: form.dataset.conversion });
-        w.gtag?.('event', 'generate_lead', { form: 'contact', project_type: data.project_type });
+        w.gtag?.('event', 'generate_lead', { form: 'contact', project_type: data.project_type, pack: data.pack || 'aucun' });
         form.reset();
+        packInput.value = '';
+        note.hidden = true;
         setStatus('ok', '<strong>Merci, votre demande est bien envoyée.</strong> Je vous réponds sous 24 h ouvrées, par e-mail ou par téléphone si vous l’avez indiqué.');
         submitLabel.textContent = 'Demande envoyée';
         setTimeout(() => { submit.disabled = false; submitLabel.textContent = 'Envoyer la demande'; }, 4000);
@@ -185,6 +223,12 @@ const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas de date précise']
 
 <style>
   .cf { display: grid; gap: 1.5rem; }
+  .cf__pack { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.9rem 1rem; border-radius: var(--radius); background: var(--clay-soft); }
+  .cf__pack[hidden] { display: none; }
+  .cf__pack p { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; }
+  .cf__pack strong { font-weight: 600; }
+  .cf__pack-x { font-size: 0.6875rem; min-height: 32px; padding: 0 0.75rem; border-radius: 999px; border: 1px solid var(--line-strong); }
+  .cf__pack-x:hover { border-color: var(--ink); }
   .cf__group { border: 0; padding: 0; min-width: 0; }
   .cf__legend { font-weight: 600; margin-bottom: 0.75rem; }
   .cf__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
