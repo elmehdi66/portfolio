@@ -22,6 +22,7 @@ node scripts/diagrams.mjs   # régénère le schéma d'architecture Masoku
 2. Sauvegarder l'actuel `public_html` (Gestionnaire de fichiers → compresser).
 3. Vider `public_html` **sauf** les éléments que vous voulez garder (ex. `.well-known/`).
 4. Téléverser **le contenu** de `dist/` dans `public_html` (y compris `.htaccess`).
+   Avec le gestionnaire de fichiers Hostinger : téléverser le zip, puis « Extract » depuis le dossier parent, nom de dossier `public_html`, en cochant **« Overwrite existing files »**. Sans cette case, les dossiers existants sont dupliqués (`a-propos.8425`, `_astro.606`…) au lieu d'être mis à jour. Supprimer ensuite le zip de `public_html`, sinon il reste téléchargeable.
 5. Vérifier : `https://gazry.dev/`, `/realisations/mli/`, `/contact/` (envoi d'un message test), `https://gazry.dev/developpeur-web-freelance-casablanca.html` (doit rediriger en 301).
 6. Google Search Console : soumettre `https://gazry.dev/sitemap.xml`.
 7. Bing (utilisé par ChatGPT et Copilot) : `npm run indexnow` pour signaler toutes les URL, et une fois pour toutes, importer le site depuis Search Console dans Bing Webmaster Tools.

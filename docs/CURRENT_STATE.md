@@ -13,6 +13,9 @@ Astro 7 statique → `dist/` à téléverser dans `public_html` (Hostinger). CSS
 - Lighthouse local (mobile) : accueil 90 / 100 / 100 / 100 ; desktop 99 ; études de cas 98. Avant : 27 / 100 / 100 / 100.
 - Aucun lien interne cassé (497 vérifiés), pas de débordement horizontal (390 px et 1440 px).
 
+## Déploiement
+Dernière mise en ligne : 19/11/2026 (commit 6958858 : tarifs allégés, avis Google, Brands & Beauty). Sauvegarde de la version précédente : `gazry-dev-public_html.zip` à la racine de l'hébergement (hors `public_html`). Fichiers hors build laissés en place dans `public_html` : `.git/`, `dd/`, `BingSiteAuth.xml`, anciens fichiers du site précédent (`old.html`, `styles.css`, `README.md`, `LICENSE`, `elmehdi-ghazri.jpg`, `developpeur-web-freelance-casablanca.html`).
+
 ## Reste à faire / à valider par El Mehdi
 1. Envoyer un vrai message test depuis /contact/ après mise en ligne (vérifier la réception sur le template EmailJS).
 2. Confirmer l'accord des clients pour publier les captures (Atlas Lagoon : rendus fournis par des tiers, préproduction).
