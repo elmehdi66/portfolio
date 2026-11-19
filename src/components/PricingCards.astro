@@ -3,16 +3,13 @@ import Icon from './Icon.astro';
 import { packs, formatPrice } from '../data/pricing';
 
 interface Props {
-  /** full : liste complète des inclusions (page Tarifs) ; compact : 3 points clés */
-  variant?: 'full' | 'compact';
   headingLevel?: 'h2' | 'h3';
 }
-const { variant = 'compact', headingLevel: H = 'h3' } = Astro.props;
-const full = variant === 'full';
+const { headingLevel: H = 'h3' } = Astro.props;
 ---
-<ul class:list={['pc', { 'pc--full': full }]} role="list">
+<ul class="pc" role="list">
   {packs.map((p, i) => (
-    <li class:list={['pc__card', { 'pc__card--dark': p.dark }]} id={full ? p.id : undefined} data-reveal style={`--d:${i}`}>
+    <li class:list={['pc__card', { 'pc__card--dark': p.dark }]} id={p.id} data-reveal style={`--d:${i}`}>
       <div class="pc__top">
         <p class="pc__n mono">{p.n}</p>
         <H class="pc__name">{p.name}</H>
@@ -24,19 +21,14 @@ const full = variant === 'full';
       </p>
       <p class="pc__for">{p.forWho}</p>
       <ul class="pc__list" role="list">
-        {(full ? p.includes : p.highlights).map((it) => (
+        {p.includes.map((it) => (
           <li><Icon name="check" size={15} />{it}</li>
         ))}
       </ul>
-      {full && p.footnote && <p class="pc__foot">{p.footnote}</p>}
       <div class="pc__cta">
-        {full ? (
-          <a class:list={['btn btn--sm', p.dark ? 'btn--light' : 'btn--ghost']} href={`/contact/?pack=${p.id}`}>
-            Choisir ce pack <Icon name="arrow" class="arrow" size={16} />
-          </a>
-        ) : (
-          <a class="arrow-link pc__more" href={`/tarifs/#${p.id}`}>Détails du pack <span class="sr-only">{p.name}</span><Icon name="arrow" size={16} /></a>
-        )}
+        <a class:list={['btn btn--sm', p.dark ? 'btn--light' : 'btn--ghost']} href={`/contact/?pack=${p.id}`}>
+          Choisir ce pack <span class="sr-only">{p.name}</span><Icon name="arrow" class="arrow" size={16} />
+        </a>
       </div>
     </li>
   ))}
@@ -78,9 +70,5 @@ const full = variant === 'full';
   .pc__list :global(svg) { margin-top: 0.3rem; color: var(--clay); }
   .pc__card--dark .pc__list :global(svg) { color: #e07a55; }
 
-  .pc__foot { font-size: 0.875rem; color: var(--ink-3); }
-  .pc__card--dark .pc__foot { color: var(--on-night-2); }
-
   .pc__cta { margin-top: auto; padding-top: 0.5rem; }
-  .pc__card--dark .pc__more { color: var(--on-night); }
 </style>
