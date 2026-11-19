@@ -36,6 +36,7 @@ import refBag from '../assets/projects/refs/bag.webp';
 import refLincoln from '../assets/projects/refs/lincoln.webp';
 import refRhs from '../assets/projects/refs/rhs-emploi.webp';
 import refBlanca from '../assets/projects/refs/blanca-tv.webp';
+import refBrandsBeauty from '../assets/projects/refs/brands-and-beauty.webp';
 
 export const projects: Project[] = [
   {
@@ -330,6 +331,15 @@ export const projects: Project[] = [
 ];
 
 export const references: Reference[] = [
+  {
+    name: 'Brands & Beauty',
+    shot: refBrandsBeauty,
+    kind: 'Refonte e-commerce · Shopify',
+    context: 'Freelance',
+    year: '2026',
+    url: 'https://brandsandbeauty.ma/',
+    description: 'Boutique de cosmétiques et de soins capillaires de grandes marques au Maroc : refonte et personnalisation du thème Shopify, navigation par marques et par univers, paiement à la livraison ou par carte, avis clients et programme de fidélité.',
+  },
   {
     name: 'HP Immo',
     shot: refHp,

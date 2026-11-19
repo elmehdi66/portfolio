@@ -138,5 +138,10 @@
     "in": "_research/shots/blanca-tv/home-desktop.png",
     "out": "refs/blanca-tv.webp",
     "width": 1200
+  },
+  {
+    "in": "_research/shots/brands-and-beauty/home-desktop.png",
+    "out": "refs/brands-and-beauty.webp",
+    "width": 1200
   }
 ]
